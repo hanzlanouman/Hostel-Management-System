@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model",
+			"name": "com.hms.hms_dashboard_01.Model",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",
