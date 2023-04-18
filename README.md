@@ -1,4 +1,4 @@
-#Hostel Management System
+Hostel Management System
 
 This repository contains the source code for a simple and user-friendly Hostel Management System. The application is designed to facilitate the efficient management of hostel resources, room allocation, and other essential tasks. The primary goal of this project is to provide a smooth and hassle-free experience for both hostel wardens and students.
 Features
