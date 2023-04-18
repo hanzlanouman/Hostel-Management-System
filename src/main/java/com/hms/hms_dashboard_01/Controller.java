@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -71,9 +72,7 @@ Button roomButton;
 
     public void homeButton(ActionEvent event) throws IOException {
         activeButton(homeButton);
-        Parent fxml = FXMLLoader.load(getClass().getResource("hms_home_tab.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        changeScene("hms_home_tab.fxml");
     }
 
     public void greet(String username){
@@ -87,54 +86,41 @@ Button roomButton;
 
     public void roomButton(ActionEvent event) throws IOException {
         activeButton(roomButton);
-        Parent fxml = FXMLLoader.load(getClass().getResource("hms_room_tab.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        changeScene("hms_room_tab.fxml");
     };
     public void wardenButton(ActionEvent event) throws IOException {
         activeButton(wardenButton);
-        Parent fxml = FXMLLoader.load(getClass().getResource("hms_wardens_tab.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        changeScene("hms_wardens_tab.fxml");
     }
     public void messButton(ActionEvent event) throws IOException {
         activeButton(messButton);
-        Parent fxml = FXMLLoader.load(getClass().getResource("hms_messmenu_tab.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        changeScene("hms_messmenu_tab.fxml");
     }
     public void studentButton(ActionEvent event) throws IOException {
         activeButton(studentButton);
-        Parent fxml = FXMLLoader.load(getClass().getResource("hms_student_tab.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        changeScene("hms_student_tab.fxml");
     }
     public void staffButton(ActionEvent event) throws IOException {
         activeButton(staffButton);
-        Parent fxml = FXMLLoader.load(getClass().getResource("hms_staff_tab.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        changeScene("hms_staff_tab.fxml");
     }
 
     public void setHomeButton() throws IOException {
         activeButton(homeButton);
+        changeScene("hms_home_tab.fxml");
     }
 
     public void feeButton(ActionEvent event) throws IOException {
         activeButton(feeButton);
-        Parent fxml = FXMLLoader.load(getClass().getResource("hms_fee_tab.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        changeScene("hms_fee_tab.fxml");
     }
     public void facilityButton(ActionEvent event) throws IOException {
         activeButton(facilityButton);
-        Parent fxml = FXMLLoader.load(getClass().getResource("hms_facilities_tab.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        changeScene("hms_facilities_tab.fxml");
     }
     public void notificationBtn(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("hms_pendingRegistrations.fxml"));
-//        contentArea.getChildren().removeAll();
+        contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
 
@@ -142,6 +128,11 @@ Button roomButton;
     public void initialize(URL url, ResourceBundle resourceBundle) {
     buttons.addAll(Arrays.asList(messButton,homeButton, roomButton, staffButton, studentButton, facilityButton, feeButton, wardenButton));
         activeButton(homeButton);
+//        try {
+//            setHomeButton();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public void resetStyles() {
@@ -155,5 +146,11 @@ Button roomButton;
     public void activeButton(Button button){
         resetStyles();
         if(button != null) button.setStyle("-fx-background-color: #66d457");
+    }
+
+    public void changeScene(String fxml) throws IOException {
+        Parent contentView = FXMLLoader.load(getClass().getResource(fxml));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(contentView);
     }
 }
