@@ -35,6 +35,3 @@ This project is developed using Java programming language. Ensure that you have 
 
 
 This project is licensed under the MIT License. Please refer to the LICENSE file for more information.
-Contact
-
-If you have any questions or need further assistance, please reach out to the repository owner, hanzlanouman.
