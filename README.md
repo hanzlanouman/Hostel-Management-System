@@ -16,14 +16,14 @@ To get started with this project, follow these steps:
     Clone the repository:
 
 bash
-
 git clone https://github.com/hanzlanouman/Hostel-Management-System.git
+
 
     Navigate to the project directory:
 
 bash
-
 cd Hostel-Management-System
+
 
     Open the project in your favorite IDE or text editor.
 
@@ -32,10 +32,7 @@ cd Hostel-Management-System
 Dependencies
 
 This project is developed using Java programming language. Ensure that you have Java Development Kit (JDK) installed on your machine to run the application.
-Contributing
 
-Contributions to this project are welcome. Please feel free to fork the repository, create a new branch for your feature, and submit a pull request.
-License
 
 This project is licensed under the MIT License. Please refer to the LICENSE file for more information.
 Contact
