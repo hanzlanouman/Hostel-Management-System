@@ -27,11 +27,11 @@ public class RegisterController {
     private Button registerButton;
 
     public void register(ActionEvent event) throws IOException {
-        RegisteredEntities.students.add(new Student(userName.getText(), password.getText()));
+        PendingRegistration.pendingRegistrations.add(new Student(userName.getText(), password.getText()));
         Alert registered = new Alert(Alert.AlertType.INFORMATION);
         registered.setTitle("Registration");
         registered.setHeaderText("Registration Successful");
-        registered.setContentText("You have been registered successfully");
+        registered.setContentText("Your account is pending approval");
         registered.showAndWait();
 
         Parent root = FXMLLoader.load(getClass().getResource("hms_login.fxml"));

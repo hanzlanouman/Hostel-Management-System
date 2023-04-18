@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -73,13 +74,17 @@ Button roomButton;
         Parent fxml = FXMLLoader.load(getClass().getResource("hms_home_tab.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
-
     }
 
     public void greet(String username){
     greet.setText("Hi, "+username);
 
     }
+//    public void notificationBtn(MouseEvent event) throws IOException {
+//        System.out.println("Notification button clicked");
+//    }
+
+
     public void roomButton(ActionEvent event) throws IOException {
         activeButton(roomButton);
         Parent fxml = FXMLLoader.load(getClass().getResource("hms_room_tab.fxml"));
@@ -127,6 +132,11 @@ Button roomButton;
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
+    public void notificationBtn(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("hms_pendingRegistrations.fxml"));
+//        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -144,6 +154,6 @@ Button roomButton;
     }
     public void activeButton(Button button){
         resetStyles();
-        button.setStyle("-fx-background-color: #66d457");
+        if(button != null) button.setStyle("-fx-background-color: #66d457");
     }
 }

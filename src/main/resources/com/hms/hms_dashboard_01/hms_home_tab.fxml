@@ -4,13 +4,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.Controller">
    <children>
-      <Label layoutX="412.0" layoutY="33.0" prefHeight="30.0" prefWidth="174.0" text="Some Notification" textAlignment="CENTER">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
+      <Pane fx:id="notificationTab" onMouseClicked="#notificationBtn" prefHeight="63.0" prefWidth="201.0" style="-fx-background-color: #999;">
+         <children>
+            <Label layoutX="51.0" layoutY="23.0" prefHeight="17.0" prefWidth="100.0" text="Notifications" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </Pane>
