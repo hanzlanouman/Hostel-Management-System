@@ -41,7 +41,8 @@ public class LoginController {
         // Initialize any necessary components or variables here
     }
 
-    @FXML
+
+//    Checks if the username and password are correct and opens the dashboard accordingly.
     public void login(ActionEvent event) throws IOException {
         String username1 = username.getText();
         String password1 = password.getText();
@@ -63,15 +64,14 @@ public class LoginController {
             showLoginError();
         }
     }
-
-    @FXML
+//    Opens the registration form.
     public void registerForm(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hms_register.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
-
+//    Opens the dashboard for the user with the given username.
     private void openDashboard(ActionEvent event, String fxmlPath, String username) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
@@ -83,6 +83,7 @@ public class LoginController {
         stage.show();
     }
 
+    // Shows an error message if the login credentials are incorrect
     private void showLoginError() {
         Alert loginAlert = new Alert(Alert.AlertType.ERROR);
         loginAlert.setTitle("Login Error");

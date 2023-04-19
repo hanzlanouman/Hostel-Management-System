@@ -50,10 +50,11 @@ Button roomButton;
             Button messButton;
 
 //Save all FXML buttons in a list
+//    List has all the buttons for changing styles and scenes
     ArrayList<Button> buttons = new ArrayList<>();
 
 
-
+// handle all the button clicks and change the scene accordingly
 
     public void logout(ActionEvent event) throws IOException {
         Alert logOutAlert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -128,13 +129,15 @@ Button roomButton;
     public void initialize(URL url, ResourceBundle resourceBundle) {
     buttons.addAll(Arrays.asList(messButton,homeButton, roomButton, staffButton, studentButton, facilityButton, feeButton, wardenButton));
         activeButton(homeButton);
+
+// Doesn't work for some reason, intention was to load the home tab on login
 //        try {
 //            setHomeButton();
 //        } catch (IOException e) {
 //            throw new RuntimeException(e);
 //        }
     }
-
+//    resets the style of all buttons to default
     public void resetStyles() {
 //        apply default style to all buttons
         for (Button button : buttons) {
@@ -143,11 +146,15 @@ Button roomButton;
             }
         }
     }
+
+//    changes the style of the button to indicate that it is active and deactivates the other buttons
     public void activeButton(Button button){
         resetStyles();
         if(button != null) button.setStyle("-fx-background-color: #66d457");
     }
 
+
+    //Updated the stack pane (right hand content area) with the new fxml file passed as a parameter to the method
     public void changeScene(String fxml) throws IOException {
         Parent contentView = FXMLLoader.load(getClass().getResource(fxml));
         contentArea.getChildren().removeAll();

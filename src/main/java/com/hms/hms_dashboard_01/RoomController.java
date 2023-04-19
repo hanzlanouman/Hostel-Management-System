@@ -31,13 +31,15 @@ public class RoomController implements Initializable {
     @FXML
     private TableColumn<Room, String> roomStatus;
 
+
+//    Holds the data for the table view in the room tab of the admin/warden
     ObservableList<Room> roomList = FXCollections.observableArrayList(
             new Room(1, "Available", 1000, "None", "1st Floor"),
             new Room(2, "Available", 1000, "Ahmed", "1st Floor"),
             new Room(3, "Available", 1000, "St2", "1st Floor"),
             new Room(4, "Unavailable", 1000, "St8", "1st Floor")
     );
-
+// Assign the values to the columns of the table view in the room tab of the admin/warden
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         roomNo.setCellValueFactory(new PropertyValueFactory<>("roomNo"));

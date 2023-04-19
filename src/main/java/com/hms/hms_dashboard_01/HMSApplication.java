@@ -19,12 +19,13 @@ public class HMSApplication extends Application {
         launch(args);
     }
 
+
+    //set the stage and loads up the login page
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hms_login.fxml"));
         primaryStage.setTitle("Hostel Management System");
         Image hms_icon = new Image(getClass().getResourceAsStream("icon.png"));
 //        primaryStage.setResizable(false);
-//        set min width to 800 and min height to 600
         primaryStage.setMinWidth(800);
         primaryStage.setMinHeight(600);
         primaryStage.getIcons().add(hms_icon);

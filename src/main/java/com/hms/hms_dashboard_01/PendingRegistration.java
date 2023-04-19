@@ -3,7 +3,8 @@ package com.hms.hms_dashboard_01;
 import java.util.ArrayList;
 
 public class PendingRegistration {
-//    Make an ArrayList of PendingRegistration objects static
+//    Array list to hold the pending registrations of students, that can later be accessed and approved by the admin or the warden
+//    Needs more work
     public static ArrayList<Student> pendingRegistrations = new ArrayList<>();
     public PendingRegistration(Student student) {
         pendingRegistrations.add(student);

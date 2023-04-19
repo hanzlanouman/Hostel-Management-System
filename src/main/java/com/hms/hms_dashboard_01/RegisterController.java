@@ -25,6 +25,9 @@ public class RegisterController {
     private PasswordField password;
     @FXML
     private Button registerButton;
+//takes the username and password and adds it to the pending registrations list and opens the login page again
+//    Needs to have a proper form that resembles the Student class
+//    Needs to have an option to go back to the login page without registering
 
     public void register(ActionEvent event) throws IOException {
         PendingRegistration.pendingRegistrations.add(new Student(userName.getText(), password.getText()));
