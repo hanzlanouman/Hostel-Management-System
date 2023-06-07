@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 Stage stage;
 @FXML
-    private Button logoutButton;
+private Button logoutButton;
 @FXML
 Label greet;
 @FXML
@@ -40,7 +40,6 @@ Button roomButton;
 
     @FXML
     private Button feeButton;
-
     @FXML
     private Button homeButton;
 @FXML
@@ -122,6 +121,10 @@ Button roomButton;
         Parent fxml = FXMLLoader.load(getClass().getResource("hms_pendingRegistrations"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
+    }
+    public void incidentButton(ActionEvent e) throws IOException {
+        activeButton(studentButton);
+        changeScene("hms_incident_tab");
     }
 
     @Override
