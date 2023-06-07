@@ -3,14 +3,14 @@ package com.hms.hms_dashboard_01.utility;
 import java.util.Objects;
 
 public class path {
-    public static String getPath(String type, String fxml){
+    public static String getPath(String pkg, String fxml){
 
-        if(Objects.equals(type, "source")){
+        if(Objects.equals(pkg, "source")){
             String path = "/com/hms/hms_dashboard_01/ui/"+fxml+".fxml";
             System.out.println(path);
             return path;
         }
-        String path = "/com/hms/hms_dashboard_01/ui/"+type+"/"+fxml+".fxml";
+        String path = "/com/hms/hms_dashboard_01/ui/"+pkg+"/"+fxml+".fxml";
         System.out.println(path);
         return path;
     }

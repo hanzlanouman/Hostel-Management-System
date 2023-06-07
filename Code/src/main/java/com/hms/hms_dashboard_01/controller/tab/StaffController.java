@@ -3,8 +3,11 @@ package com.hms.hms_dashboard_01.controller.tab;
 import com.hms.hms_dashboard_01.model.entities.Staff;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -46,12 +49,20 @@ public class StaffController implements Initializable {
         staffContact.setCellValueFactory(new PropertyValueFactory<>("staffContact"));
         staffEmail.setCellValueFactory(new PropertyValueFactory<>("staffEmail"));
         staffRole.setCellValueFactory(new PropertyValueFactory<>("staffRole"));
-
-
         staffTable.setItems(studentList);
 
+    }
+    public void deleteStaff(ActionEvent event){
+        Alert deleteRoomAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        deleteRoomAlert.setTitle("Delete Staff");
+        deleteRoomAlert.setHeaderText("Are you sure you want to delete this staff?");
+        if (deleteRoomAlert.showAndWait().get().equals(ButtonType.CANCEL)) {
+            return;
+        }
+        staffTable.getItems().removeAll(staffTable.getSelectionModel().getSelectedItem());
 
+    }
 
 
     }
-}
+

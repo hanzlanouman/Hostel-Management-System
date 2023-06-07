@@ -1,12 +1,13 @@
 package com.hms.hms_dashboard_01.controller.tab;
 
+import com.hms.hms_dashboard_01.model.entities.Room;
 import com.hms.hms_dashboard_01.model.entities.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -14,7 +15,8 @@ import java.util.ResourceBundle;
 
 public class StudentController implements Initializable {
 
-
+@FXML
+private TextField searchBar;
     @FXML
     private TableColumn<Student, String> studentContact;
 
@@ -49,4 +51,15 @@ public class StudentController implements Initializable {
 
 
     }
+    public void deleteStudent(ActionEvent e){
+        Alert deleteRoomAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        deleteRoomAlert.setTitle("Delete Student");
+        deleteRoomAlert.setHeaderText("Are you sure you want to delete this student?");
+        if (deleteRoomAlert.showAndWait().get().equals(ButtonType.CANCEL)) {
+            return;
+        }
+        studentTable.getItems().removeAll(studentTable.getSelectionModel().getSelectedItem());
+
+    }
+
 }
