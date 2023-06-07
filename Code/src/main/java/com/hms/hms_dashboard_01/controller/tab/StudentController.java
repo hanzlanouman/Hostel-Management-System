@@ -61,5 +61,7 @@ private TextField searchBar;
         studentTable.getItems().removeAll(studentTable.getSelectionModel().getSelectedItem());
 
     }
+public void searchOnType(){
 
+}
 }
