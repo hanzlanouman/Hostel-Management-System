@@ -1,17 +1,24 @@
 package com.hms.hms_dashboard_01.controller.tab;
 
 import com.hms.hms_dashboard_01.model.entities.Room;
+import com.hms.hms_dashboard_01.utility.path;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -73,44 +80,16 @@ public class RoomController implements Initializable {
     }
 
 
-    public void addRoom(ActionEvent e){
-//pop up an alert and ask for room details to add
-        TextInputDialog addRoomDialog = new TextInputDialog();
-        addRoomDialog.setTitle("Add Room");
-        addRoomDialog.setHeaderText("Enter the room details");
-        addRoomDialog.setContentText("Enter the room number:");
-        addRoomDialog.showAndWait();
-        int roomNo = Integer.parseInt(addRoomDialog.getEditor().getText());
-        addRoomDialog.setContentText("Enter the room fee:");
-        addRoomDialog.showAndWait();
-        int roomFee = Integer.parseInt(addRoomDialog.getEditor().getText());
-        addRoomDialog.setContentText("Enter the room location:");
-        addRoomDialog.showAndWait();
-        String roomLocation = addRoomDialog.getEditor().getText();
-//        display a dropdown to select the room status
-        ChoiceDialog<String> roomStatusDialog = new ChoiceDialog<>("Available", "Unavailable");
-        roomStatusDialog.setTitle("Room Status");
-        roomStatusDialog.setHeaderText("Select the room status");
-        roomStatusDialog.setContentText("Room Status:");
-        roomStatusDialog.showAndWait();
-
-        String roomStatus = addRoomDialog.getEditor().getText();
-        if(roomStatus.equals("Available")) {
-            ChoiceDialog<String> roomAllocatedToDialog = new ChoiceDialog<>("None", "Ahmed", "Ali", "St2", "St8", "St9");
-            roomAllocatedToDialog.setTitle("Room Allocated To");
-            roomAllocatedToDialog.setHeaderText("Select the room allocated to");
-            roomAllocatedToDialog.setContentText("Room Allocated To:");
-            roomAllocatedToDialog.showAndWait();
-            addRoomDialog.showAndWait();
-            String roomAllocatedTo = addRoomDialog.getEditor().getText();
-
-            roomTable.getItems().add(new Room(roomNo, roomStatus, roomFee, roomAllocatedTo, roomLocation));
-        }
-        else{
-            roomTable.getItems().add(new Room(roomNo, roomStatus, roomFee, "None", roomLocation));
-        }
-
+    public void addRoom(ActionEvent e) throws IOException {
+//       set the stage scene to add room
+        Stage stage = new Stage();
+        Parent root1 = FXMLLoader.load(getClass().getResource(path.getPath("forms", "add_room_form")));
+        stage.setTitle("Add Room");
+        stage.setScene(new Scene(root1, 1054, 650));
+        stage.show();
     }
+
+
     public void search(ActionEvent e) {
 //        filter out table view based on the search bar
         refresh();
@@ -147,3 +126,59 @@ public class RoomController implements Initializable {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    TextInputDialog addRoomDialog = new TextInputDialog();
+//        addRoomDialog.setTitle("Add Room");
+//                addRoomDialog.setHeaderText("Enter the room details");
+//                addRoomDialog.setContentText("Enter the room number:");
+//                addRoomDialog.showAndWait();
+//                int roomNo = Integer.parseInt(addRoomDialog.getEditor().getText());
+//                addRoomDialog.setContentText("Enter the room fee:");
+//                addRoomDialog.showAndWait();
+//                int roomFee = Integer.parseInt(addRoomDialog.getEditor().getText());
+//                addRoomDialog.setContentText("Enter the room location:");
+//                addRoomDialog.showAndWait();
+//                String roomLocation = addRoomDialog.getEditor().getText();
+////        display a dropdown to select the room status
+//                ChoiceDialog<String> roomStatusDialog = new ChoiceDialog<>("Available", "Unavailable");
+//        roomStatusDialog.setTitle("Room Status");
+//        roomStatusDialog.setHeaderText("Select the room status");
+//        roomStatusDialog.setContentText("Room Status:");
+//        roomStatusDialog.showAndWait();
+//
+//        String roomStatus = addRoomDialog.getEditor().getText();
+//        if(roomStatus.equals("Available")) {
+//        ChoiceDialog<String> roomAllocatedToDialog = new ChoiceDialog<>("None", "Ahmed", "Ali", "St2", "St8", "St9");
+//        roomAllocatedToDialog.setTitle("Room Allocated To");
+//        roomAllocatedToDialog.setHeaderText("Select the room allocated to");
+//        roomAllocatedToDialog.setContentText("Room Allocated To:");
+//        roomAllocatedToDialog.showAndWait();
+//        addRoomDialog.showAndWait();
+//        String roomAllocatedTo = addRoomDialog.getEditor().getText();
+//
+//        roomTable.getItems().add(new Room(roomNo, roomStatus, roomFee, roomAllocatedTo, roomLocation));
+//        }
+//        else{
+//        roomTable.getItems().add(new Room(roomNo, roomStatus, roomFee, "None", roomLocation));
+//        }
+
+
+
+
