@@ -9,8 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-
 import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,8 +37,8 @@ public class IncidentController implements Initializable {
 
     public void resolveIncident(ActionEvent actionEvent) {
         Alert deleteRoomAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        deleteRoomAlert.setTitle("Delete Room");
-        deleteRoomAlert.setHeaderText("Are you sure you want to delete this room?");
+        deleteRoomAlert.setTitle("Resolve Incident");
+        deleteRoomAlert.setHeaderText("Are you sure you want to mark this incident as Resolved?");
         if (deleteRoomAlert.showAndWait().get().equals(ButtonType.CANCEL)) {
             return;
         }
