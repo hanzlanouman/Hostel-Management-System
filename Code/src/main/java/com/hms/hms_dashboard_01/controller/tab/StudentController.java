@@ -3,17 +3,23 @@ package com.hms.hms_dashboard_01.controller.tab;
 import com.hms.hms_dashboard_01.model.entities.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentController implements Initializable {
 
+
+    @FXML
+    private TextField searchBar;
 
     @FXML
     private TableColumn<Student, String> studentContact;
@@ -49,4 +55,25 @@ public class StudentController implements Initializable {
 
 
     }
+
+    public void refresh(){
+//        refresh the table view
+        studentTable.setItems(studentList);
+    }
+//    Write a search method
+    public void search(KeyEvent keyEvent) {
+        ObservableList<Student> searchList = FXCollections.observableArrayList();
+        for (Student student : studentList){
+            if (student.getStudentName().toLowerCase().contains(searchBar.getText().toLowerCase())){
+                searchList.add(student);
+            }
+        }
+        studentTable.setItems(searchList);
+    }
+
+    public void addStudent(ActionEvent actionEvent) {
+    }
+
 }
+
+
