@@ -19,7 +19,7 @@ public class HMSApplication extends Application {
 
     // set the stage and loads up the login page
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(path.getPath("tab", "add_staff_form")));
+        Parent root = FXMLLoader.load(getClass().getResource(path.getPath("tab", "add_warden_form")));
         primaryStage.setTitle("Hostel Management System");
         Image hms_icon = new Image(getClass().getResourceAsStream("icon.png"));
         primaryStage.setMinWidth(800);

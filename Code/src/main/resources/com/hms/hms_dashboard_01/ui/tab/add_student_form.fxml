@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="426.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.forms.AddStudentForm">
+<AnchorPane prefHeight="426.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.StudentFormController">
    <children>
       <Text layoutX="221.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Information" />
       <Label layoutX="97.0" layoutY="266.0" text="Address" />
@@ -24,7 +23,7 @@
       <TextField layoutX="210.0" layoutY="262.0" />
       <TextField layoutX="210.0" layoutY="304.0" />
       <TextField layoutX="210.0" layoutY="338.0" />
-      <Button layoutX="472.0" layoutY="373.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Confirm" />
+      <Button layoutX="472.0" layoutY="373.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="92.0" text="Confirm" />
       <Button layoutX="359.0" layoutY="373.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Cancel" />
    </children>
 </AnchorPane>

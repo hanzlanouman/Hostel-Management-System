@@ -6,8 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="437.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.forms.AddWardenForm">
+<AnchorPane prefHeight="437.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.WardenFormController">
    <children>
       <Label layoutX="196.0" layoutY="41.0" text="Warden Information" />
       <TextField layoutX="175.0" layoutY="95.0" />
@@ -23,6 +22,6 @@
       <ChoiceBox layoutX="175.0" layoutY="332.0" prefWidth="150.0" />
       <TextField layoutX="175.0" layoutY="285.0" />
       <Button layoutX="345.0" layoutY="383.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Cancel" />
-      <Button layoutX="449.0" layoutY="383.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Confirm" />
+      <Button layoutX="449.0" layoutY="383.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="25.0" prefWidth="97.0" text="Confirm" />
    </children>
 </AnchorPane>
