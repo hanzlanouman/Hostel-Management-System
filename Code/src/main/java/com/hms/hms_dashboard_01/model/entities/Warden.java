@@ -5,6 +5,8 @@ public class Warden {
     private String wardenEmail;
     private String wardenContact;
     private int wardenId;
+    private String gender;
+    private String address;
 
     public Warden(String wardenName, String wardenEmail, String wardenContact, int wardenId) {
         this.wardenName = wardenName;

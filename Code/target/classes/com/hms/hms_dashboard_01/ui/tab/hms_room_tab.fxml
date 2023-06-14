@@ -16,7 +16,7 @@
             <TableColumn fx:id="roomLocation" prefWidth="114.0001220703125" text="Room Location" />
         </columns>
       </TableView>
-      <Button layoutX="560.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Add New Room" />
+      <Button layoutX="560.0" layoutY="546.0" mnemonicParsing="false" onAction="#addRoom" prefHeight="25.0" prefWidth="126.0" text="Add New Room" />
       <Button layoutX="422.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Delete Room" />
       <Button layoutX="268.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Allocate Room" />
       <Button layoutX="120.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Terminate Allocation" />
