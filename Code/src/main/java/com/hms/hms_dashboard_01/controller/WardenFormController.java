@@ -29,7 +29,7 @@ public class WardenFormController {
         System.out.println("Warden Added successfully");
 
         WardenDTO warden = HMSFactory.getInstanceOfWarden();
-        warden.setWardenId((parseInt(wardenId.getText()));
+        warden.setWardenId((parseInt(wardenId.getText())));
         warden.setWardenName(wardenName.getText());
         warden.setWardenEmail(wardenEmail.getText());
         warden.setAddress(wardenAddress.getText());
