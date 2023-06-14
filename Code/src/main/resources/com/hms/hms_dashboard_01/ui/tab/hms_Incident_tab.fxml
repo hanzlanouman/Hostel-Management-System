@@ -11,6 +11,7 @@
             <columns>
                 <TableColumn fx:id="Day" prefWidth="129.99997448921204" text="Day" />
                 <TableColumn fx:id="Date" prefWidth="148.6666717529297" text="Date" />
+                <TableColumn fx:id="Time" minWidth="9.33331298828125" prefWidth="149.33334350585938" text="Time" />
                 <TableColumn fx:id="Location" minWidth="8.666610717773438" prefWidth="105.3333740234375" text="Location" />
                 <TableColumn fx:id="Descriptiion" minWidth="9.33331298828125" prefWidth="149.33334350585938" text="Descriptiion" />
             </columns>

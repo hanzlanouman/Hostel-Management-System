@@ -26,7 +26,8 @@ Stage stage;
 Label greet;
 @FXML
 Button roomButton;
-@FXML
+
+    @FXML
     StackPane contentArea;
 
     @FXML
@@ -34,6 +35,7 @@ Button roomButton;
 
     @FXML
     private Button studentButton;
+
     @FXML
     private Button facilityButton;
 
@@ -42,10 +44,13 @@ Button roomButton;
 
     @FXML
     private Button homeButton;
-@FXML
-    Button wardenButton;
+
     @FXML
-            Button messButton;
+    Button wardenButton;
+
+    @FXML
+    Button messButton;
+
     @FXML
     Button IncidentButton;
 
