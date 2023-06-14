@@ -1,21 +1,22 @@
-package com.hms.hms_dashboard_01.model.entities;
+package com.hms.hms_dashboard_01.DTO;
 
-public class Room {
+public class RoomDTO {
     private int roomNo;
-//    private String roomType;
     private String roomStatus;
-
     private int roomFee;
     private String roomAssignedTo;
     private String roomLocation;
 
-    public Room(int roomNo, String roomStatus, int roomFee, String roomAssignedTo, String roomLocation) {
+    public RoomDTO(int roomNo, String roomStatus, int roomFee, String roomAssignedTo, String roomLocation) {
         this.roomNo = roomNo;
         this.roomStatus = roomStatus;
         this.roomFee = roomFee;
         this.roomAssignedTo = roomAssignedTo;
         this.roomLocation = roomLocation;
     }
+
+    public RoomDTO(){};
+//    Write setters and getters
 
     public int getRoomNo() {
         return roomNo;
@@ -24,14 +25,6 @@ public class Room {
     public void setRoomNo(int roomNo) {
         this.roomNo = roomNo;
     }
-
-//    public String getRoomType() {
-//        return roomType;
-//    }
-
-//    public void setRoomType(String roomType) {
-//        this.roomType = roomType;
-//    }
 
     public String getRoomStatus() {
         return roomStatus;
@@ -64,6 +57,5 @@ public class Room {
     public void setRoomLocation(String roomLocation) {
         this.roomLocation = roomLocation;
     }
-
 
 }
