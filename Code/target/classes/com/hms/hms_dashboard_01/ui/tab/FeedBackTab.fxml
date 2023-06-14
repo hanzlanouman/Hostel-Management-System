@@ -36,13 +36,13 @@
                 <Font name="Arial" size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="Stu_ID_textfield" layoutX="171.0" layoutY="189.0" prefHeight="25.0" prefWidth="173.0" promptText="FA21-BSE-080">
+        <TextField fx:id="Stu_id" layoutX="171.0" layoutY="189.0" prefHeight="25.0" prefWidth="173.0" promptText="FA21-BSE-080">
             <effect>
                 <Blend />
             </effect></TextField>
-        <TextField fx:id="Room_No_textfield" layoutX="171.0" layoutY="240.0" prefHeight="25.0" prefWidth="173.0" promptText="302" />
-        <TextField fx:id="Feed_Sub__textfield" layoutX="502.0" layoutY="189.0" prefHeight="25.0" prefWidth="173.0" promptText="Quality of meals" />
-        <TextField fx:id="Feed_category_textfield" layoutX="502.0" layoutY="139.0" prefHeight="25.0" prefWidth="173.0" promptText="Food Services" />
+        <TextField fx:id="Room_No" layoutX="171.0" layoutY="240.0" prefHeight="25.0" prefWidth="173.0" promptText="302" />
+        <TextField fx:id="Feed_Sub" layoutX="502.0" layoutY="189.0" prefHeight="25.0" prefWidth="173.0" promptText="Quality of meals" />
+        <TextField fx:id="Feed_category" layoutX="502.0" layoutY="139.0" prefHeight="25.0" prefWidth="173.0" promptText="Food Services" />
         <Button fx:id="Feedback_submit_button" layoutX="525.0" layoutY="490.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #0000FF;" text="Submit" textFill="#fcf6f6">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
@@ -57,9 +57,9 @@
                 <Font name="Arial" size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="Stu_ID_textfield" layoutX="171.0" layoutY="139.0" prefHeight="25.0" prefWidth="173.0" promptText="Arfah Ali" />
-        <TextField fx:id="Contact_No_textfield" layoutX="171.0" layoutY="290.0" prefHeight="25.0" prefWidth="173.0" promptText="01234567891" />
-        <Label fx:id="Name_label" layoutX="92.0" layoutY="143.0" text="Name">
+        <TextField fx:id="stu_Name" layoutX="171.0" layoutY="139.0" prefHeight="25.0" prefWidth="173.0" promptText="Arfah Ali" />
+        <TextField fx:id="Contact_No" layoutX="171.0" layoutY="290.0" prefHeight="25.0" prefWidth="173.0" promptText="01234567891" />
+        <Label fx:id="Name" layoutX="92.0" layoutY="143.0" text="Name">
             <font>
                 <Font name="Arial" size="15.0" />
             </font>

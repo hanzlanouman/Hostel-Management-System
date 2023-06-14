@@ -1,9 +1,6 @@
 package com.hms.hms_dashboard_01.Factory;
 
-import com.hms.hms_dashboard_01.DTO.RoomDTO;
-import com.hms.hms_dashboard_01.DTO.StaffDTO;
-import com.hms.hms_dashboard_01.DTO.WardenDTO;
-import com.hms.hms_dashboard_01.model.entities.Warden;
+import com.hms.hms_dashboard_01.DTO.*;
 
 public class HMSFactory
 {
@@ -17,6 +14,9 @@ public class HMSFactory
     }
 
     public  static WardenDTO getInstanceOfWarden(){return new WardenDTO();}
+    public  static IncidentDTO getInstanceOfIncident(){return new IncidentDTO();}
+    public  static FeedBackDTO getInstanceOfFeedBack(){return new FeedBackDTO();}
+
 
 
 }

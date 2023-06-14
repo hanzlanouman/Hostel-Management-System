@@ -7,13 +7,13 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.dashboard.Controller">
     <children>
-        <TableView fx:id="roomTable" prefHeight="520.0" prefWidth="700.0">
+        <TableView fx:id="IncidentTable" prefHeight="520.0" prefWidth="700.0">
             <columns>
                 <TableColumn fx:id="Day" prefWidth="129.99997448921204" text="Day" />
                 <TableColumn fx:id="Date" prefWidth="148.6666717529297" text="Date" />
                 <TableColumn fx:id="Time" minWidth="9.33331298828125" prefWidth="149.33334350585938" text="Time" />
                 <TableColumn fx:id="Location" minWidth="8.666610717773438" prefWidth="105.3333740234375" text="Location" />
-                <TableColumn fx:id="Descriptiion" minWidth="9.33331298828125" prefWidth="149.33334350585938" text="Descriptiion" />
+                <TableColumn fx:id="Description" minWidth="9.33331298828125" prefWidth="149.33334350585938" text="Descriptiion" />
             </columns>
         </TableView>
         <Button layoutX="560.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Generate Fee" />
