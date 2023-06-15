@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RoomController implements Initializable {
+public class RoomController implements Initializable  {
 
     @FXML
     private TableView<Room> roomTable;

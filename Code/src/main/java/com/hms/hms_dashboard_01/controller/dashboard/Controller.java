@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,7 +26,8 @@ Stage stage;
 Label greet;
 @FXML
 Button roomButton;
-@FXML
+
+    @FXML
     StackPane contentArea;
 
     @FXML
@@ -35,6 +35,7 @@ Button roomButton;
 
     @FXML
     private Button studentButton;
+
     @FXML
     private Button facilityButton;
 
@@ -43,10 +44,15 @@ Button roomButton;
 
     @FXML
     private Button homeButton;
-@FXML
-    Button wardenButton;
+
     @FXML
-            Button messButton;
+    Button wardenButton;
+
+    @FXML
+    Button messButton;
+
+    @FXML
+    Button IncidentButton;
 
 //Save all FXML buttons in a list
 //    List has all the buttons for changing styles and scenes
@@ -114,6 +120,10 @@ Button roomButton;
         activeButton(feeButton);
         changeScene("hms_fee_tab");
     }
+    public void Incidentbutton(ActionEvent event) throws IOException {
+        activeButton(IncidentButton);
+        changeScene("hms_Incident_tab");
+    }
     public void facilityButton(ActionEvent event) throws IOException {
         activeButton(facilityButton);
         changeScene("hms_facilities_tab");
@@ -126,7 +136,7 @@ Button roomButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    buttons.addAll(Arrays.asList(messButton,homeButton, roomButton, staffButton, studentButton, facilityButton, feeButton, wardenButton));
+    buttons.addAll(Arrays.asList(messButton,homeButton, roomButton, staffButton, studentButton, facilityButton, feeButton, wardenButton, IncidentButton));
         activeButton(homeButton);
 
 // Doesn't work for some reason, intention was to load the home tab on login

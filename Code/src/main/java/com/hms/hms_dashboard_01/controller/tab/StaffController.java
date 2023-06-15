@@ -46,12 +46,6 @@ public class StaffController implements Initializable {
         staffContact.setCellValueFactory(new PropertyValueFactory<>("staffContact"));
         staffEmail.setCellValueFactory(new PropertyValueFactory<>("staffEmail"));
         staffRole.setCellValueFactory(new PropertyValueFactory<>("staffRole"));
-
-
         staffTable.setItems(studentList);
-
-
-
-
     }
 }
