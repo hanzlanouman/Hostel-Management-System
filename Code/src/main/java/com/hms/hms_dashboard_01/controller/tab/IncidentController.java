@@ -1,7 +1,6 @@
 package com.hms.hms_dashboard_01.controller.tab;
 
 import com.hms.hms_dashboard_01.model.entities.Incident;
-import com.hms.hms_dashboard_01.model.entities.Staff;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -34,8 +33,8 @@ public class IncidentController implements Initializable {
     private TableView<Incident> IncidentTable;
 
     ObservableList<Incident> IncidentList = FXCollections.observableArrayList(
-            new Incident("27-May-2023","Monday", "Laundary", "Washing machine malfunction and flooding in the hostel laundry.", "4.00 PM"),
-            new Incident("2-May-2023","Sunday", "Mess", "Food poisoning outbreak in the hostel mess.", "3:00 PM")
+            new Incident("2023-09-07","Monday", "Laundary", "Washing machine malfunction and flooding in the hostel laundry.", "4.00 PM"),
+            new Incident("2021-04-23","Sunday", "Mess", "Food poisoning outbreak in the hostel mess.", "3:00 PM")
 
     );
 

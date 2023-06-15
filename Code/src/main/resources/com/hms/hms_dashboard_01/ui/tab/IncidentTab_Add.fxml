@@ -40,7 +40,7 @@
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="Date" layoutX="193.0" layoutY="141.0" prefHeight="25.0" prefWidth="173.0" promptText="29-june-2023" />
+      <TextField fx:id="Date" layoutX="193.0" layoutY="141.0" prefHeight="25.0" prefWidth="173.0" promptText="(YYYY-MM-DD)" />
       <TextArea fx:id="Description" layoutX="119.0" layoutY="333.0" prefHeight="117.0" prefWidth="536.0" promptText="Explain Here:" />
       <TextField fx:id="Location" layoutX="481.0" layoutY="222.0" prefHeight="25.0" prefWidth="173.0" promptText="Laundary" />
       <TextField fx:id="Day" layoutX="471.0" layoutY="141.0" prefHeight="25.0" prefWidth="173.0" promptText="Monday" />
