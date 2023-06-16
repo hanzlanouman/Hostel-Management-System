@@ -15,8 +15,8 @@
                 <TableColumn fx:id="wardenEmail" minWidth="9.33331298828125" prefWidth="124.66671752929688" text="Warden Email" />
             </columns>
         </TableView>
-        <Button layoutX="560.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Add Warden" />
+        <Button layoutX="560.0" layoutY="546.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="25.0" prefWidth="126.0" text="Add Warden" />
         <Button layoutX="422.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Delete Warden" />
-        <Button layoutX="287.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" style="-: 0;" text="Modify Warden" />
+        <Button layoutX="287.0" layoutY="546.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="25.0" prefWidth="126.0" style="-: 0;" text="Modify Warden" />
     </children>
 </Pane>

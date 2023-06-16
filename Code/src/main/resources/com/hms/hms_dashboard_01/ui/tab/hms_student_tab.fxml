@@ -18,7 +18,7 @@
         </TableView>
       <Pane layoutX="120.0" layoutY="530.0">
          <children>
-              <Button layoutX="440.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Add Student" />
+              <Button layoutX="440.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="126.0" text="Add Student" />
               <Button layoutX="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Delete Student" />
               <Button layoutX="148.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Modify Student" />
          </children>
