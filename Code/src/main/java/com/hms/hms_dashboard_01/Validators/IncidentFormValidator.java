@@ -14,8 +14,10 @@ public class IncidentFormValidator {
             System.out.println("Invalid date format. Please enter a valid date.");
             return false;
         }
-
-        // Add more validation logic for other fields if needed
+        if (!isValidTime(Time.getText())) {
+            System.out.println("Invalid time format. Please enter a valid time.");
+            return false;
+        }
 
         return true;
     }
@@ -24,6 +26,12 @@ public class IncidentFormValidator {
         // Example: Check if the date follows a specific format (YYYY-MM-DD)
         String regex = "\\d{4}-\\d{2}-\\d{2}";
         return date.matches(regex);
+    }
+
+    private static boolean isValidTime(String Time) {
+        // Example: Check if the time follows a specific format (HH:mm)
+        String regex = "\\d{2}:\\d{2}";
+        return Time.matches(regex);
     }
 
     }
