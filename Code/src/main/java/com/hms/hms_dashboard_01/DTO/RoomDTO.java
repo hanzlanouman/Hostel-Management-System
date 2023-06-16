@@ -63,7 +63,7 @@ public class RoomDTO {
         return roomBuilding;
     }
 
-    public void setRoomBuilding(String roomLocation) {
+    public void setRoomBuilding(String roomBuilding) {
         this.roomBuilding = roomBuilding;
     }
 
