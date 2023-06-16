@@ -51,9 +51,6 @@ public class StudentController implements Initializable {
 
         studentTable.setItems(studentList);
 
-
-
-
     }
 
     public void refresh(){
