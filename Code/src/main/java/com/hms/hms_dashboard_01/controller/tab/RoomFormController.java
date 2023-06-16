@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -47,13 +48,24 @@ public class RoomFormController implements Initializable {
         } else {
             room.setRoomNo(Integer.parseInt(roomNo.getText()));
         }
-        room.setRoomFee(Integer.parseInt(roomFee.getText()));
+        if(Objects.equals(roomFee.getText(), "")){
+            room.setRoomFee(0);
+        } else {
+            room.setRoomFee(Integer.parseInt(roomFee.getText()));
+        }
         room.setRoomType(roomType.getValue());
         room.setRoomFloor(roomFloor.getValue());
         room.setRoomAvb(roomAvb.getValue());
         room.setRoomBuilding(roomBuilding.getValue());
-        RoomFormValidator.isValidInfo(room);
+        if (!RoomFormValidator.isValidInfo(room)){
+//            Pop an alert saying invalid info
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Information");
+            alert.setHeaderText("Invalid Information");
+            alert.setContentText("Please enter valid information");
+            alert.showAndWait();
 
+        }
 
         System.out.println(room.getRoomFloor());
     }
