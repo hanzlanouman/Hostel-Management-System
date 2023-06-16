@@ -13,8 +13,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StaffController implements Initializable {
-
-
     @FXML
     private TableColumn<Staff, String> staffContact;
 
