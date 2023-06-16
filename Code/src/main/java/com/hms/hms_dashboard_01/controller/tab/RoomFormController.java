@@ -2,6 +2,7 @@ package com.hms.hms_dashboard_01.controller.tab;
 
 import com.hms.hms_dashboard_01.DTO.RoomDTO;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
+import com.hms.hms_dashboard_01.Validators.RoomFormValidator;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -20,7 +22,7 @@ public class RoomFormController implements Initializable {
     private TextField roomNo;
 
     @FXML
-    private TextField roomCap;
+    private TextField roomFee;
 
     @FXML
     private ChoiceBox<String> roomType;
@@ -39,12 +41,18 @@ public class RoomFormController implements Initializable {
 
 
         RoomDTO room = HMSFactory.getInstanceOfRoom();
-        room.setRoomNo(Integer.parseInt(roomNo.getText()));
-        room.setRoomFee(Integer.parseInt(roomCap.getText()));
+
+        if (Objects.equals(roomNo.getText(), "")) {
+            room.setRoomNo(0);
+        } else {
+            room.setRoomNo(Integer.parseInt(roomNo.getText()));
+        }
+        room.setRoomFee(Integer.parseInt(roomFee.getText()));
         room.setRoomType(roomType.getValue());
         room.setRoomFloor(roomFloor.getValue());
         room.setRoomAvb(roomAvb.getValue());
         room.setRoomBuilding(roomBuilding.getValue());
+        RoomFormValidator.isValidInfo(room);
 
 
         System.out.println(room.getRoomFloor());
