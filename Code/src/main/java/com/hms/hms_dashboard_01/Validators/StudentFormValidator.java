@@ -4,7 +4,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
-public class AddStudentValidator {
+public class StudentFormValidator {
 
 
     public static boolean validateFields(TextField id, TextField studentname, TextField contact,

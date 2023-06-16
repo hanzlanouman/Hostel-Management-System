@@ -2,13 +2,13 @@ package com.hms.hms_dashboard_01.controller;
 
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.DTO.StudentDTO;
-import com.hms.hms_dashboard_01.Validators.AddStudentValidator;
+import com.hms.hms_dashboard_01.Validators.StudentFormValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
-public class AddStudentController {
+public class StudentFormController {
 
     @FXML
     private TextField adress;
@@ -38,7 +38,7 @@ public class AddStudentController {
     private TextField studentname;
 
     public void addStudent() {
-        if (AddStudentValidator.validateFields(id, studentname, contact, email, fathername, feestatus, adress, roomno, roomtype)) {
+        if (StudentFormValidator.validateFields(id, studentname, contact, email, fathername, feestatus, adress, roomno, roomtype)) {
 
             StudentDTO student = HMSFactory.getInstanceOfStudent();
             student.setRollNo(id.getText());
@@ -52,7 +52,7 @@ public class AddStudentController {
             System.out.println("Email: " + student.getEmail());
             System.out.println("Address: " + student.getAddress());
 
-            // Perform further operations with the student object
+            //further operations with the student object
         }
     }
 }
