@@ -5,6 +5,7 @@ public class StudentDTO {
     private int studentId;
     private String studentEmail;
     private String studentContact;
+    private String studentAdress;
     private String studentPassword;
     private String studentName;
     private String rollNo;
@@ -21,6 +22,26 @@ public class StudentDTO {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
+
+
+    public String getEmail() {
+        return studentEmail;
+    }
+
+    public void setEmail(String studentEmail) {
+        this.studentEmail = studentEmail;
+    }
+
+
+
+    public String getAddress() {
+        return studentAdress;
+    }
+
+    public void setAddress(String studentAdress) {
+        this.studentAdress = studentAdress;
+    }
+
 
     public String getRollNo() {
         return rollNo;
