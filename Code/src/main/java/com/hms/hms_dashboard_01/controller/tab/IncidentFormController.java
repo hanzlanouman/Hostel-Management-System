@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 
 
 public class IncidentFormController {
-
     @FXML
     private TextField Date;
     @FXML
@@ -20,7 +19,6 @@ public class IncidentFormController {
     @FXML
     private TextField Description;
 
-
     public void addIncident(ActionEvent e){
         boolean isValid = IncidentFormValidator.validateFields(Date, Day, Location, Time, Description);
         if (isValid) {
@@ -30,7 +28,7 @@ public class IncidentFormController {
             Incident.setLocation(String.join(Location.getText()));
             Incident.setTime(String.join(Time.getText()));
             Incident.setDescription(String.join(Description.getText()));
-
+            //Response
             System.out.println(Incident.getDay());
             System.out.println(Incident.getDate());
             System.out.println(Incident.getLocation());
