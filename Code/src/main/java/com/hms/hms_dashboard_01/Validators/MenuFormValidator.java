@@ -41,11 +41,10 @@
 //
 
 package com.hms.hms_dashboard_01.Validators;
+import com.hms.hms_dashboard_01.DTO.MenuDTO;
 
-import com.hms.hms_dashboard_01.DTO.IncidentDTO;
+public class MenuFormValidator {
 
-public class IncidentFormValidator {
-
-    public static boolean isValidInfo(IncidentDTO incident){
-        return incident.getDate() != null && incident.getDay() != null && incident.getLocation() != null && incident.getTime() != null && incident.getDescription() != null ;
+    public static boolean isValidMenuInfo(MenuDTO incident){
+        return incident.getDay() != null && incident.getBreakfast() != null && incident.getLunch() != null && incident.getDinner() != null ;
     }}
