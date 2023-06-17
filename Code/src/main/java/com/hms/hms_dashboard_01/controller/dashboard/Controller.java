@@ -53,8 +53,11 @@ Button roomButton;
 
     @FXML
     Button IncidentButton;
+    @FXML
+    Button MenuButton;
 
-//Save all FXML buttons in a list
+
+    //Save all FXML buttons in a list
 //    List has all the buttons for changing styles and scenes
     ArrayList<Button> buttons = new ArrayList<>();
 
@@ -128,6 +131,10 @@ Button roomButton;
         activeButton(facilityButton);
         changeScene("hms_facilities_tab");
     }
+    public void MenuButton(ActionEvent event) throws IOException {
+        activeButton(MenuButton);
+        changeScene("hms_messmenu_tab");
+    }
     public void notificationBtn(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("hms_pendingRegistrations"));
         contentArea.getChildren().removeAll();
@@ -136,7 +143,7 @@ Button roomButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    buttons.addAll(Arrays.asList(messButton,homeButton, roomButton, staffButton, studentButton, facilityButton, feeButton, wardenButton, IncidentButton));
+    buttons.addAll(Arrays.asList(messButton,homeButton, roomButton, staffButton, studentButton, facilityButton, feeButton, wardenButton, IncidentButton,MenuButton));
         activeButton(homeButton);
 
 // Doesn't work for some reason, intention was to load the home tab on login

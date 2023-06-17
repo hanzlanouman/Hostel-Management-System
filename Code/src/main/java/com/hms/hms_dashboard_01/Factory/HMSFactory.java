@@ -8,9 +8,7 @@ public class HMSFactory
     {
         return new RoomDTO();
     }
-
     public static StudentDTO getInstanceOfStudent(){return new StudentDTO();}
-
     public static StaffDTO getInstanceOfStaff()
     {
         return new StaffDTO();
@@ -19,5 +17,7 @@ public class HMSFactory
     public  static WardenDTO getInstanceOfWarden(){return new WardenDTO();}
     public  static IncidentDTO getInstanceOfIncident(){return new IncidentDTO();}
     public  static FeedBackDTO getInstanceOfFeedBack(){return new FeedBackDTO();}
+    public  static MenuDTO getInstanceOfMenu(){return new MenuDTO();}
+
 
 }
