@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.Objects;
@@ -65,9 +66,14 @@ public class RoomFormController implements Initializable {
             alert.setContentText("Please enter valid information");
             alert.showAndWait();
 
+        }else{
+            Stage stage = (Stage) roomNo.getScene().getWindow();
+            stage.close();
         }
 
-        System.out.println(room.getRoomFloor());
+
+
+
     }
 
     public void initialize(URL url, ResourceBundle rb) {

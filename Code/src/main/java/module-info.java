@@ -2,6 +2,7 @@ module com.hms.hms_dashboard_01 {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires java.sql;
 
 
     opens com.hms.hms_dashboard_01 to javafx.fxml;
