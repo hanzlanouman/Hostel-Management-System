@@ -30,38 +30,4 @@ public class DatabaseConnection {
         }
     }
 
-//   Get data from hmsdemo table
-    public static void getTables(Connection conn) {
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM hmsdemo");
-            while (rs.next()) {
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-//    insert data into hmsdemo table
-    public static void insertData(Connection conn) {
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("INSERT INTO ROOMS (roomNo, roomType, roomCapacity, roomFloor, roomAvb, roomStatus, roomFee, roomAssignedTo, roomBuilding)\n" +
-                    "VALUES (1, 'Standard', '2', '1st Floor', 'Available', 'Vacant', 100, 'John Doe', 'Main Building')");
-            while
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Connection conn = getConnection();
-        getTables(conn);
-        insertData(conn);
-        closeConnection(conn);
-    }
-
-
 }

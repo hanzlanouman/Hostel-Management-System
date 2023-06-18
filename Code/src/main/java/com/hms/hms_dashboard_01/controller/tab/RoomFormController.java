@@ -3,6 +3,7 @@ package com.hms.hms_dashboard_01.controller.tab;
 import com.hms.hms_dashboard_01.DTO.RoomDTO;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.RoomFormValidator;
+import com.hms.hms_dashboard_01.dal.DALRoomManager;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,6 +68,7 @@ public class RoomFormController implements Initializable {
             alert.showAndWait();
 
         }else{
+            DALRoomManager.addRoom(room);
             Stage stage = (Stage) roomNo.getScene().getWindow();
             stage.close();
         }
