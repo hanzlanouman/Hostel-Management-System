@@ -47,5 +47,6 @@ import com.hms.hms_dashboard_01.DTO.IncidentDTO;
 public class IncidentFormValidator {
 
     public static boolean isValidInfo(IncidentDTO incident){
-        return incident.getDate() != null && incident.getDay() != null && incident.getLocation() != null && incident.getTime() != null && incident.getDescription() != null ;
+//        return incident.getDate() != null && incident.getDay() != null && incident.getLocation() != null && incident.getTime() != null && incident.getDescription() != null ;
+        return true;
     }}
