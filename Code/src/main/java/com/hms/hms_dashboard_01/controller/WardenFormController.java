@@ -3,6 +3,7 @@ package com.hms.hms_dashboard_01.controller;
 import com.hms.hms_dashboard_01.DTO.StaffDTO;
 import com.hms.hms_dashboard_01.DTO.WardenDTO;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
+import com.hms.hms_dashboard_01.dal.DALWardenManager;
 import com.hms.hms_dashboard_01.model.entities.Warden;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -34,5 +35,6 @@ public class WardenFormController {
         warden.setWardenEmail(wardenEmail.getText());
         warden.setAddress(wardenAddress.getText());
 
+        DALWardenManager.addWarden(warden);
     }
 }

@@ -3,6 +3,7 @@ package com.hms.hms_dashboard_01.controller.tab;
 import com.hms.hms_dashboard_01.DTO.RoomDTO;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.RoomFormValidator;
+import com.hms.hms_dashboard_01.dal.DALRoomManager;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.Objects;
@@ -65,9 +67,15 @@ public class RoomFormController implements Initializable {
             alert.setContentText("Please enter valid information");
             alert.showAndWait();
 
+        }else{
+            DALRoomManager.addRoom(room);
+            Stage stage = (Stage) roomNo.getScene().getWindow();
+            stage.close();
         }
 
-        System.out.println(room.getRoomFloor());
+
+
+
     }
 
     public void initialize(URL url, ResourceBundle rb) {

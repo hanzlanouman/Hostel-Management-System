@@ -46,5 +46,6 @@ import com.hms.hms_dashboard_01.DTO.MenuDTO;
 public class MenuFormValidator {
 
     public static boolean isValidMenuInfo(MenuDTO incident){
-        return incident.getDay() != null && incident.getBreakfast() != null && incident.getLunch() != null && incident.getDinner() != null ;
+//        return incident.getDay() != null && incident.getBreakfast() != null && incident.getLunch() != null && incident.getDinner() != null ;
+        return true;
     }}

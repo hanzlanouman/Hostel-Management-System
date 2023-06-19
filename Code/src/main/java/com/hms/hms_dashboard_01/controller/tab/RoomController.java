@@ -1,5 +1,6 @@
 package com.hms.hms_dashboard_01.controller.tab;
 
+import com.hms.hms_dashboard_01.dal.DALRoomManager;
 import com.hms.hms_dashboard_01.model.entities.Room;
 import com.hms.hms_dashboard_01.utility.path;
 import javafx.collections.FXCollections;
@@ -73,4 +74,11 @@ public class RoomController implements Initializable  {
         stage.setScene(new Scene(root1, 1054, 650));
         stage.show();
     }
+
+    public void deleteRoom(ActionEvent e) {
+//        Get selected object from the table view
+        Room room = roomTable.getSelectionModel().getSelectedItem();
+        DALRoomManager.DeleteRoom(room.getRoomNo());
+    }
+
 }

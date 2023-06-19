@@ -3,6 +3,7 @@ import com.hms.hms_dashboard_01.DTO.MenuDTO;
 import com.hms.hms_dashboard_01.Validators.IncidentFormValidator;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.MenuFormValidator;
+import com.hms.hms_dashboard_01.dal.DALMenuManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -40,6 +41,9 @@ public class MenuFormController {
             alert.setHeaderText("Invalid Information");
             alert.setContentText("Please enter valid information");
             alert.showAndWait();
+        }else {
+            DALMenuManager.addMenu(Menu);
+
         }
     }
 }
