@@ -1,7 +1,6 @@
 package com.hms.hms_dashboard_01.DTO;
 
 public class MenuDTO {
-
     private String Breakfast;
     private String Lunch;
     private String Dinner;
