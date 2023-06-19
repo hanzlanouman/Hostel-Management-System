@@ -3,13 +3,15 @@ package com.hms.hms_dashboard_01.DTO;
 public class IncidentDTO {
 
     //    private String IncidentType;
+    private Integer IncidentId;
     private String Date;
     private String Time;
     private String Day;
     private String Location;
     private String Description;
 
-    public IncidentDTO(String Date, String Day, String Location, String Description, String Time) {
+    public IncidentDTO(Integer IncidentId, String Date, String Day, String Location, String Description, String Time) {
+        this.IncidentId=IncidentId;
         this.Date = Date;
         this.Day = Day;
         this.Location = Location;
@@ -18,6 +20,12 @@ public class IncidentDTO {
 
     }
     public IncidentDTO(){};
+    public void setIncidentId(Integer IncidentId ) {
+        this.IncidentId = IncidentId;
+    }
+    public Integer getIncidentId() {
+        return IncidentId;
+    }
     public void setDate(String Date) {
         this.Date = Date;
     }

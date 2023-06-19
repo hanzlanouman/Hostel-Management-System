@@ -4,13 +4,15 @@ public class Incident {
 
 
     //    private String IncidentType;
+    private Integer IncidentId;
     private String Date;
     private String Time;
     private String Day;
     private String Location;
     private String Description;
 
-    public Incident(String Date, String Day, String Location, String Description, String Time) {
+    public Incident(Integer IncidentId, String Date, String Day, String Location, String Description, String Time) {
+        this.IncidentId=IncidentId;
         this.Date = Date;
         this.Day = Day;
         this.Location = Location;
@@ -19,6 +21,10 @@ public class Incident {
 
     }
 
+    public void setIncidentId(Integer IncidentId ) {this.IncidentId = IncidentId;}
+    public Integer getIncidentId() {
+        return IncidentId;
+    }
     public void setDate(String Date) {
         this.Date = Date;
     }
@@ -49,14 +55,6 @@ public class Incident {
     public void setDescription(String Description) {
         this.Time = Description;
     }
-
-//    public String getRoomType() {
-//        return roomType;
-//    }
-
-//    public void setRoomType(String roomType) {
-//        this.roomType = roomType;
-//    }
 
 
 }

@@ -34,6 +34,7 @@ public class WardenFormController {
         warden.setWardenName(wardenName.getText());
         warden.setWardenEmail(wardenEmail.getText());
         warden.setAddress(wardenAddress.getText());
+        warden.setAddress(wardenPhone.getText());
 
         DALWardenManager.addWarden(warden);
     }

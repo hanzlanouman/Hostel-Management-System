@@ -22,6 +22,8 @@ import java.util.ResourceBundle;
 public class IncidentController implements Initializable {
 
     @FXML
+    private TableColumn<Incident, Integer> IncidentId;
+    @FXML
     private TableColumn<Incident, String> Day;
 
     @FXML
@@ -40,15 +42,14 @@ public class IncidentController implements Initializable {
     private TableView<Incident> IncidentTable;
 
     ObservableList<Incident> IncidentList = FXCollections.observableArrayList(
-            new Incident("2023-09-07","Monday", "Laundary", "Washing machine malfunction and flooding in the hostel laundry.", "4.00 PM"),
-            new Incident("2021-04-23","Sunday", "Mess", "Food poisoning outbreak in the hostel mess.", "3:00 PM"),
-            new Incident("2021-04-3","Sunday", "Mess", "Food poisoning outbreak in the hostel mess.", "3:00 PM"),
-            new Incident("2021-04-23","Sunday", "Mess", "Food poisoning outbreak in the hostel mess.", "3:00 PM")
 
-    );
-
+            new Incident(1, "2023-09-07","Monday", "Laundary", "A girl got Slipped.", "4.00 PM"),
+            new Incident(1, "2023-09-07","Monday", "Laundary", "A girl got Slipped.", "4.00 PM"),
+            new Incident(1, "2023-09-07","Monday", "Laundary", "A girl got Slipped.", "4.00 PM")
+);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        IncidentId.setCellValueFactory(new PropertyValueFactory<>("IncidentId"));
         Day.setCellValueFactory(new PropertyValueFactory<>("Day"));
         Date.setCellValueFactory(new PropertyValueFactory<>("Date"));
         Time.setCellValueFactory(new PropertyValueFactory<>("Time"));
