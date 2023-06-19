@@ -9,7 +9,7 @@ module com.hms.hms_dashboard_01 {
     opens com.hms.hms_dashboard_01.controller to javafx.fxml;
     opens com.hms.hms_dashboard_01.model.registration to javafx.fxml;
     opens com.hms.hms_dashboard_01.model.entities to javafx.fxml;
-
+    opens com.hms.hms_dashboard_01.DTO to javafx.base;
     exports com.hms.hms_dashboard_01;
     exports com.hms.hms_dashboard_01.controller;
     exports com.hms.hms_dashboard_01.model.registration;
