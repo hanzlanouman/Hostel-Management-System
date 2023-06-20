@@ -8,7 +8,7 @@ import java.sql.*;
 public class DALRoomManager {
 
     static Connection conn = DatabaseConnection.getConnection();
-    public static void addRoom(RoomDTO room) {
+    public static String addRoom(RoomDTO room) {
         try {
             Statement stmt = conn.createStatement();
             String query = "INSERT INTO ROOMS (roomNo, roomType, roomCapacity, roomFloor, roomAvb, roomStatus, roomFee, roomAssignedTo, roomBuilding) " +
@@ -18,9 +18,11 @@ public class DALRoomManager {
             stmt.executeUpdate(query);
 
             System.out.println("Data has been inserted into ROOMS table.");
+            return "success";
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return "fail";
     }
 
     public static void DeleteRoom(int roomNo) {

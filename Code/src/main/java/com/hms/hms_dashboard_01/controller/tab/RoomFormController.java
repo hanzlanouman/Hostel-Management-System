@@ -68,16 +68,32 @@ public class RoomFormController implements Initializable {
             alert.showAndWait();
 
         }else{
-            DALRoomManager.addRoom(room);
+            String response = DALRoomManager.addRoom(room);
+            if(Objects.equals(response, "success")){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Success");
+                alert.setContentText("Room Added Successfully");
+                alert.showAndWait();
             Stage stage = (Stage) roomNo.getScene().getWindow();
             stage.close();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error");
+                alert.setContentText("Database Error");
+                alert.showAndWait();
+            }
         }
 
 
 
 
     }
-
+    public void cancel(ActionEvent e){
+        Stage stage = (Stage) roomNo.getScene().getWindow();
+        stage.close();
+    }
     public void initialize(URL url, ResourceBundle rb) {
 
 //        Add Choices to Choice Boxes
