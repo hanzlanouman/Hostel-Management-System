@@ -2,7 +2,6 @@ package com.hms.hms_dashboard_01.DTO;
 
 public class IncidentDTO {
 
-    //    private String IncidentType;
     private Integer IncidentId;
     private String Date;
     private String Time;

@@ -10,10 +10,8 @@ public class DALIncidentManager {
     public static void addIncident(IncidentDTO incident) {
         try {
             Statement stmt = conn.createStatement();
-            String query = "INSERT INTO Incidents (IncidentId, INC_DATE, Day, Location, Description, INCIDENTTIME) " +
-                    "VALUES (2, null, '" +
-                    incident.getDay() + "', '" + incident.getLocation() + "', '" + incident.getDescription() + "', '" +
-                    incident.getTime() + "')";
+            String query = "INSERT INTO Incidents ( incidentid, inc_date, day, location, description, incidenttime ) " +
+                    "VALUES ( " + incidentId + ", '" + incident.getDate() + "', '" + incident.getDay() + "', '" + incident.getLocation() + "', '" + incident.getDescription() + "', '" + incident.getTime() + "' )";
 
             stmt.executeUpdate(query);
 
