@@ -40,6 +40,12 @@ public class IncidentFormController {
         Incident.setDescription(Description.getText());
         Incident.setLocation(Location.getText());
         Incident.setTime(Time.getText());
+        System.out.println(Incident.getIncidentId());
+        System.out.println(Incident.getDay());
+        System.out.println(Incident.getDate());
+        System.out.println(Incident.getDescription());
+        System.out.println(Incident.getLocation());
+        System.out.println(Incident.getTime());
 
         if (!IncidentFormValidator.isValidInfo(Incident)){
 //            Pop an alert saying invalid info

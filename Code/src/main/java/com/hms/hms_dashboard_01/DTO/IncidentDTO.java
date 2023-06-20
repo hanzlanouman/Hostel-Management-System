@@ -32,7 +32,7 @@ public class IncidentDTO {
     public String getDate() {
         return Date;
     }
-    public void setDay(String Date) {
+    public void setDay(String Day) {
         this.Day = Day;
     }
     public String getDay() {
@@ -54,6 +54,6 @@ public class IncidentDTO {
         return Description;
     }
     public void setDescription(String Description) {
-        this.Time = Description;
+        this.Description = Description;
     }
 }

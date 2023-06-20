@@ -15,12 +15,12 @@
          </font>
       </Label>
       <AnchorPane layoutX="266.0" layoutY="71.0" prefHeight="6.0" prefWidth="200.0" style="-fx-background-color: #1FC81A;" />
-      <Label fx:id="Date_label" layoutX="121.0" layoutY="145.0" text="Date">
+      <Label fx:id="Date_label" layoutX="121.0" layoutY="184.0" text="Date">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Day_label" layoutX="414.0" layoutY="145.0" text="Day">
+      <Label fx:id="Day_label" layoutX="413.0" layoutY="133.0" text="Day">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
@@ -30,7 +30,7 @@
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Location_label" layoutX="413.0" layoutY="226.0" text="Location">
+      <Label fx:id="Location_label" layoutX="398.0" layoutY="184.0" text="Location">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
@@ -40,9 +40,10 @@
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="Date" layoutX="193.0" layoutY="141.0" prefHeight="25.0" prefWidth="173.0" promptText="(YYYY-MM-DD)" />
-      <TextField fx:id="Location" layoutX="481.0" layoutY="222.0" prefHeight="25.0" prefWidth="173.0" promptText="Laundary" />
-      <TextField fx:id="Day" layoutX="471.0" layoutY="141.0" prefHeight="25.0" prefWidth="173.0" promptText="Monday" />
+      <TextField fx:id="IncidentId" layoutX="193.0" layoutY="129.0" prefHeight="25.0" prefWidth="173.0" promptText="(1)" />
+      <TextField fx:id="Date" layoutX="193.0" layoutY="180.0" prefHeight="25.0" prefWidth="173.0" promptText="(YYYY-MM-DD)" />
+      <TextField fx:id="Location" layoutX="470.0" layoutY="180.0" prefHeight="25.0" prefWidth="173.0" promptText="Laundary" />
+      <TextField fx:id="Day" layoutX="470.0" layoutY="129.0" prefHeight="25.0" prefWidth="173.0" promptText="Monday" />
       <TextArea fx:id="Description" layoutX="107.0" layoutY="312.0" prefHeight="140.0" prefWidth="561.0" promptText="Explain here" />
       <TextField fx:id="Time" layoutX="193.0" layoutY="222.0" prefHeight="25.0" prefWidth="173.0" promptText="3:00 PM" />
 
@@ -50,5 +51,10 @@
          <font>
             <Font name="Bell MT Bold" size="18.0" />
          </font></Button>
+      <Label fx:id="Date_label1" layoutX="121.0" layoutY="133.0" text="ID">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
