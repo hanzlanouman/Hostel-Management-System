@@ -4,13 +4,15 @@ public class Menu {
 
 
     //    private String IncidentType;
+    private Integer MenuID;
     private String Day;
 
     private String Breakfast;
     private String Lunch;
     private String Dinner;
 
-    public Menu(String Day, String Breakfast, String Lunch, String Dinner) {
+    public Menu(Integer MenuID , String Day, String Breakfast, String Lunch, String Dinner) {
+        this.MenuID = MenuID;
         this.Day = Day;
         this.Breakfast = Breakfast;
         this.Lunch = Lunch;
@@ -18,7 +20,12 @@ public class Menu {
 
     }
 
-
+    public void setMenuID(Integer MenuID) {
+        this.MenuID = MenuID;
+    }
+    public Integer getMenuID() {
+        return MenuID;
+    }
     public void setDay(String Date) {
         this.Day = Day;
     }

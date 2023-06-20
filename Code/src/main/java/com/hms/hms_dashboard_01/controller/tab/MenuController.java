@@ -20,6 +20,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
+    @FXML
+    private TableColumn<Menu, Integer> MenuID;
 
     @FXML
     private TableColumn<Menu, String> Day;
@@ -37,17 +39,15 @@ public class MenuController implements Initializable {
     private TableView<Menu> MenuTable;
 
         ObservableList<Menu> MenuList = FXCollections.observableArrayList(
-            new Menu("Monday", "Bread", "Chicken", "Pizza"),
-            new Menu("Tuesday", "Bread", "Chicken", "Pizza"),
-            new Menu("Wednesday", "Bread", "Chicken", "Pizza"),
-            new Menu("Thursday", "Bread", "Chicken", "Pizza"),
-            new Menu("Friday", "Bread", "Chicken", "Pizza"),
-            new Menu("Saturday", "Bread", "Chicken", "Pizza")
+       new Menu(1,"Monday","Bread","Rice","Rice"),
+         new Menu(2,"Tuesday","Bread","Rice","Rice"),
+            new Menu(3,"Wednesday","Bread","Rice","Rice")
 
     );
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        MenuID.setCellValueFactory(new PropertyValueFactory<>("MenuID"));
         Day.setCellValueFactory(new PropertyValueFactory<>("Day"));
         Breakfast.setCellValueFactory(new PropertyValueFactory<>("Breakfast"));
         Lunch.setCellValueFactory(new PropertyValueFactory<>("Lunch"));

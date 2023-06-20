@@ -1,4 +1,5 @@
 package com.hms.hms_dashboard_01.controller.tab;
+import com.hms.hms_dashboard_01.DTO.IncidentDTO;
 import com.hms.hms_dashboard_01.DTO.MenuDTO;
 import com.hms.hms_dashboard_01.Validators.IncidentFormValidator;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
@@ -11,9 +12,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 
 public class MenuFormController {
-
+    @FXML
+    private TextField MenuID;
     @FXML
     private TextField Day1;
     @FXML
@@ -28,6 +32,15 @@ public class MenuFormController {
 
 
         MenuDTO Menu = HMSFactory.getInstanceOfMenu();
+
+
+        if(Objects.equals(MenuID.getText(), ""))
+        {
+            Menu.setMenuID(0);
+        } else
+        {
+            Menu.setMenuID(Integer.parseInt(MenuID.getText()));
+        }
         Menu.setDay(Day1.getText());
         Menu.setBreakfast(Breakfast1.getText());
         Menu.setLunch(Lunch1.getText());

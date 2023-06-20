@@ -6,15 +6,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.tab.IncidentController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.tab.IncidentController">
     <children>
         <TableView fx:id="IncidentTable" layoutY="-8.0" prefHeight="520.0" prefWidth="700.0">
             <columns>
-                <TableColumn fx:id="Day" prefWidth="129.99997448921204" text="Day" />
-                <TableColumn fx:id="Date" prefWidth="148.6666717529297" text="Date" />
-                <TableColumn fx:id="Time" minWidth="9.33331298828125" prefWidth="149.33334350585938" text="Time" />
-                <TableColumn fx:id="Location" minWidth="8.666610717773438" prefWidth="105.3333740234375" text="Location" />
-                <TableColumn fx:id="Description" minWidth="9.33331298828125" prefWidth="149.33334350585938" text="Descriptiion" />
+                <TableColumn fx:id="IncidentId" prefWidth="93.9998779296875" text="IncidentId" />
+                <TableColumn fx:id="Day" prefWidth="164.00003564357758" text="Day" />
+                <TableColumn fx:id="Date" prefWidth="132.6666717529297" text="Date" />
+                <TableColumn fx:id="Time" minWidth="9.33331298828125" prefWidth="110.6666259765625" text="Time" />
+                <TableColumn fx:id="Location" minWidth="8.666610717773438" prefWidth="98.00006103515625" text="Location" />
+                <TableColumn fx:id="Description" minWidth="9.33331298828125" prefWidth="100.66677856445312" text="Descriptiion" />
             </columns>
         </TableView>
       <Button layoutX="438.0" layoutY="521.0" mnemonicParsing="false" onAction="#addIncident" prefHeight="37.0" prefWidth="110.0" text="Add Incident">

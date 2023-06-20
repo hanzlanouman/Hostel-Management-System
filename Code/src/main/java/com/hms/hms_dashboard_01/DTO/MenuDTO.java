@@ -1,12 +1,15 @@
 package com.hms.hms_dashboard_01.DTO;
 
 public class MenuDTO {
+        private Integer MenuID;
+
     private String Breakfast;
     private String Lunch;
     private String Dinner;
     private String Day;
 
-    public MenuDTO(String Breakfast, String Lunch, String Dinner, String Day) {
+    public MenuDTO(Integer MenuID, String Breakfast, String Lunch, String Dinner, String Day) {
+        this.MenuID = MenuID;
         this.Day = Day;
         this.Breakfast = Breakfast;
         this.Lunch = Lunch;
@@ -15,6 +18,12 @@ public class MenuDTO {
     }
 
 public MenuDTO(){};
+    public void setMenuID(Integer MenuID) {
+        this.MenuID = MenuID;
+    }
+    public Integer getMenuID() {
+        return MenuID;
+    }
     public void setDay(String Day) {
         this.Day = Day;
     }

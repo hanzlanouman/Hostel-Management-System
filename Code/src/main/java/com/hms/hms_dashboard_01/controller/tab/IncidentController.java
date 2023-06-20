@@ -44,8 +44,8 @@ public class IncidentController implements Initializable {
     ObservableList<Incident> IncidentList = FXCollections.observableArrayList(
 
             new Incident(1, "2023-09-07","Monday", "Laundary", "A girl got Slipped.", "4.00 PM"),
-            new Incident(1, "2023-09-07","Monday", "Laundary", "A girl got Slipped.", "4.00 PM"),
-            new Incident(1, "2023-09-07","Monday", "Laundary", "A girl got Slipped.", "4.00 PM")
+            new Incident(2, "2023-09-07","Monday", "Laundary", "A girl got Slipped.", "4.00 PM"),
+            new Incident(3, "2023-09-07","Monday", "Laundary", "A girl got Slipped.", "4.00 PM")
 );
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

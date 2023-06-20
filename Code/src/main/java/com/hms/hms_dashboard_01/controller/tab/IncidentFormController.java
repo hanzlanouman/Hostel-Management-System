@@ -55,6 +55,12 @@ public class IncidentFormController {
         else
         {
             DALIncidentManager.addIncident(Incident);
+            //            Show Confirmation alert and close the stage
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("Success");
+            alert.setContentText("Menu Added Successfully");
+            alert.showAndWait();
             Stage stage = (Stage) IncidentId.getScene().getWindow();
             stage.close();
         }

@@ -10,6 +10,7 @@
 <children>
     <TableView fx:id="MenuTable" layoutX="83.0" layoutY="-9.0" prefHeight="520.0" prefWidth="537.0">
         <columns>
+            <TableColumn fx:id="MenuID" prefWidth="129.99997448921204" text="MenuID" />
             <TableColumn fx:id="Day" prefWidth="129.99997448921204" text="Day" />
             <TableColumn fx:id="Breakfast" prefWidth="148.6666717529297" text="Breakfast" />
             <TableColumn fx:id="Lunch" minWidth="9.33331298828125" prefWidth="149.33334350585938" text="Lunch" />
