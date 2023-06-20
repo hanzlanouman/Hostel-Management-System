@@ -11,9 +11,8 @@ public class DALMenuManager {
     public static void addMenu(MenuDTO menu) {
         try {
             Statement stmt = conn.createStatement();
-            String query = "INSERT INTO Menus (MenuId, Day, Breakfast, Lunch, Dinner) " +
-                    "VALUES (1, '" + menu.getDay() + "', '" + menu.getBreakfast() + "', '" +
-                    menu.getLunch() + "', '" + menu.getDinner() + "')";
+            String query = "INSERT INTO Menus ( Breakfast, Lunch, Dinner, Day ) " +
+                    "VALUES ( '" + menu.getBreakfast() + "', '" + menu.getLunch() + "', '" + menu.getDinner() + "', '" + menu.getDay() + "' )";
 
             stmt.executeUpdate(query);
 

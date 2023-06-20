@@ -15,13 +15,13 @@ public class MenuDTO {
     }
 
 public MenuDTO(){};
-    public void setDay(String Date) {
+    public void setDay(String Day) {
         this.Day = Day;
     }
     public String getDay() {
         return Day;
     }
-    public void setBreakfast(String Location) {
+    public void setBreakfast(String Breakfast) {
         this.Breakfast = Breakfast;
     }
     public String getBreakfast() {
@@ -30,7 +30,7 @@ public MenuDTO(){};
     public String getDinner() {
         return Dinner;
     }
-    public void setDinner(String Time) {
+    public void setDinner(String Dinner) {
         this.Dinner = Dinner;
     }
     public String getLunch() {

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.tab.MenuController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.tab.MenuFormController">
    <children>
       <Pane prefHeight="72.0" prefWidth="600.0" style="-fx-background-color: brown;">
          <children>
@@ -35,10 +35,10 @@
          </font>
       </Label>
 
-      <TextField fx:id="Day" layoutX="259.0" layoutY="128.0" prefHeight="26.0" prefWidth="162.0" />
-      <TextField fx:id="Breakfast" layoutX="259.0" layoutY="128.0" prefHeight="26.0" prefWidth="162.0" />
-      <TextField fx:id="Lunch" layoutX="259.0" layoutY="212.0" prefHeight="26.0" prefWidth="162.0" />
-      <TextField fx:id="Dinner" layoutX="259.0" layoutY="170.0" prefHeight="26.0" prefWidth="162.0" />
+      <TextField fx:id="Day1" layoutX="259.0" layoutY="128.0" prefHeight="26.0" prefWidth="162.0" />
+      <TextField fx:id="Breakfast1" layoutX="259.0" layoutY="128.0" prefHeight="26.0" prefWidth="162.0" />
+      <TextField fx:id="Lunch1" layoutX="259.0" layoutY="212.0" prefHeight="26.0" prefWidth="162.0" />
+      <TextField fx:id="Dinner1" layoutX="259.0" layoutY="170.0" prefHeight="26.0" prefWidth="162.0" />
       <RadioButton layoutX="264.0" layoutY="277.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="65.0" text="Week">
          <font>
             <Font size="14.0" />

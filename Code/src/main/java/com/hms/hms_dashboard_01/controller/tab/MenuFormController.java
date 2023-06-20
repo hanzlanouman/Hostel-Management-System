@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 public class MenuFormController {
@@ -27,10 +28,13 @@ public class MenuFormController {
 
 
         MenuDTO Menu = HMSFactory.getInstanceOfMenu();
-        Menu.setDay(String.join(Day1.getText()));
-        Menu.setBreakfast(String.join(Breakfast1.getText()));
-        Menu.setLunch(String.join(Lunch1.getText()));
-        Menu.setDinner(String.join(Dinner1.getText()));
+        Menu.setDay(Day1.getText());
+        Menu.setBreakfast(Breakfast1.getText());
+        Menu.setLunch(Lunch1.getText());
+        Menu.setDinner(Dinner1.getText());
+
+        System.out.println(Menu.getDinner());
+
         //Response
         //use database to insert the fields into the database
         //Make one validator to validate all the fields for Forms
@@ -43,6 +47,16 @@ public class MenuFormController {
             alert.showAndWait();
         }else {
             DALMenuManager.addMenu(Menu);
+//            Show Confirmation alert and close the stage
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("Success");
+            alert.setContentText("Menu Added Successfully");
+            alert.showAndWait();
+
+            Stage stage = (Stage) Day1.getScene().getWindow();
+            stage.close();
+
 
         }
     }
