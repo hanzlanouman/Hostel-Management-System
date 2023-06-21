@@ -58,8 +58,8 @@ public class IncidentFormController {
             //            Show Confirmation alert and close the stage
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Success");
-            alert.setHeaderText("Success");
-            alert.setContentText("Menu Added Successfully");
+            alert.setHeaderText("Incident Registered!");
+            alert.setContentText("Incident Registered Successfully");
             alert.showAndWait();
             Stage stage = (Stage) IncidentId.getScene().getWindow();
             stage.close();

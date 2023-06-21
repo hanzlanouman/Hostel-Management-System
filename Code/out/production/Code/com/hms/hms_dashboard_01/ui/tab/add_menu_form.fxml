@@ -34,11 +34,12 @@
                 <Font name="Arial" size="15.0" />
             </font>
         </Label>
+        <TextField fx:id="MenuID" layoutX="280.0" layoutY="141.0" prefHeight="25.0" prefWidth="173.0" promptText="ID" />
         <TextField fx:id="Day1" layoutX="280.0" layoutY="141.0" prefHeight="25.0" prefWidth="173.0" promptText="Monday" />
         <TextField fx:id="Breakfast1" layoutX="280.0" layoutY="190.0" prefHeight="25.0" prefWidth="173.0" promptText="Pratha, Omelette" />
         <TextField fx:id="Lunch1" layoutX="280.0" layoutY="244.0" prefHeight="25.0" prefWidth="173.0" promptText="Chicken Biryani" />
 
-        <Button fx:id="Submit_Menu_button" layoutX="246.0" layoutY="416.0" mnemonicParsing="false" onAction="#addMenu" prefHeight="41.0" prefWidth="200.0" style="-fx-background-color: #0000FF;" text="Add/Update Menu" textFill="WHITE">
+        <Button fx:id="Submit_Menu_button" layoutX="246.0" layoutY="416.0" mnemonicParsing="false" onAction="#addMenu" prefHeight="41.0" prefWidth="200.0" style="-fx-background-color: #0000FF;" text="Submit" textFill="WHITE">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font></Button>
