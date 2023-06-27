@@ -1,7 +1,6 @@
 package com.hms.hms_dashboard_01.dal;
 import com.hms.hms_dashboard_01.DTO.IncidentDTO;
 import com.hms.hms_dashboard_01.model.entities.Incident;
-import com.hms.hms_dashboard_01.model.entities.Room;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,11 +13,17 @@ public class DALIncidentManager {
 
     public static void addIncident(IncidentDTO incident) {
         try {
-            Statement stmt = conn.createStatement();
-            String query = "INSERT INTO Incidents ( incidentid, inc_date, day, location, description, incidenttime ) " +
-                    "VALUES ( " + incident.getIncidentId() + ", '" + incident.getDate() + "', '" + incident.getDay() + "', '" + incident.getLocation() + "', '" + incident.getDescription() + "', '" + incident.getTime() + "' )";
+            String query = "INSERT INTO Incidents (incidentid, inc_date, day, location, description, incidenttime) VALUES (?, ?, ?, ?, ?, ?)";
 
-            stmt.executeUpdate(query);
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, incident.getIncidentId());
+            pstmt.setString(2, incident.getDate());
+            pstmt.setString(3, incident.getDay());
+            pstmt.setString(4, incident.getLocation());
+            pstmt.setString(5, incident.getDescription());
+            pstmt.setString(6, incident.getTime());
+
+            pstmt.executeUpdate();
 
             System.out.println("Data has been inserted into Incidents table.");
         } catch (SQLException e) {
@@ -26,7 +31,22 @@ public class DALIncidentManager {
         }
     }
 
+    // ...
 
+    public static void deleteIncident(int incidentId) {
+        try {
+            String query = "DELETE FROM Incidents WHERE incidentid = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, incidentId);
+
+            pstmt.executeUpdate();
+
+            System.out.println("Data has been deleted from Incidents table.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     public static List<Incident> getAllIncidents(){
         List<Incident> incidents = new ArrayList<>();
         try {
@@ -50,17 +70,5 @@ public class DALIncidentManager {
         return incidents;
     }
 
-    public static void deleteIncident(int incidentId) {
-        try {
-            Statement stmt = conn.createStatement();
-            String query = "DELETE FROM Incidents WHERE incidentid = " + incidentId;
 
-            stmt.executeUpdate(query);
-
-            System.out.println("Data has been deleted from Incidents table.");
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }

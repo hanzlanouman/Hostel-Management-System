@@ -1,8 +1,7 @@
 package com.hms.hms_dashboard_01.ui.tab;
 
-import com.hms.hms_dashboard_01.controllers.StudentManager;
+import com.hms.hms_dashboard_01.controllers.StudentController;
 import com.hms.hms_dashboard_01.ui.StudentFormController;
-import com.hms.hms_dashboard_01.dal.DALStudentManager;
 import com.hms.hms_dashboard_01.model.entities.Student;
 import com.hms.hms_dashboard_01.utility.path;
 import javafx.collections.FXCollections;
@@ -26,7 +25,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class StudentController implements Initializable {
+public class StudentTabController implements Initializable {
 
 
     @FXML
@@ -47,7 +46,7 @@ public class StudentController implements Initializable {
     @FXML
     private TableView<Student> studentTable;
 
-    ObservableList<Student> studentList = FXCollections.observableArrayList(Objects.requireNonNull(DALStudentManager.getAllStudents()));
+    ObservableList<Student> studentList = FXCollections.observableArrayList(Objects.requireNonNull(StudentController.getAllStudents()));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -89,7 +88,7 @@ public class StudentController implements Initializable {
     public void deleteStudent(ActionEvent actionEvent) {
         Student student = studentTable.getSelectionModel().getSelectedItem();
         if(student != null){
-            StudentManager.deleteStudent(student.getStudentId());
+            StudentController.deleteStudent(student.getStudentId());
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

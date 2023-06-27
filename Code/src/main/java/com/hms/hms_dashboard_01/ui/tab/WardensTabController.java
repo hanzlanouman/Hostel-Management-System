@@ -1,6 +1,6 @@
 package com.hms.hms_dashboard_01.ui.tab;
 
-import com.hms.hms_dashboard_01.controllers.WardenManager;
+import com.hms.hms_dashboard_01.controllers.WardenController;
 import com.hms.hms_dashboard_01.dal.DALWardenManager;
 import com.hms.hms_dashboard_01.DTO.WardenDTO;
 import com.hms.hms_dashboard_01.utility.path;
@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WardensController implements Initializable {
+public class WardensTabController implements Initializable {
 
     @FXML
     private TableColumn<WardenDTO, String> wardenContact;
@@ -59,6 +59,6 @@ public class WardensController implements Initializable {
 
     public void deleteWarden(ActionEvent e) {
         WardenDTO warden = wardenTable.getSelectionModel().getSelectedItem();
-        WardenManager.deleteWarden(warden.getWardenId());
+        WardenController.deleteWarden(warden.getWardenId());
     }
 }

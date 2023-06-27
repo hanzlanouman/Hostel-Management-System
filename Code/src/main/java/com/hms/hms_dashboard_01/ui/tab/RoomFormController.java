@@ -3,8 +3,7 @@ package com.hms.hms_dashboard_01.ui.tab;
 import com.hms.hms_dashboard_01.DTO.RoomDTO;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.RoomFormValidator;
-import com.hms.hms_dashboard_01.controllers.RoomManager;
-import com.hms.hms_dashboard_01.dal.DALRoomManager;
+import com.hms.hms_dashboard_01.controllers.RoomController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,9 +36,9 @@ public class RoomFormController implements Initializable {
     @FXML
     private ChoiceBox<String> roomBuilding;
 
-    private RoomController roomController;
-    public void setRoomController(RoomController roomController) {
-        this.roomController = roomController;
+    private RoomTabController roomTabController;
+    public void setRoomController(RoomTabController roomTabController) {
+        this.roomTabController = roomTabController;
     }
 
     public void addRoom(ActionEvent e){
@@ -66,7 +65,7 @@ public class RoomFormController implements Initializable {
         if (validationError != null) {
             showAlert(validationError);
         } else {
-            String response = RoomManager.addRoom(room);
+            String response = RoomController.addRoom(room);
             if (Objects.equals(response, "success")) {
                 successClose();
             } else {
@@ -89,7 +88,7 @@ public class RoomFormController implements Initializable {
         alert.setHeaderText("Success");
         alert.setContentText("Room Added Successfully");
         alert.showAndWait();
-        roomController.updateRoomTable();
+        roomTabController.updateRoomTable();
         Stage stage = (Stage) roomNo.getScene().getWindow();
         stage.close();
     }

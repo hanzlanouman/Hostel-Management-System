@@ -1,6 +1,6 @@
 package com.hms.hms_dashboard_01.ui.tab;
 
-import com.hms.hms_dashboard_01.controllers.RoomManager;
+import com.hms.hms_dashboard_01.controllers.RoomController;
 import com.hms.hms_dashboard_01.dal.DALRoomManager;
 import com.hms.hms_dashboard_01.model.entities.Room;
 import com.hms.hms_dashboard_01.utility.path;
@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RoomController implements Initializable  {
+public class RoomTabController implements Initializable  {
 
     @FXML
     private TableView<Room> roomTable;
@@ -44,7 +44,7 @@ public class RoomController implements Initializable  {
 
 
 //    Holds the data for the table view in the room tab of the admin/warden
-    ObservableList<Room> roomList = FXCollections.observableArrayList(DALRoomManager.getAllRooms());
+    ObservableList<Room> roomList = FXCollections.observableArrayList(RoomController.getAllRooms());
 // Assign the values to the columns of the table view in the room tab of the admin/warden
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -88,7 +88,7 @@ public class RoomController implements Initializable  {
             alert.showAndWait();
             return;
         }
-        RoomManager.deleteRoom(room.getRoomNo() );
+        RoomController.deleteRoom(room.getRoomNo() );
         updateRoomTable();
     }
 

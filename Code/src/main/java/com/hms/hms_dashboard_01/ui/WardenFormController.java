@@ -3,8 +3,7 @@ package com.hms.hms_dashboard_01.ui;
 import com.hms.hms_dashboard_01.DTO.WardenDTO;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.wardenFormValidator;
-import com.hms.hms_dashboard_01.controllers.WardenManager;
-import com.hms.hms_dashboard_01.dal.DALWardenManager;
+import com.hms.hms_dashboard_01.controllers.WardenController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -44,7 +43,7 @@ public class WardenFormController {
         if (validationError != null) {
             showAlert(validationError);
         } else {
-            WardenManager.addWarder(warden);
+            WardenController.addWarder(warden);
             successClose();
         }
     }

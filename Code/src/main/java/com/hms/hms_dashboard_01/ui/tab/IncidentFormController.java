@@ -3,8 +3,7 @@ package com.hms.hms_dashboard_01.ui.tab;
 import com.hms.hms_dashboard_01.DTO.IncidentDTO;
 import com.hms.hms_dashboard_01.Validators.IncidentFormValidator;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
-import com.hms.hms_dashboard_01.controllers.IncidentManager;
-import com.hms.hms_dashboard_01.dal.DALIncidentManager;
+import com.hms.hms_dashboard_01.controllers.IncidentController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -33,10 +32,10 @@ public class IncidentFormController {
     @FXML
     private TextArea Description;
 
-    private IncidentController incidentController;
+    private IncidentTabController incidentTabController;
 
-    public void setIncidentController(IncidentController incidentController) {
-        this.incidentController = incidentController;
+    public void setIncidentController(IncidentTabController incidentTabController) {
+        this.incidentTabController = incidentTabController;
     }
 
     public void addIncident(ActionEvent e) {
@@ -76,12 +75,12 @@ public class IncidentFormController {
         } else {
 
             // Show Confirmation alert and close the stage
-            IncidentManager.addIncident(incident);
+            IncidentController.addIncident(incident);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Success");
             alert.setHeaderText("Incident Registered!");
             alert.setContentText("Incident Registered Successfully");
-            incidentController.updateIncidentTable();
+            incidentTabController.updateIncidentTable();
             alert.showAndWait();
             Stage stage = (Stage) IncidentId.getScene().getWindow();
             stage.close();

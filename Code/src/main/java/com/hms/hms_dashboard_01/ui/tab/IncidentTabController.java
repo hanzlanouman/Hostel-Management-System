@@ -1,7 +1,6 @@
 package com.hms.hms_dashboard_01.ui.tab;
 
-import com.hms.hms_dashboard_01.controllers.IncidentManager;
-import com.hms.hms_dashboard_01.dal.DALIncidentManager;
+import com.hms.hms_dashboard_01.controllers.IncidentController;
 import com.hms.hms_dashboard_01.model.entities.Incident;
 import com.hms.hms_dashboard_01.utility.path;
 import javafx.collections.FXCollections;
@@ -23,7 +22,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class IncidentController implements Initializable {
+public class IncidentTabController implements Initializable {
 
     @FXML
     private TableColumn<Incident, Integer> IncidentId;
@@ -45,7 +44,7 @@ public class IncidentController implements Initializable {
     @FXML
     private TableView<Incident> IncidentTable;
 
-    ObservableList<Incident> IncidentList = FXCollections.observableArrayList(Objects.requireNonNull(DALIncidentManager.getAllIncidents()));
+    ObservableList<Incident> IncidentList = FXCollections.observableArrayList(Objects.requireNonNull(IncidentController.getAllIncidents()));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -76,7 +75,7 @@ public class IncidentController implements Initializable {
 
     public void updateIncidentTable(){
         IncidentList.clear();
-        IncidentList.addAll(DALIncidentManager.getAllIncidents());
+        IncidentList.addAll(Objects.requireNonNull(IncidentController.getAllIncidents()));
 
     }
 
@@ -99,7 +98,7 @@ public class IncidentController implements Initializable {
             alert.setContentText("Are you sure you want to resolve this incident?");
             alert.showAndWait();
             if(alert.getResult().getText().equals("OK")){
-                IncidentManager.deleteIncident(incident.getIncidentId());
+                IncidentController.deleteIncident(incident.getIncidentId());
                 updateIncidentTable();
                 Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                 alert1.setTitle("Success");

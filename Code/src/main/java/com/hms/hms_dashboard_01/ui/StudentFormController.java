@@ -2,9 +2,8 @@ package com.hms.hms_dashboard_01.ui;
 
 import com.hms.hms_dashboard_01.DTO.StudentDTO;
 import com.hms.hms_dashboard_01.Validators.StudentFormValidator;
-import com.hms.hms_dashboard_01.controllers.StudentManager;
-import com.hms.hms_dashboard_01.ui.tab.StudentController;
-import com.hms.hms_dashboard_01.dal.DALStudentManager;
+import com.hms.hms_dashboard_01.controllers.StudentController;
+import com.hms.hms_dashboard_01.ui.tab.StudentTabController;
 import com.hms.hms_dashboard_01.model.entities.Student;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -16,7 +15,7 @@ import javafx.stage.Stage;
 
 public class StudentFormController {
 
-    private StudentController studentController;
+    private StudentTabController studentTabController;
     private Student student = new Student();
 
     @FXML
@@ -46,8 +45,8 @@ public class StudentFormController {
     @FXML
     private TextField studentname;
 
-    public void setStudentController(StudentController studentController) {
-        this.studentController = studentController;
+    public void setStudentController(StudentTabController studentTabController) {
+        this.studentTabController = studentTabController;
     }
 
     public void setStudent(Student student) {
@@ -71,7 +70,7 @@ public class StudentFormController {
             alert.setContentText(validationError);
             alert.showAndWait();
         } else {
-            StudentManager.addStudent(studentDTO);
+            StudentController.addStudent(studentDTO);
             // Show success alert and close the stage
             Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Success");
