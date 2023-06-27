@@ -1,5 +1,7 @@
 package com.hms.hms_dashboard_01.controller.tab;
 
+import com.hms.hms_dashboard_01.controller.StudentFormController;
+import com.hms.hms_dashboard_01.dal.DALStudentManager;
 import com.hms.hms_dashboard_01.model.entities.Student;
 import com.hms.hms_dashboard_01.utility.path;
 import javafx.collections.FXCollections;
@@ -10,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -43,21 +46,20 @@ public class StudentController implements Initializable {
     @FXML
     private TableView<Student> studentTable;
 
-    ObservableList<Student> studentList = FXCollections.observableArrayList(
-            new Student(1, "Ali", "123456789", "ali@email.com"),
-            new Student(2, "Ahmed", "123456789", "ahmed@email.com")
-
-    );
+    ObservableList<Student> studentList = FXCollections.observableArrayList(Objects.requireNonNull(DALStudentManager.getAllStudents()));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadTable();
+
+    }
+    public void loadTable(){
         studentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         studentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
         studentContact.setCellValueFactory(new PropertyValueFactory<>("studentContact"));
         studentEmail.setCellValueFactory(new PropertyValueFactory<>("studentEmail"));
 
         studentTable.setItems(studentList);
-
     }
 
     public void refresh(){
@@ -83,6 +85,50 @@ public class StudentController implements Initializable {
         stage.show();
     }
 
+    public void deleteStudent(ActionEvent actionEvent) {
+        Student student = studentTable.getSelectionModel().getSelectedItem();
+        if(student != null){
+            DALStudentManager.deleteStudent(student.getStudentId());
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No Student Selected");
+            alert.setContentText("Please select a student to delete");
+            alert.showAndWait();
+
+        }
+        refresh();
+    }
+
+
+    public void modifyStudent(ActionEvent e) {
+
+//        open the modify student form
+        Student student = studentTable.getSelectionModel().getSelectedItem();
+        if (student != null) {
+            try {
+                Stage stage = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(path.getPath("tab", "StudentTab_add")));
+                Parent root1 = loader.load();
+                StudentFormController studentFormController = loader.getController();
+                studentFormController.setStudentController(this);
+                studentFormController.setStudent(student);
+                stage.setTitle("Modify Student");
+                stage.setScene(new Scene(root1, 1054, 650));
+                stage.show();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No Student Selected");
+            alert.setContentText("Please select a student to modify");
+            alert.showAndWait();
+        }
+
+
+    }
 }
 
 

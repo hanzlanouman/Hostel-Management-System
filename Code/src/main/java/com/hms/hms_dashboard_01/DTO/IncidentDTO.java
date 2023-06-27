@@ -22,7 +22,7 @@ public class IncidentDTO {
     public void setIncidentId(Integer IncidentId ) {
         this.IncidentId = IncidentId;
     }
-    public Integer getIncidentId() {
+    public int getIncidentId() {
         return IncidentId;
     }
     public void setDate(String Date) {

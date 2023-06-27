@@ -14,21 +14,31 @@ public class DALRoomManager {
 
     static Connection conn = DatabaseConnection.getConnection();
     public static String addRoom(RoomDTO room) {
-        try {
-            Statement stmt = conn.createStatement();
-            String query = "INSERT INTO ROOMS (roomNo, roomType, roomCapacity, roomFloor, roomAvb, roomStatus, roomFee, roomAssignedTo, roomBuilding) " +
-                    "VALUES (" + room.getRoomNo() + ", '" + room.getRoomType() + "', '" + room.getRoomCapacity() + "', '" + room.getRoomFloor() + "', '" + room.getRoomAvb() + "', '" + room.getRoomStatus() + "', " +
-                    room.getRoomFee() + ", '" + room.getRoomAssignedTo() + "', '" + room.getRoomBuilding() + "')";
+        String query = "INSERT INTO ROOMS (roomNo, roomType, roomCapacity, roomFloor, roomAvb, roomStatus, roomFee, roomAssignedTo, roomBuilding) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            stmt.executeUpdate(query);
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, room.getRoomNo());
+            pstmt.setString(2, room.getRoomType());
+            pstmt.setString(3, room.getRoomCapacity());
+            pstmt.setString(4, room.getRoomFloor());
+            pstmt.setString(5, room.getRoomAvb());
+            pstmt.setString(6, room.getRoomStatus());
+            pstmt.setInt(7, room.getRoomFee());
+            pstmt.setString(8, room.getRoomAssignedTo());
+            pstmt.setString(9, room.getRoomBuilding());
+
+            pstmt.executeUpdate();
 
             System.out.println("Data has been inserted into ROOMS table.");
             return "success";
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
         return "fail";
     }
+
 
     public static void DeleteRoom(int roomNo) {
         try {

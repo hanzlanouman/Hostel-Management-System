@@ -4,6 +4,29 @@ import com.hms.hms_dashboard_01.DTO.RoomDTO;
 
 public class RoomFormValidator {
 
-   public static boolean isValidInfo(RoomDTO room){
-        return room.getRoomNo() != 0 && room.getRoomFee() != 0 && room.getRoomType() != null && room.getRoomFloor() != null && room.getRoomAvb() != null && room.getRoomBuilding() != null;
-}}
+    public static String validateFields(RoomDTO room){
+        if(!isNumeric(String.valueOf(room.getRoomNo()))){
+            return "Room number must be a numeric value.";
+        }else if(room.getRoomType() == null || room.getRoomType().isEmpty()){
+            return "Please enter a valid room type.";
+        }else if(room.getRoomStatus() == null || room.getRoomStatus().isEmpty()){
+            return "Please enter a valid room status.";
+        }else if( !isNumeric(String.valueOf(room.getRoomFee()))){
+            return "Please enter a valid room price.";
+        }else if(room.getRoomBuilding() == null || room.getRoomBuilding().isEmpty()){
+            return "Please enter a valid room building.";
+        }else if(room.getRoomFloor() == null || room.getRoomFloor().isEmpty()){
+            return "Please enter a valid room floor.";
+        }
+        return null;
+    }
+    private static boolean isNumeric(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+}

@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -83,7 +84,31 @@ public class IncidentController implements Initializable {
     public void resolveIncident(ActionEvent e) throws IOException {
 //        Delete the selected incident from the database
         Incident incident = IncidentTable.getSelectionModel().getSelectedItem();
-        DALIncidentManager.deleteIncident(incident.getIncidentId());
-        updateIncidentTable();
+        if(incident == null){
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No Incident Selected");
+            alert.setContentText("Please select an incident to resolve");
+            alert.showAndWait();
+
+            return;
+        }else{
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm");
+            alert.setHeaderText("Confirm Incident Resolution");
+            alert.setContentText("Are you sure you want to resolve this incident?");
+            alert.showAndWait();
+            if(alert.getResult().getText().equals("OK")){
+                DALIncidentManager.deleteIncident(incident.getIncidentId());
+                updateIncidentTable();
+                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                alert1.setTitle("Success");
+                alert1.setHeaderText("Incident Resolved");
+                alert1.setContentText("Incident has been resolved");
+                alert1.showAndWait();
+            }
+        }
+
     }
 }

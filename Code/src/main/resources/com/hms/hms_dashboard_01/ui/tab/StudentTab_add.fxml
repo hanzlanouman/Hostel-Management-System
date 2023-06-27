@@ -30,7 +30,7 @@
       <ComboBox fx:id="roomtype" layoutX="199.0" layoutY="363.0" prefHeight="28.0" prefWidth="90.0" promptText="Standard" />
       <Label layoutX="81.0" layoutY="415.0" prefHeight="28.0" prefWidth="90.0" text="Fee Status" />
       <RadioButton fx:id="feestatus" layoutX="199.0" layoutY="420.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="90.0" text="Paid" />
-      <Button layoutX="431.0" layoutY="451.0" mnemonicParsing="false" text="Update Record" textFill="#bf2323" />
+      <Button layoutX="431.0" layoutY="451.0" mnemonicParsing="false" onAction="#addStudent" text="Update Record" textFill="#bf2323" />
       <ComboBox fx:id="roomno" layoutX="440.0" layoutY="371.0" prefHeight="28.0" prefWidth="78.0" promptText="101" />
       <BorderPane prefHeight="54.0" prefWidth="610.0" style="-fx-background-color: brown;">
          <center>

@@ -30,17 +30,17 @@ public class RegisterController {
 //    Needs to have an option to go back to the login page without registering
 
     public void register(ActionEvent event) throws IOException {
-        PendingRegistration.pendingRegistrations.add(new Student(userName.getText(), password.getText()));
-        Alert registered = new Alert(Alert.AlertType.INFORMATION);
-        registered.setTitle("Registration");
-        registered.setHeaderText("Registration Successful");
-        registered.setContentText("Your account is pending approval");
-        registered.showAndWait();
-
-        Parent root = FXMLLoader.load(getClass().getResource(path.getPath("loginregister", "hms_login")));
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+//        PendingRegistration.pendingRegistrations.add(new Student(userName.getText(), password.getText()));
+//        Alert registered = new Alert(Alert.AlertType.INFORMATION);
+//        registered.setTitle("Registration");
+//        registered.setHeaderText("Registration Successful");
+//        registered.setContentText("Your account is pending approval");
+//        registered.showAndWait();
+//
+//        Parent root = FXMLLoader.load(getClass().getResource(path.getPath("loginregister", "hms_login")));
+//        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+//        stage.setScene(new Scene(root));
+//        stage.show();
 
     }
 

@@ -1,50 +1,44 @@
-//package com.hms.hms_dashboard_01.Validators;
-//import javafx.scene.control.TextField;
-//
-//public class IncidentFormValidator {
-//    //Response
-//    //use database to insert the fields into the database
-//    //Make one validator to validate all the fields for Forms
-//    public static boolean validateIncidentDetails(TextField Date, TextField Day, TextField Location, TextField Time, TextField Description) {
-//        if (Date.getText().isEmpty() || Day.getText().isEmpty() || Location.getText().isEmpty() ||
-//                Time.getText().isEmpty() || Description.getText().isEmpty()) {
-//            System.out.println("Please fill in all fields.");
-//            return false;
-//        }
-//        // Additional validation logic for specific fields
-//        if (!isValidDate(Date.getText())) {
-//            System.out.println("Invalid date format. Please enter a valid date.");
-//            return false;
-//        }
-//
-//        if (!isValidTime(Time.getText())) {
-//            System.out.println("Invalid time format. Please enter a valid time.");
-//            return false;
-//        }
-//
-//        return true;
-//    }
-//
-//    private static boolean isValidDate(String date) {
-//        // Example: Check if the date follows a specific format (YYYY-MM-DD)
-//        String regex = "\\d{4}-\\d{2}-\\d{2}";
-//        return date.matches(regex);
-//    }
-//
-//    private static boolean isValidTime(String Time) {
-//        // Example: Check if the time follows a specific format (HH:mm)
-//        String regex = "\\d{2}:\\d{2}";
-//        return Time.matches(regex);
-//    }
-//
-//    }
-//
-
 package com.hms.hms_dashboard_01.Validators;
+
 import com.hms.hms_dashboard_01.DTO.IncidentDTO;
+import javafx.beans.value.ObservableStringValue;
 
 public class IncidentFormValidator {
 
-    public static boolean isValidInfo(IncidentDTO incident){
-        return incident.getIncidentId() != null && incident.getDate() != null && incident.getDay() != null && incident.getLocation() != null && incident.getTime() != null && incident.getDescription() != null ;
-    }}
+    public static String validateIncidentDetails(IncidentDTO incident) {
+        if (!isNumeric(String.valueOf(incident.getIncidentId()))) {
+            return "Incident ID must be a numeric value.";
+        }
+
+        if (isEmpty(incident.getDay())) {
+            return "Please enter a valid day.";
+        }
+
+        if (isEmpty(incident.getDate())) {
+            return "Please enter a valid date.";
+        }
+
+        if (isEmpty(incident.getLocation())) {
+            return "Please enter a valid location.";
+        }
+
+        if (isEmpty(incident.getTime())) {
+            return "Please enter a valid time.";
+        }
+
+        if (isEmpty(incident.getDescription())) {
+            return "Please enter a valid description.";
+        }
+
+        return null; // Indicates no validation errors
+    }
+
+    private static boolean isEmpty(String value) {
+        return value == null || value.trim().isEmpty();
+    }
+
+    private static boolean isNumeric(String value) {
+        return value != null && value.matches("\\d+");
+    }
+}
+

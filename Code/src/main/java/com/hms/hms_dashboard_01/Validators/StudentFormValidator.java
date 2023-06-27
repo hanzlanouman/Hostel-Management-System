@@ -1,34 +1,25 @@
 package com.hms.hms_dashboard_01.Validators;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import com.hms.hms_dashboard_01.DTO.StudentDTO;
 
 public class StudentFormValidator {
 
-
-    public static boolean validateFields(TextField id, TextField studentname, TextField contact,
-                                         TextField email, TextField fathername, RadioButton feestatus,
-                                         TextField adress, ComboBox<?> roomno, ComboBox<?> roomtype) {
-        if (id.getText().isEmpty() || studentname.getText().isEmpty() || contact.getText().isEmpty() ||
-                email.getText().isEmpty() || fathername.getText().isEmpty() || adress.getText().isEmpty() ||
-                roomno.getValue() == null || roomtype.getValue() == null) {
-            System.out.println("Please fill in all fields.");
-            return false;
+    public static String validateFields(StudentDTO student) {
+        if (student.getRollNo().isEmpty() || student.getStudentName().isEmpty() || student.getStudentContact().isEmpty()
+                || student.getEmail().isEmpty() || student.getAddress().isEmpty()){
+            return "Please fill in all fields.";
         }
 
         // Additional validation logic
-        if (!isNumeric(id.getText())) {
-            System.out.println("ID must be a numeric value.");
-            return false;
+        if (!isNumeric(student.getRollNo())) {
+            return "ID must be a numeric value.";
         }
 
-        if (!isValidContactNo(contact.getText())) {
-            System.out.println("Invalid contact number. Please enter a valid phone number.");
-            return false;
+        if (!isValidContactNo(student.getStudentContact())) {
+            return "Invalid contact number. Please enter a valid phone number.";
         }
 
-        return true;
+        return null; // Indicates no validation errors
     }
 
     private static boolean isNumeric(String input) {
@@ -41,11 +32,8 @@ public class StudentFormValidator {
     }
 
     private static boolean isValidContactNo(String contactNo) {
-        // Example: Regular expression validation for a 11-digit phone number
+        // Example: Regular expression validation for an 11-digit phone number
         String regex = "\\d{11}";
         return contactNo.matches(regex);
     }
-
 }
-
-

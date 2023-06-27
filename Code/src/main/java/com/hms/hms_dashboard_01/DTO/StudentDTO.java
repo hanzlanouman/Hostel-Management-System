@@ -90,4 +90,57 @@ public class StudentDTO {
     public void setRoomStatus(String roomStatus) {
         this.roomStatus = roomStatus;
     }
+
+    public String getStudentUsername() {
+        return studentUsername;
+    }
+
+    public void setStudentUsername(String studentUsername) {
+        this.studentUsername = studentUsername;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getStudentEmail() {
+        return studentEmail;
+    }
+
+    public void setStudentEmail(String studentEmail) {
+        this.studentEmail = studentEmail;
+    }
+
+    public String getStudentContact() {
+        return studentContact;
+    }
+
+    public void setStudentContact(String studentContact) {
+        this.studentContact = studentContact;
+    }
+
+    public String getStudentAddress() {
+        return studentAdress;
+    }
+
+    public void setStudentAddress(String studentAdress) {
+        this.studentAdress = studentAdress;
+    }
+
+    public String getStudentPassword() {
+        return studentPassword;
+    }
+
+    public void setStudentPassword(String studentPassword) {
+        this.studentPassword = studentPassword;
+    }
+
+    public String getStudentName(String studentName) {
+        return studentName;
+    }
+
 }

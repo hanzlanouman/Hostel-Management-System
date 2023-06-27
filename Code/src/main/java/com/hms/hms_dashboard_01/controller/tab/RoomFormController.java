@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -46,60 +45,61 @@ public class RoomFormController implements Initializable {
 
     public void addRoom(ActionEvent e){
 
-
         RoomDTO room = HMSFactory.getInstanceOfRoom();
-
-        if (Objects.equals(roomNo.getText(), "") || Objects.equals(roomNo.getText(), null)){
-            room.setRoomNo(0);
-        } else {
-            room.setRoomNo(Integer.parseInt(roomNo.getText()));
+        try {
+            room.setRoomNo(roomNo.getText().isEmpty() ? 0 : Integer.parseInt(roomNo.getText()));
+        } catch (NumberFormatException nfe) {
+            showAlert("Invalid room number");
+            return;
         }
-        if(Objects.equals(roomFee.getText(), "")){
-            room.setRoomFee(0);
-        } else {
-            room.setRoomFee(Integer.parseInt(roomFee.getText()));
+        try {
+            room.setRoomFee(roomFee.getText().isEmpty() ? 0 : Integer.parseInt(roomFee.getText()));
+        } catch (NumberFormatException nfe) {
+            showAlert("Invalid room fee");
+            return;
         }
         room.setRoomType(roomType.getValue());
         room.setRoomStatus(roomAvb.getValue());
         room.setRoomFloor(roomFloor.getValue());
         room.setRoomAvb(roomAvb.getValue());
         room.setRoomBuilding(roomBuilding.getValue());
-        if (!RoomFormValidator.isValidInfo(room)){
-//            Pop an alert saying invalid info
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Information");
-            alert.setHeaderText("Invalid Information");
-            alert.setContentText("Please enter valid information");
-            alert.showAndWait();
-
-        }else{
+        String validationError = RoomFormValidator.validateFields(room);
+        if (validationError != null) {
+            showAlert(validationError);
+        } else {
             String response = DALRoomManager.addRoom(room);
-            if(Objects.equals(response, "success")){
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Success");
-                alert.setHeaderText("Success");
-                alert.setContentText("Room Added Successfully");
-                alert.showAndWait();
-                roomController.updateRoomTable();
-            Stage stage = (Stage) roomNo.getScene().getWindow();
-            stage.close();
-            }else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Error");
-                alert.setContentText("Database Error");
-                alert.showAndWait();
+            if (Objects.equals(response, "success")) {
+                successClose();
+            } else {
+                showAlert("Database Error");
             }
         }
-
-
-
-
     }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public void successClose(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Success");
+        alert.setContentText("Room Added Successfully");
+        alert.showAndWait();
+        roomController.updateRoomTable();
+        Stage stage = (Stage) roomNo.getScene().getWindow();
+        stage.close();
+    }
+
     public void cancel(ActionEvent e){
         Stage stage = (Stage) roomNo.getScene().getWindow();
         stage.close();
     }
+
     public void initialize(URL url, ResourceBundle rb) {
 
 //        Add Choices to Choice Boxes

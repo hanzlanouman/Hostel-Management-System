@@ -20,7 +20,7 @@
          <children>
               <Button layoutX="440.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="126.0" text="Add Student" />
               <Button layoutX="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Delete Student" />
-              <Button layoutX="148.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Modify Student" />
+              <Button layoutX="148.0" mnemonicParsing="false" onAction="#modifyStudent" prefHeight="25.0" prefWidth="126.0" text="Modify Student" />
          </children>
       </Pane>
       <TextField fx:id="searchBar" layoutX="92.0" layoutY="30.0" onInputMethodTextChanged="#search" onKeyTyped="#search" prefHeight="25.0" prefWidth="412.0" />

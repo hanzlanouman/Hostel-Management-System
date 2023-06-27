@@ -1,30 +1,24 @@
 package com.hms.hms_dashboard_01.Validators;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import com.hms.hms_dashboard_01.DTO.WardenDTO;
 
 public class wardenFormValidator {
-    public static boolean validateFields(TextField id, TextField wardenname, TextField contact, TextField email, TextField adress) {
-        if ((Integer.parseInt(id.getText()) == 0 )|| wardenname.getText().isEmpty() || contact.getText().isEmpty() || email.getText().isEmpty() || adress.getText().isEmpty() ){
-            System.out.println("Please fill all fields.");
-            return false;
+
+    public static String validateFields(WardenDTO warden){
+        if(warden.getWardenId() == 0 || warden.getWardenId() < 0){
+            return "Please enter a valid ID.";
+        } else if (!isNumeric(String.valueOf(warden.getWardenId())) ) {
+            return "ID must be a numeric value.";
+        } else if (warden.getWardenName().isEmpty() || warden.getWardenName().length() < 3 || warden.getWardenName().length() > 50 || warden.getWardenName() == null) {
+            return "Please enter a valid warden name.";
+        } else if (warden.getWardenEmail().isEmpty() || warden.getWardenEmail().length() < 3 || warden.getWardenEmail().length() > 50 || warden.getWardenEmail() == null) {
+            return "Please enter a valid email.";
+        } else if (warden.getAddress().isEmpty() || warden.getAddress().length() < 3 || warden.getAddress().length() > 50 || warden.getAddress() == null) {
+            return "Please enter a valid address.";
+        } else if (warden.getWardenContact().isEmpty() || !isNumeric(warden.getWardenContact()) || warden.getWardenContact().length() < 3 || warden.getWardenContact().length() > 50 || warden.getWardenContact() == null) {
+            return "Please enter a valid phone number.";
         }
-
-
-
-        // Additional validation logic
-        if (!isNumeric(id.getText())) {
-            System.out.println("ID must be a numeric value.");
-            return false;
-        }
-
-        if (!isValidPhoneNo(contact.getText())) {
-            System.out.println("Invalid contact number. Please enter a valid phone number.");
-            return false;
-        }
-
-        return true;
+        return null;
     }
 
     private static boolean isNumeric(String input) {
@@ -34,11 +28,5 @@ public class wardenFormValidator {
         } catch (NumberFormatException e) {
             return false;
         }
-    }
-
-    private static boolean isValidPhoneNo(String contactNo) {
-        // Example: Regular expression validation for a 11-digit phone number
-        String regex = "\\d{11}";
-        return contactNo.matches(regex);
     }
 }

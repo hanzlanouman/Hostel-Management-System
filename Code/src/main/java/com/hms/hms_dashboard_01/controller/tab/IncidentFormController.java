@@ -1,4 +1,5 @@
 package com.hms.hms_dashboard_01.controller.tab;
+
 import com.hms.hms_dashboard_01.DTO.IncidentDTO;
 import com.hms.hms_dashboard_01.Validators.IncidentFormValidator;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
@@ -12,16 +13,22 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class IncidentFormController {
+
     @FXML
     private TextField IncidentId;
+
     @FXML
     private TextField Date;
+
     @FXML
     private TextField Day;
+
     @FXML
     private TextField Location;
+
     @FXML
     private TextField Time;
+
     @FXML
     private TextArea Description;
 
@@ -30,38 +37,44 @@ public class IncidentFormController {
     public void setIncidentController(IncidentController incidentController) {
         this.incidentController = incidentController;
     }
-    public void addIncident(ActionEvent e){
 
-        IncidentDTO Incident = HMSFactory.getInstanceOfIncident();
+    public void addIncident(ActionEvent e) {
+        IncidentDTO incident = HMSFactory.getInstanceOfIncident();
 
-        if(Objects.equals(IncidentId.getText(), ""))
-        {
-            Incident.setIncidentId(0);
-        } else
-        {
-            Incident.setIncidentId(Integer.parseInt(IncidentId.getText()));
+        if (Objects.equals(IncidentId.getText(), "")) {
+            incident.setIncidentId(0);
+        } else {
+            try {
+                int id = Integer.parseInt(IncidentId.getText());
+                incident.setIncidentId(id);
+            } catch (NumberFormatException ex) {
+                // Display error message for invalid ID
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid Information");
+                alert.setHeaderText("Invalid Incident ID");
+                alert.setContentText("Please enter a valid numeric value for the Incident ID.");
+                alert.showAndWait();
+                return; // Stop further processing
+            }
         }
-        Incident.setDay(Day.getText());
-        Incident.setDate(Date.getText());
-        Incident.setDescription(Description.getText());
-        Incident.setLocation(Location.getText());
-        Incident.setTime(Time.getText());
 
+        incident.setDay(Day.getText());
+        incident.setDate(Date.getText());
+        incident.setDescription(Description.getText());
+        incident.setLocation(Location.getText());
+        incident.setTime(Time.getText());
 
-        if (!IncidentFormValidator.isValidInfo(Incident)){
-//            Pop an alert saying invalid info
+        String validationError = IncidentFormValidator.validateIncidentDetails(incident);
+        if (validationError != null) {
+            // Display specific error message based on the validation error
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Invalid Information");
             alert.setHeaderText("Invalid Information");
-            alert.setContentText("Please enter valid information");
+            alert.setContentText(validationError);
             alert.showAndWait();
-
-        }
-
-        else
-        {
-            DALIncidentManager.addIncident(Incident);
-            //            Show Confirmation alert and close the stage
+        } else {
+            DALIncidentManager.addIncident(incident);
+            // Show Confirmation alert and close the stage
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Success");
             alert.setHeaderText("Incident Registered!");
@@ -71,6 +84,6 @@ public class IncidentFormController {
             Stage stage = (Stage) IncidentId.getScene().getWindow();
             stage.close();
         }
-
     }
+
 }

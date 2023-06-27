@@ -3,12 +3,21 @@ package com.hms.hms_dashboard_01.controller;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.DTO.StudentDTO;
 import com.hms.hms_dashboard_01.Validators.StudentFormValidator;
+import com.hms.hms_dashboard_01.controller.tab.StudentController;
+import com.hms.hms_dashboard_01.dal.DALStudentManager;
+import com.hms.hms_dashboard_01.model.entities.Student;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 
 public class StudentFormController {
+
+    private StudentController studentController;
+    private Student student = new Student();
 
     @FXML
     private TextField adress;
@@ -37,24 +46,40 @@ public class StudentFormController {
     @FXML
     private TextField studentname;
 
+    public void setStudentController(StudentController studentController) {
+        this.studentController = studentController;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     public void addStudent() {
-        if (StudentFormValidator.validateFields(id, studentname, contact, email, fathername, feestatus, adress, roomno, roomtype)) {
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setRollNo(id.getText());
+        studentDTO.setStudentName(studentname.getText());
+        studentDTO.setEmail(email.getText());
+        studentDTO.setAddress(adress.getText());
+        studentDTO.setStudentContact(contact.getText());
 
-            StudentDTO student = HMSFactory.getInstanceOfStudent();
-            student.setRollNo(id.getText());
-            student.setStudentName(studentname.getText());
-            student.setEmail(email.getText());
-            student.setAddress(adress.getText());
-
-            System.out.println("Student added");
-            System.out.println("Roll No: " + student.getRollNo());
-            System.out.println("Student Name: " + student.getStudentName());
-            System.out.println("Email: " + student.getEmail());
-            System.out.println("Address: " + student.getAddress());
-
-            //further operations with the student object
+        String validationError = StudentFormValidator.validateFields(studentDTO);
+        if (validationError != null) {
+            // Display specific error message based on the validation error
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Information");
+            alert.setHeaderText("Invalid Information");
+            alert.setContentText(validationError);
+            alert.showAndWait();
+        } else {
+            DALStudentManager.addStudent(studentDTO);
+            // Show success alert and close the stage
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("Student Added!");
+            alert.setContentText("Student added successfully");
+            alert.showAndWait();
+            Stage stage = (Stage) id.getScene().getWindow();
+            stage.close();
         }
     }
 }
-
-
