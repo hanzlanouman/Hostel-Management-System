@@ -58,6 +58,6 @@ public class WardensController implements Initializable {
 
     public void deleteWarden(ActionEvent e) {
         WardenDTO warden = wardenTable.getSelectionModel().getSelectedItem();
-        DALWardenManager.deleteWarden(warden.getWardenId());
+//        DALWardenManager.deleteWarden(warden.getWardenId());
     }
 }

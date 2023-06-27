@@ -4,6 +4,7 @@ import com.hms.hms_dashboard_01.DTO.RoomDTO;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.RoomFormValidator;
 import com.hms.hms_dashboard_01.dal.DALRoomManager;
+import com.hms.hms_dashboard_01.model.entities.Room;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,13 +39,17 @@ public class RoomFormController implements Initializable {
     @FXML
     private ChoiceBox<String> roomBuilding;
 
+    private RoomController roomController;
+    public void setRoomController(RoomController roomController) {
+        this.roomController = roomController;
+    }
 
     public void addRoom(ActionEvent e){
 
 
         RoomDTO room = HMSFactory.getInstanceOfRoom();
 
-        if (Objects.equals(roomNo.getText(), "")) {
+        if (Objects.equals(roomNo.getText(), "") || Objects.equals(roomNo.getText(), null)){
             room.setRoomNo(0);
         } else {
             room.setRoomNo(Integer.parseInt(roomNo.getText()));
@@ -55,6 +60,7 @@ public class RoomFormController implements Initializable {
             room.setRoomFee(Integer.parseInt(roomFee.getText()));
         }
         room.setRoomType(roomType.getValue());
+        room.setRoomStatus(roomAvb.getValue());
         room.setRoomFloor(roomFloor.getValue());
         room.setRoomAvb(roomAvb.getValue());
         room.setRoomBuilding(roomBuilding.getValue());
@@ -74,6 +80,7 @@ public class RoomFormController implements Initializable {
                 alert.setHeaderText("Success");
                 alert.setContentText("Room Added Successfully");
                 alert.showAndWait();
+                roomController.updateRoomTable();
             Stage stage = (Stage) roomNo.getScene().getWindow();
             stage.close();
             }else{
@@ -101,4 +108,5 @@ public class RoomFormController implements Initializable {
         roomAvb.getItems().addAll("Available", "Unavailable");
         roomBuilding.getItems().addAll("A", "B", "C", "D", "E", "F", "G", "H");
     }
+
 }
