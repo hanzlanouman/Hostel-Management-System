@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="506.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.StudentFormController">
+<AnchorPane prefHeight="506.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.StudentFormController">
    <children>
       <Label layoutX="86.0" layoutY="86.0" prefHeight="26.0" prefWidth="90.0" text="Student Name " />
       <Label layoutX="85.0" layoutY="126.0" prefHeight="26.0" prefWidth="83.0" text="Father Name " />

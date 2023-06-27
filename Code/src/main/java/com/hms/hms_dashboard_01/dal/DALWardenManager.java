@@ -52,4 +52,19 @@ public class DALWardenManager {
 
         return wardens;
     }
+
+    public static void deleteWarden(int id){
+
+        try {
+            Statement stmt = conn.createStatement();
+            String query = "DELETE FROM Wardens WHERE WardenId = " + id;
+
+            stmt.executeUpdate(query);
+
+            System.out.println("Data has been deleted from Wardens table.");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

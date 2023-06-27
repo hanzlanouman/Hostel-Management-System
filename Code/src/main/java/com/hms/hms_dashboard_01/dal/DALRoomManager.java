@@ -40,7 +40,7 @@ public class DALRoomManager {
     }
 
 
-    public static void DeleteRoom(int roomNo) {
+    public static void deleteRoom(int roomNo) {
         try {
             Statement stmt = conn.createStatement();
             String query = "DELETE FROM ROOMS WHERE roomNo = " + roomNo;
