@@ -23,7 +23,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="266.0" layoutY="521.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="156.0" text="Resolve Incident">
+      <Button layoutX="266.0" layoutY="521.0" mnemonicParsing="false" onAction="#resolveIncident" prefHeight="37.0" prefWidth="156.0" text="Resolve Incident">
          <font>
             <Font size="14.0" />
          </font>

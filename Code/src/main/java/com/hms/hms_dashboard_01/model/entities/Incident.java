@@ -3,7 +3,6 @@ package com.hms.hms_dashboard_01.model.entities;
 public class Incident {
 
 
-    //    private String IncidentType;
     private Integer IncidentId;
     private String Date;
     private String Time;
@@ -20,8 +19,10 @@ public class Incident {
         this.Time = Time;
 
     }
-
-    public void setIncidentId(Integer IncidentId ) {this.IncidentId = IncidentId;}
+    public Incident(){};
+    public void setIncidentId(Integer IncidentId ) {
+        this.IncidentId = IncidentId;
+    }
     public Integer getIncidentId() {
         return IncidentId;
     }
@@ -31,7 +32,7 @@ public class Incident {
     public String getDate() {
         return Date;
     }
-    public void setDay(String Date) {
+    public void setDay(String Day) {
         this.Day = Day;
     }
     public String getDay() {
@@ -53,8 +54,6 @@ public class Incident {
         return Description;
     }
     public void setDescription(String Description) {
-        this.Time = Description;
+        this.Description = Description;
     }
-
-
 }

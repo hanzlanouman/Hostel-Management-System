@@ -24,6 +24,12 @@ public class IncidentFormController {
     private TextField Time;
     @FXML
     private TextArea Description;
+
+    private IncidentController incidentController;
+
+    public void setIncidentController(IncidentController incidentController) {
+        this.incidentController = incidentController;
+    }
     public void addIncident(ActionEvent e){
 
         IncidentDTO Incident = HMSFactory.getInstanceOfIncident();
@@ -60,6 +66,7 @@ public class IncidentFormController {
             alert.setTitle("Success");
             alert.setHeaderText("Incident Registered!");
             alert.setContentText("Incident Registered Successfully");
+            incidentController.updateIncidentTable();
             alert.showAndWait();
             Stage stage = (Stage) IncidentId.getScene().getWindow();
             stage.close();
