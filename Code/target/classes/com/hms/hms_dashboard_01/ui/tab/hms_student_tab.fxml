@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.controller.tab.StudentController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.StudentTabController">
     <children>
         <TableView fx:id="studentTable" layoutX="-14.0" layoutY="69.0" prefHeight="463.0" prefWidth="700.0">
             <columns>
@@ -20,7 +20,7 @@
          <children>
               <Button layoutX="440.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="126.0" text="Add Student" />
               <Button layoutX="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Delete Student" />
-              <Button layoutX="148.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Modify Student" />
+              <Button layoutX="148.0" mnemonicParsing="false" onAction="#modifyStudent" prefHeight="25.0" prefWidth="126.0" text="Modify Student" />
          </children>
       </Pane>
       <TextField fx:id="searchBar" layoutX="92.0" layoutY="30.0" onInputMethodTextChanged="#search" onKeyTyped="#search" prefHeight="25.0" prefWidth="412.0" />
