@@ -86,10 +86,17 @@ public class RoomTabController implements Initializable  {
             alert.setHeaderText("No room selected");
             alert.setContentText("Please select a room to delete");
             alert.showAndWait();
-            return;
+        }else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Delete room");
+            alert.setContentText("Are you sure you want to delete this room?");
+            if(alert.showAndWait().get().getText().equals("OK")){
+                RoomController.deleteRoom(room.getRoomNo());
+                updateRoomTable();
+            }
         }
-        RoomController.deleteRoom(room.getRoomNo() );
-        updateRoomTable();
+
     }
 
 }

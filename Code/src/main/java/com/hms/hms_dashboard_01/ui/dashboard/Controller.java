@@ -1,5 +1,6 @@
 package com.hms.hms_dashboard_01.ui.dashboard;
 
+import com.hms.hms_dashboard_01.utility.Session;
 import com.hms.hms_dashboard_01.utility.path;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -72,7 +73,8 @@ Button roomButton;
 
         Parent root = FXMLLoader.load(getClass().getResource(path.getPath("loginregister", "hms_login")));
         Stage stage = (Stage) logoutButton.getScene().getWindow();
-
+//        Destroy the session
+            Session.destroySession();
         stage.setScene(new Scene(root));
         stage.show();
         }

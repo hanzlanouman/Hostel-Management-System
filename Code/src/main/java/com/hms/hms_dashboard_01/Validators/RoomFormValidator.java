@@ -1,6 +1,7 @@
 package com.hms.hms_dashboard_01.Validators;
 
 import com.hms.hms_dashboard_01.DTO.RoomDTO;
+import com.hms.hms_dashboard_01.utility.Session;
 
 public class RoomFormValidator {
 
@@ -17,6 +18,8 @@ public class RoomFormValidator {
             return "Please enter a valid room building.";
         }else if(room.getRoomFloor() == null || room.getRoomFloor().isEmpty()){
             return "Please enter a valid room floor.";
+        }else if(Session.getRole()!= "admin"){
+            return "You are not authorized to perform this action.";
         }
         return null;
     }
