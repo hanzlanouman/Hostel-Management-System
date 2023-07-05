@@ -9,8 +9,6 @@ import java.util.List;
 public class DALIncidentManager {
 
     static Connection conn = DatabaseConnection.getConnection();
-
-
     public static void addIncident(IncidentDTO incident) {
         try {
             String query = "INSERT INTO Incidents (incidentid, inc_date, day, location, description, incidenttime) VALUES (?, ?, ?, ?, ?, ?)";
