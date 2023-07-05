@@ -27,7 +27,7 @@ public class DALIncidentManager {
 
             System.out.println("Data has been inserted into Incidents table.");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                        System.out.println(e.getMessage());
         }
     }
 
