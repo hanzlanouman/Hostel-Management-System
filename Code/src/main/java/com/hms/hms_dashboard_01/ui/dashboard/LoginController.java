@@ -21,7 +21,7 @@ import java.util.Objects;
 
 public class LoginController {
 
-    private String adminUser = "admin";
+    private String adminUser = "warden";
     private String adminPassword = "123";
 
     private String cookUser = "cook";

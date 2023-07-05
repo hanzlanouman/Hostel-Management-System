@@ -8,6 +8,8 @@ public class Session {
         return role;
     }
 
+
+
     public static void setRole(String role) {
         Session.role = role;
     }
