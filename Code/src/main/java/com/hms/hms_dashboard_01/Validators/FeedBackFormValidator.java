@@ -1,4 +1,5 @@
 package com.hms.hms_dashboard_01.Validators;
+import com.hms.hms_dashboard_01.utility.Session;
 import javafx.scene.control.TextField;
 public class FeedBackFormValidator {
 
@@ -25,6 +26,9 @@ public class FeedBackFormValidator {
         if (!isValidContactNo(Contact_No.getText())) {
             System.out.println("Invalid contact number. Please enter a valid phone number.");
             return false;
+        }
+        if(Session.getRole()!= "admin"){
+            System.out.println("You are not authorized to perform this action.");
         }
 
         return true;

@@ -4,7 +4,6 @@ import com.hms.hms_dashboard_01.DTO.RoomDTO;
 import com.hms.hms_dashboard_01.utility.Session;
 
 public class RoomFormValidator {
-
     public static String validateFields(RoomDTO room){
         if(!isNumeric(String.valueOf(room.getRoomNo()))){
             return "Room number must be a numeric value.";
