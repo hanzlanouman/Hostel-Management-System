@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.IncidentTabController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.IncidentTabController">
     <children>
-        <TableView fx:id="IncidentTable" layoutY="-8.0" prefHeight="520.0" prefWidth="700.0">
+        <TableView fx:id="IncidentTable" prefHeight="534.0" prefWidth="700.0">
             <columns>
                 <TableColumn fx:id="IncidentId" prefWidth="93.9998779296875" text="IncidentId" />
                 <TableColumn fx:id="Day" prefWidth="164.00003564357758" text="Day" />
@@ -18,12 +18,12 @@
                 <TableColumn fx:id="Description" minWidth="9.33331298828125" prefWidth="100.66677856445312" text="Descriptiion" />
             </columns>
         </TableView>
-      <Button layoutX="438.0" layoutY="521.0" mnemonicParsing="false" onAction="#addIncident" prefHeight="37.0" prefWidth="110.0" text="Add Incident">
+      <Button layoutX="526.0" layoutY="547.0" mnemonicParsing="false" onAction="#addIncident" prefHeight="30.0" prefWidth="110.0" text="Add Incident">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="266.0" layoutY="521.0" mnemonicParsing="false" onAction="#resolveIncident" prefHeight="37.0" prefWidth="156.0" text="Resolve Incident">
+      <Button layoutX="316.0" layoutY="547.0" mnemonicParsing="false" onAction="#resolveIncident" prefHeight="27.0" prefWidth="156.0" text="Resolve Incident">
          <font>
             <Font size="14.0" />
          </font>
