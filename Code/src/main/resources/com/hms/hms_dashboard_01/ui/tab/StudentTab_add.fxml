@@ -9,35 +9,59 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="554.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.StudentFormController">
+<AnchorPane prefHeight="591.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.StudentFormController">
    <children>
-      <Label layoutX="86.0" layoutY="86.0" prefHeight="26.0" prefWidth="90.0" text="Student Name " />
-      <Label layoutX="85.0" layoutY="126.0" prefHeight="26.0" prefWidth="83.0" text="Father Name " />
-      <Label layoutX="82.0" layoutY="165.0" prefHeight="26.0" prefWidth="126.0" text="Permenent Adress" />
-      <Label layoutX="80.0" layoutY="299.0" prefHeight="26.0" prefWidth="77.0" text="Contact No." />
-      <Label layoutX="80.0" layoutY="256.0" prefHeight="26.0" prefWidth="59.0" text="Email Id" />
-      <Label layoutX="80.0" layoutY="211.0" prefHeight="26.0" prefWidth="102.0" text="Registration No" />
-      <TextField fx:id="studentname" layoutX="253.0" layoutY="87.0" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="fathername" layoutX="253.0" layoutY="126.0" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="adress" layoutX="253.0" layoutY="165.0" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="id" layoutX="253.0" layoutY="211.0" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="email" layoutX="253.0" layoutY="256.0" prefHeight="26.0" prefWidth="266.0" />
-      <TextField fx:id="contact" layoutX="253.0" layoutY="299.0" prefHeight="26.0" prefWidth="266.0" />
-      <Label layoutX="187.0" layoutY="364.0" prefHeight="26.0" prefWidth="90.0" text="Room Type" />
-      <Label layoutX="182.0" layoutY="406.0" prefHeight="28.0" prefWidth="90.0" text="Fee Status" />
-      <RadioButton fx:id="feestatus" layoutX="281.0" layoutY="410.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="90.0" text="Paid" />
-      <Button layoutX="439.0" layoutY="466.0" mnemonicParsing="false" onAction="#addStudent" style="-fx-background-color: blue;" text="Update Record" textFill="#f7f7f7">
+      <Label layoutX="212.0" layoutY="98.0" prefHeight="26.0" prefWidth="102.0" text="Student Name ">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="206.0" layoutY="139.0" prefHeight="26.0" prefWidth="90.0" text="Father Name ">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="203.0" layoutY="184.0" prefHeight="26.0" prefWidth="126.0" text="Permenent Adress">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="200.0" layoutY="325.0" prefHeight="26.0" prefWidth="83.0" text="Contact No.">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="200.0" layoutY="282.0" prefHeight="26.0" prefWidth="66.0" text="UserName">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="200.0" layoutY="237.0" prefHeight="26.0" prefWidth="102.0" text="Registration No">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="studentname" layoutX="395.0" layoutY="98.0" prefHeight="26.0" prefWidth="266.0" promptText="Laiba" />
+      <TextField fx:id="fathername" layoutX="395.0" layoutY="139.0" prefHeight="26.0" prefWidth="266.0" promptText="Tahir Majeed" />
+      <TextField fx:id="adress" layoutX="395.0" layoutY="191.0" prefHeight="26.0" prefWidth="266.0" promptText="CB 71 Abbottabad" />
+      <TextField fx:id="id" layoutX="395.0" layoutY="237.0" prefHeight="26.0" prefWidth="266.0" promptText="FA21-019" />
+      <TextField fx:id="email" layoutX="395.0" layoutY="282.0" prefHeight="26.0" prefWidth="266.0" promptText="laibabintatahir" />
+      <TextField fx:id="contact" layoutX="395.0" layoutY="325.0" prefHeight="26.0" prefWidth="266.0" promptText="xxxx-xxxxxxx" />
+      <Label layoutX="325.0" layoutY="386.0" prefHeight="26.0" prefWidth="90.0" text="Room Type">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="325.0" layoutY="427.0" prefHeight="28.0" prefWidth="90.0" text="Fee Status">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <RadioButton fx:id="feestatus" layoutX="469.0" layoutY="432.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="90.0" selected="true" text="Paid" />
+      <Button layoutX="604.0" layoutY="482.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="49.0" prefWidth="135.0" style="-fx-background-color: blue;" text="Update Record" textFill="#f7f7f7">
          <font>
             <Font size="17.0" />
          </font></Button>
-      <RadioButton fx:id="feestatus1" layoutX="394.0" layoutY="368.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="90.0" text="premium" />
-      <RadioButton fx:id="feestatus2" layoutX="281.0" layoutY="368.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="90.0" text="standard" />
-      <Label layoutX="232.0" layoutY="14.0" prefHeight="38.0" prefWidth="244.0" text="         Add Student " textFill="#101010">
+      <RadioButton fx:id="feestatus1" layoutX="582.0" layoutY="390.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="90.0" text="premium" />
+      <RadioButton fx:id="feestatus2" layoutX="469.0" layoutY="390.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="90.0" selected="true" text="standard" />
+      <Label layoutX="338.0" layoutY="14.0" prefHeight="38.0" prefWidth="244.0" text="         Add Student " textFill="#101010">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="261.0" layoutY="59.0" prefHeight="6.0" prefWidth="200.0" style="-fx-background-color: #1FC81A;" />
+      <AnchorPane layoutX="360.0" layoutY="59.0" prefHeight="6.0" prefWidth="200.0" style="-fx-background-color: #1FC81A;" />
    </children>
    <cursor>
       <Cursor fx:constant="OPEN_HAND" />
