@@ -1,6 +1,7 @@
 package com.hms.hms_dashboard_01.Validators;
 
 import com.hms.hms_dashboard_01.DTO.StudentDTO;
+import com.hms.hms_dashboard_01.utility.Session;
 
 public class StudentFormValidator {
 
@@ -17,6 +18,9 @@ public class StudentFormValidator {
 
         if (!isValidContactNo(student.getStudentContact())) {
             return "Invalid contact number. Please enter a valid phone number.";
+        }
+        if(Session.getRole()!= "admin"){
+            return "You are not authorized to perform this action.";
         }
 
         return null; // Indicates no validation errors

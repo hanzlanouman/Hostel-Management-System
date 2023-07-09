@@ -1,6 +1,7 @@
 package com.hms.hms_dashboard_01.Validators;
 
 import com.hms.hms_dashboard_01.DTO.IncidentDTO;
+import com.hms.hms_dashboard_01.utility.Session;
 import javafx.beans.value.ObservableStringValue;
 
 public class IncidentFormValidator {
@@ -28,6 +29,8 @@ public class IncidentFormValidator {
 
         if (isEmpty(incident.getDescription())) {
             return "Please enter a valid description.";
+        }else if(Session.getRole()!= "admin"){
+            return "You are not authorized to perform this action.";
         }
 
         return null; // Indicates no validation errors

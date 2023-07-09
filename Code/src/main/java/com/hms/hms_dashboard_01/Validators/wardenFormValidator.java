@@ -1,6 +1,7 @@
 package com.hms.hms_dashboard_01.Validators;
 
 import com.hms.hms_dashboard_01.DTO.WardenDTO;
+import com.hms.hms_dashboard_01.utility.Session;
 
 public class wardenFormValidator {
 
@@ -17,6 +18,8 @@ public class wardenFormValidator {
             return "Please enter a valid address.";
         } else if (warden.getWardenContact().isEmpty() || !isNumeric(warden.getWardenContact()) || warden.getWardenContact().length() < 3 || warden.getWardenContact().length() > 50 || warden.getWardenContact() == null) {
             return "Please enter a valid phone number.";
+        }else if(Session.getRole()!= "admin"){
+            return "You are not authorized to perform this action.";
         }
         return null;
     }

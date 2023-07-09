@@ -1,7 +1,9 @@
 package com.hms.hms_dashboard_01.ui.dashboard;
 
+import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.model.registration.RegisteredEntities;
 import com.hms.hms_dashboard_01.model.entities.Student;
+import com.hms.hms_dashboard_01.utility.Session;
 import com.hms.hms_dashboard_01.utility.path;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,15 +53,19 @@ public class LoginController {
 
         if (Objects.equals(username1, adminUser) && Objects.equals(password1, adminPassword)) {
             openDashboard(event, "hms_dash", username1);
+            HMSFactory.getInstanceofSession("admin");
         } else if (Objects.equals(username1, cookUser) && Objects.equals(password1, cookPassword)) {
             openDashboard(event, "hms_dash_cook", username1);
+            HMSFactory.getInstanceofSession("cook");
         } else if (Objects.equals(username1, securityUser) && Objects.equals(password1, securityPassword)) {
             openDashboard(event, "hms_dash_security", username1);
+            HMSFactory.getInstanceofSession("security");
         } else {
             for (Student student : registeredEntities.getStudents()) {
                 if (Objects.equals(username1, student.getStudentUsername()) &&
                         Objects.equals(password1, student.getStudentPassword())) {
                     openDashboard(event, "hms_dash_student", username1);
+                    HMSFactory.getInstanceofSession("student");
                     return;
                 }
             }
