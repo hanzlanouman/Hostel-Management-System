@@ -7,51 +7,51 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Add_Incident_label" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="712.0" style="-fx-background-color: 1FC81A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.IncidentFormController">
+<AnchorPane fx:id="Add_Incident_label" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="902.0" style="-fx-background-color: 1FC81A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.IncidentFormController">
    <children>
-      <Label fx:id="Add_Incident_Label" layoutX="266.0" layoutY="47.0" prefHeight="27.0" prefWidth="200.0" text="     Add Incident">
+      <Label fx:id="Add_Incident_Label" layoutX="330.0" layoutY="42.0" prefHeight="46.0" prefWidth="313.0" text="     Add Incident">
          <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Verdana" size="36.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="266.0" layoutY="71.0" prefHeight="6.0" prefWidth="200.0" style="-fx-background-color: #1FC81A;" />
-      <Label fx:id="Date_label" layoutX="121.0" layoutY="184.0" text="Date">
-         <font>
-            <Font name="Arial" size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="Day_label" layoutX="413.0" layoutY="133.0" text="Day">
+      <AnchorPane layoutX="352.0" layoutY="88.0" prefHeight="8.0" prefWidth="306.0" style="-fx-background-color: #1FC81A;" />
+      <Label fx:id="Date_label" layoutX="215.0" layoutY="184.0" text="Date">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Time_label" layoutX="120.0" layoutY="226.0" text="Time">
+      <Label fx:id="Day_label" layoutX="555.0" layoutY="133.0" text="Day">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Location_label" layoutX="398.0" layoutY="184.0" text="Location">
+      <Label fx:id="Time_label" layoutX="214.0" layoutY="235.0" text="Time">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Description_label" layoutX="121.0" layoutY="288.0" text="Description">
+      <Label fx:id="Location_label" layoutX="554.0" layoutY="184.0" text="Location">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="IncidentId" layoutX="193.0" layoutY="129.0" prefHeight="25.0" prefWidth="173.0" promptText="(1)" />
-      <TextField fx:id="Date" layoutX="193.0" layoutY="180.0" prefHeight="25.0" prefWidth="173.0" promptText="(YYYY-MM-DD)" />
-      <TextField fx:id="Location" layoutX="470.0" layoutY="180.0" prefHeight="25.0" prefWidth="173.0" promptText="Laundary" />
-      <TextField fx:id="Day" layoutX="470.0" layoutY="129.0" prefHeight="25.0" prefWidth="173.0" promptText="Monday" />
-      <TextArea fx:id="Description" layoutX="107.0" layoutY="312.0" prefHeight="140.0" prefWidth="561.0" promptText="Explain here" />
-      <TextField fx:id="Time" layoutX="193.0" layoutY="222.0" prefHeight="25.0" prefWidth="173.0" promptText="3:00 PM" />
+      <Label fx:id="Description_label" layoutX="215.0" layoutY="302.0" text="Description">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="IncidentId" layoutX="301.0" layoutY="129.0" prefHeight="25.0" prefWidth="173.0" promptText="(1)" />
+      <TextField fx:id="Date" layoutX="301.0" layoutY="180.0" prefHeight="25.0" prefWidth="173.0" promptText="(YYYY-MM-DD)" />
+      <TextField fx:id="Location" layoutX="633.0" layoutY="180.0" prefHeight="25.0" prefWidth="173.0" promptText="Laundary" />
+      <TextField fx:id="Day" layoutX="633.0" layoutY="129.0" prefHeight="25.0" prefWidth="173.0" promptText="Monday" />
+      <TextArea fx:id="Description" layoutX="215.0" layoutY="342.0" prefHeight="140.0" prefWidth="603.0" promptText="Explain here" />
+      <TextField fx:id="Time" layoutX="301.0" layoutY="231.0" prefHeight="25.0" prefWidth="173.0" promptText="3:00 PM" />
 
-      <Button fx:id="Submit_Incident_button" layoutX="316.0" layoutY="471.0" mnemonicParsing="false" onAction="#addIncident" prefHeight="41.0" prefWidth="126.0" style="-fx-background-color: #0000FF;" text="Submit" textFill="WHITE">
+      <Button fx:id="Submit_Incident_button" layoutX="680.0" layoutY="512.0" mnemonicParsing="false" onAction="#addIncident" prefHeight="41.0" prefWidth="126.0" style="-fx-background-color: #0000FF;" text="Submit" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="18.0" />
          </font></Button>
-      <Label fx:id="Date_label1" layoutX="121.0" layoutY="133.0" text="ID">
+      <Label fx:id="Date_label1" layoutX="223.0" layoutY="133.0" text="ID">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
