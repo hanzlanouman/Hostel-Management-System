@@ -9,8 +9,6 @@ import java.util.List;
 public class DALIncidentManager {
 
     static Connection conn = DatabaseConnection.getConnection();
-
-
     public static void addIncident(IncidentDTO incident) {
         try {
             String query = "INSERT INTO Incidents (incidentid, inc_date, day, location, description, incidenttime) VALUES (?, ?, ?, ?, ?, ?)";
@@ -27,7 +25,7 @@ public class DALIncidentManager {
 
             System.out.println("Data has been inserted into Incidents table.");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                        System.out.println(e.getMessage());
         }
     }
 

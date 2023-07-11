@@ -1,58 +1,79 @@
 package com.hms.hms_dashboard_01.ui.tab;
-import com.hms.hms_dashboard_01.Validators.FeedBackFormValidator;
+
 import com.hms.hms_dashboard_01.DTO.FeedBackDTO;
+import com.hms.hms_dashboard_01.DTO.IncidentDTO;
+import com.hms.hms_dashboard_01.Validators.IncidentFormValidator;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
+import com.hms.hms_dashboard_01.controllers.IncidentController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class FeedBackFormController {
+import java.util.Objects;
 
-    @FXML
-    private TextField Description;
-
-    @FXML
-    private TextField stu_Name;
+public class FeedBackFormController{
 
     @FXML
-    private TextField Contact_No;
+    private TextField description;
 
     @FXML
-    private TextField Feed_Sub;
+    private TextField stuName;
 
     @FXML
-    private TextField Feed_category;
+    private TextField contactNo;
 
     @FXML
-    private TextField Stu_ID;
+    private TextField feedSub;
 
     @FXML
-    private TextField feed_Des;
+    private TextField feedCategory;
 
     @FXML
-    private  TextField Room_No;
+    private TextField stuId;
 
-    public void addFeedBack(ActionEvent e){
-        if (FeedBackFormValidator.validateFields(Stu_ID, stu_Name, Contact_No, Room_No, Feed_Sub, Feed_category, feed_Des)) {
+    @FXML
+    private TextField feedDes;
 
-            FeedBackDTO FeedBack = HMSFactory.getInstanceOfFeedBack();
-            FeedBack.setStu_ID(Integer.parseInt(Stu_ID.getText()));
-            FeedBack.setstu_Name(String.join(stu_Name.getText()));
-            FeedBack.setContact_No(String.join(Contact_No.getText()));
-            FeedBack.setRoom_No(Integer.parseInt(Room_No.getText()));
-            FeedBack.setFeed_Sub(String.join(Feed_Sub.getText()));
-            FeedBack.setFeed_category(String.join(Feed_category.getText()));
-            FeedBack.setfeed_Des(String.join(feed_Des.getText()));
-            //Response
-            System.out.println(FeedBack.getStu_ID());
-            System.out.println(FeedBack.getstu_Name());
-            System.out.println(FeedBack.getContact_No());
-            System.out.println(FeedBack.getRoom_No());
-            System.out.println(FeedBack.getFeed_Sub());
-            System.out.println(FeedBack.getFeed_category());
-            System.out.println(FeedBack.getfeed_Des());
-        }
+    @FXML
+    private TextField roomNo;
+
+    private IncidentTabController incidentTabController;
+
+    public void setIncidentController(IncidentTabController incidentTabController) {
+        this.incidentTabController = incidentTabController;
     }
 
+    public void addFeedBack(ActionEvent e) {
+        FeedBackDTO feedBack = HMSFactory.getInstanceOfFeedBack();
 
+        feedBack.setstu_Name(stuName.getText());
+        feedBack.setContact_No(contactNo.getText());
+        feedBack.setFeed_Sub(feedSub.getText());
+        feedBack.setFeed_category(feedCategory.getText());
+        feedBack.setRoom_No(Integer.parseInt(roomNo.getText()));
+        feedBack.setfeed_Des(feedDes.getText());
+
+
+        if (Objects.equals(stuId.getText(), "")) {
+            feedBack.setStu_ID(0);
+        } else {
+            try {
+                int id = Integer.parseInt(stuId.getText());
+                feedBack.setStu_ID(id);
+            } catch (NumberFormatException ex) {
+                // Display error message for invalid student ID
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid Information");
+                alert.setHeaderText("Invalid Student ID");
+                alert.setContentText("Please enter a valid numeric value for the Student ID.");
+                alert.showAndWait();
+                return; // Stop further processing
+            }
+        }
+
+
+
+    }
 }

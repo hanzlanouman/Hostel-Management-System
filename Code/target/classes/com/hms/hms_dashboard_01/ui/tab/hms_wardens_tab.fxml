@@ -5,9 +5,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.WardensTabController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.WardensTabController">
     <children>
-        <TableView fx:id="wardenTable" layoutX="2.0" layoutY="-3.0" prefHeight="520.0" prefWidth="700.0">
+        <TableView fx:id="wardenTable" layoutX="-4.0" layoutY="-3.0" prefHeight="507.0" prefWidth="706.0">
             <columns>
                 <TableColumn fx:id="wardenId" prefWidth="129.99997448921204" text="Warden ID" />
                 <TableColumn fx:id="wardenName" prefWidth="148.6666717529297" text="Warden Name" />
@@ -15,8 +15,8 @@
                 <TableColumn fx:id="wardenEmail" minWidth="9.33331298828125" prefWidth="124.66671752929688" text="Warden Email" />
             </columns>
         </TableView>
-        <Button layoutX="560.0" layoutY="546.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="25.0" prefWidth="126.0" text="Add Warden" />
-        <Button layoutX="422.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Delete Warden" />
-        <Button layoutX="287.0" layoutY="546.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="25.0" prefWidth="126.0" style="-: 0;" text="Modify Warden" />
+        <Button layoutX="544.0" layoutY="533.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="38.0" prefWidth="126.0" text="Add Warden" />
+        <Button layoutX="383.0" layoutY="533.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="126.0" text="Delete Warden" />
+        <Button layoutX="224.0" layoutY="533.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="38.0" prefWidth="126.0" style="-: 0;" text="Modify Warden" />
     </children>
 </Pane>

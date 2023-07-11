@@ -4,19 +4,28 @@
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.StudentTabDelete">
    <children>
-      <DialogPane layoutX="59.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="369.0">
+      <DialogPane layoutX="115.0" layoutY="102.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="369.0">
           <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="198.0" prefWidth="347.0">
                <children>
                   <AnchorPane layoutX="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="163.0" prefWidth="354.0">
                      <children>
-                        <Label layoutX="89.0" layoutY="55.0" prefHeight="18.0" prefWidth="219.0" text="Do you want to Continue ?" />
-                        <Button layoutX="173.0" layoutY="104.0" mnemonicParsing="false" text="Delete" />
-                        <Button layoutX="99.0" layoutY="104.0" mnemonicParsing="false" text="Cancel" />
+                        <Label layoutX="60.0" layoutY="35.0" prefHeight="31.0" prefWidth="268.0" text="Do you want to Continue ?">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Label>
+                        <Button layoutX="194.0" layoutY="103.0" mnemonicParsing="false" text="Delete">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                        <Button layoutX="99.0" layoutY="104.0" mnemonicParsing="false" text="Cancel">
+                           <font>
+                              <Font size="17.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
                </children>
