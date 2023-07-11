@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.RoomTabController">
    <children>
-      <TableView fx:id="roomTable" layoutX="2.0" layoutY="-3.0" prefHeight="510.0" prefWidth="700.0">
+      <TableView fx:id="roomTable" layoutX="-4.0" layoutY="-2.0" prefHeight="494.0" prefWidth="706.0">
         <columns>
           <TableColumn fx:id="roomNo" prefWidth="129.99997448921204" text="Room No" />
           <TableColumn fx:id="roomFee" prefWidth="148.6666717529297" text="Room Fee" />
@@ -16,9 +16,9 @@
             <TableColumn fx:id="roomLocation" prefWidth="114.0001220703125" text="Room Location" />
         </columns>
       </TableView>
-      <Button layoutX="560.0" layoutY="546.0" mnemonicParsing="false" onAction="#addRoom" prefHeight="25.0" prefWidth="126.0" text="Add New Room" />
-      <Button layoutX="415.0" layoutY="546.0" mnemonicParsing="false" onAction="#deleteRoom" prefHeight="25.0" prefWidth="126.0" text="Delete Room" />
-      <Button layoutX="268.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Allocate Room" />
-      <Button layoutX="123.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Terminate Allocation" />
+      <Button layoutX="560.0" layoutY="530.0" mnemonicParsing="false" onAction="#addRoom" prefHeight="41.0" prefWidth="126.0" text="Add New Room" />
+      <Button layoutX="415.0" layoutY="530.0" mnemonicParsing="false" onAction="#deleteRoom" prefHeight="41.0" prefWidth="126.0" text="Delete Room" />
+      <Button layoutX="268.0" layoutY="530.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="126.0" text="Allocate Room" />
+      <Button layoutX="123.0" layoutY="530.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="126.0" text="Terminate Allocation" />
    </children>
 </Pane>

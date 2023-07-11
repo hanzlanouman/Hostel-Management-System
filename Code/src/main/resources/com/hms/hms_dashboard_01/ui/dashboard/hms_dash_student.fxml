@@ -41,21 +41,21 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="feeButton" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="273.0" styleClass="dashButtons" text="Fees" VBox.vgrow="ALWAYS">
+                        <Button fx:id="Incident_Stu_button" alignment="CENTER" mnemonicParsing="false" onAction="#Incident_Stu_button" prefHeight="40.0" prefWidth="273.0" styleClass="dashButtons" text="Incidents" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="facilityButton" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="295.0" styleClass="dashButtons" text="Facilities" VBox.vgrow="ALWAYS">
+                        <Button fx:id="feedBackButton" alignment="CENTER" mnemonicParsing="false" onAction="#feedBackButton"  prefHeight="40.0" prefWidth="295.0" styleClass="dashButtons" text="FeedBack" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="messButton" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="274.0" styleClass="dashButtons" text="Mess" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Button>
+<!--                        <Button fx:id="messButton" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="274.0" styleClass="dashButtons" text="Mess" VBox.vgrow="ALWAYS">-->
+<!--                           <VBox.margin>-->
+<!--                              <Insets />-->
+<!--                           </VBox.margin>-->
+<!--                        </Button>-->
                      </children>
                   </VBox>
                   <Button id="logoutButton" fx:id="logoutButton" layoutX="-1.0" layoutY="596.0" mnemonicParsing="false" onAction="#logout" prefHeight="58.0" prefWidth="255.0" styleClass="dashButtons" stylesheets="@hms_dash.css" text="Logout" />

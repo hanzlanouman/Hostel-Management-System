@@ -9,7 +9,9 @@ import java.util.List;
 public class IncidentController {
 
     public static void addIncident(IncidentDTO incident) {
+
         DALIncidentManager.addIncident(incident);
+
     }
     public static void deleteIncident(int incidentId) {
         DALIncidentManager.deleteIncident(incidentId);

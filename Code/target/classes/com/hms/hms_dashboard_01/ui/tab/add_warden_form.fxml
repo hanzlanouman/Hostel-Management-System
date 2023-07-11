@@ -4,21 +4,38 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="437.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.WardenFormController">
+<AnchorPane prefHeight="513.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.WardenFormController">
    <children>
-      <Label layoutX="196.0" layoutY="41.0" text="Warden Information" />
-      <TextField fx:id="wardenName" layoutX="175.0" layoutY="95.0" />
-      <Label layoutX="68.0" layoutY="99.0" text="Name" />
-      <Label layoutX="56.0" layoutY="200.0" text="Phone No." />
-      <Label layoutX="55.0" layoutY="298.0" text="Addres" />
-      <Label layoutX="68.0" layoutY="144.0" text="ID" />
-      <Label layoutX="66.0" layoutY="249.0" text="Email" />
-      <TextField fx:id="wardenId" layoutX="175.0" layoutY="140.0" />
-      <TextField fx:id="wardenPhone" layoutX="175.0" layoutY="187.0" />
-      <TextField fx:id="wardenEmail" layoutX="175.0" layoutY="237.0" />
-      <TextField fx:id="wardenAddress" layoutX="175.0" layoutY="285.0" />
-      <Button layoutX="345.0" layoutY="383.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Cancel" />
-      <Button layoutX="449.0" layoutY="383.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="25.0" prefWidth="97.0" text="Confirm" />
+      <Label layoutX="364.0" layoutY="37.0" text="Warden Information">
+         <font>
+            <Font name="Verdana" size="36.0" />
+         </font></Label>
+      <TextField fx:id="wardenName" layoutX="403.0" layoutY="127.0" prefHeight="26.0" prefWidth="218.0" promptText="Irfan" />
+      <Label layoutX="293.0" layoutY="131.0" text="Name" />
+      <Label layoutX="281.0" layoutY="228.0" text="Phone No." />
+      <Label layoutX="290.0" layoutY="343.0" text="Addres">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="287.0" layoutY="178.0" text="ID" />
+      <Label layoutX="285.0" layoutY="285.0" text="Email">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="wardenId" layoutX="405.0" layoutY="174.0" prefHeight="26.0" prefWidth="217.0" promptText="o28" />
+      <TextField fx:id="wardenPhone" layoutX="403.0" layoutY="224.0" prefHeight="26.0" prefWidth="218.0" promptText="xxxx-xxxxxxx" />
+      <TextField fx:id="wardenEmail" layoutX="403.0" layoutY="281.0" prefHeight="26.0" prefWidth="218.0" promptText="irfan@gmail.com" />
+      <TextField fx:id="wardenAddress" layoutX="403.0" layoutY="339.0" prefHeight="26.0" prefWidth="218.0" promptText="ce xy 723 Abbottababd" />
+      <Button layoutX="583.0" layoutY="431.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="98.0" style="-fx-background-color: blue;" text="Cancel" textFill="#fff9f9">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button layoutX="714.0" layoutY="431.0" mnemonicParsing="false" onAction="#addWarden" prefHeight="46.0" prefWidth="109.0" style="-fx-background-color: blue;" text="Confirm" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <AnchorPane layoutX="365.0" layoutY="81.0" prefHeight="6.0" prefWidth="381.0" style="-fx-background-color: #1FC81A;" />
    </children>
 </AnchorPane>

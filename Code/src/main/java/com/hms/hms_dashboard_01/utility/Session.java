@@ -1,29 +1,20 @@
 //package com.hms.hms_dashboard_01.utility;
-//
 //public class Session {
-//
 //    Session (){
-//
 //    }
 //    private static String role;
-//
 //    public static String getRole() {
 //        return role;
 //    }
-//
 //    public static void setRole(String role) {
 //        Session.role = role;
 //    }
-//
 //    public Session(String role) {
 //        Session.role = role;
 //    }
-//
 //    public static void destroySession() {
 //        Session.role = null;
-//    }
-//
-//}
+//    }}
 
 package com.hms.hms_dashboard_01.utility;
 
@@ -57,7 +48,7 @@ public class Session {
     }
 
     private static void startSessionTimer() {
-        final long sessionTimeout = 30 * 60 * 1000; // 30 minutes (adjust as needed)
+        final long sessionTimeout = 1 * 60 * 1000; // 30 minutes (adjust as needed)
         sessionTimer.schedule(new TimerTask() {
             @Override
             public void run() {

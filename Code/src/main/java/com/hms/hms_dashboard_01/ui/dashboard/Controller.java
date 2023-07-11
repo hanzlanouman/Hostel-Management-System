@@ -47,15 +47,20 @@ Button roomButton;
     private Button homeButton;
 
     @FXML
-    Button wardenButton;
+    private Button wardenButton;
 
     @FXML
-    Button messButton;
+    private Button messButton;
 
     @FXML
-    Button IncidentButton;
+    private  Button IncidentButton;
     @FXML
-    Button MenuButton;
+    private Button Incident_Stu_button;
+    @FXML
+    private Button MenuButton;
+
+    @FXML
+    private    Button feedBackButton;
 
 
     //Save all FXML buttons in a list
@@ -111,6 +116,10 @@ Button roomButton;
         activeButton(studentButton);
         changeScene("hms_student_tab");
     }
+    public void feedBackButton(ActionEvent event) throws IOException {
+        activeButton(feedBackButton);
+        changeScene("hms_FeedBack_tab");
+    }
     public void staffButton(ActionEvent event) throws IOException {
         activeButton(staffButton);
         changeScene("hms_staff_tab");
@@ -128,6 +137,10 @@ Button roomButton;
     public void Incidentbutton(ActionEvent event) throws IOException {
         activeButton(IncidentButton);
         changeScene("hms_Incident_tab");
+    }
+    public void Incident_Stu_button(ActionEvent event) throws IOException {
+        activeButton(Incident_Stu_button);
+        changeScene("hms_Incident_Stu_tab");
     }
     public void facilityButton(ActionEvent event) throws IOException {
         activeButton(facilityButton);
