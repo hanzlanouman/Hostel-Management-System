@@ -27,23 +27,10 @@ public class WardenFormController {
     private TextField wardenPhone;
 
     public void addWarden() {
-        WardenDTO warden = HMSFactory.getInstanceOfWarden();
-        try {
-            warden.setWardenId(wardenId.getText().isEmpty() ? 0 : parseInt(wardenId.getText()));
-        } catch (NumberFormatException nfe) {
-            showAlert("Invalid ID");
-            return;
-        }
-        warden.setWardenName(wardenName.getText());
-        warden.setWardenEmail(wardenEmail.getText());
-        warden.setAddress(wardenAddress.getText());
-        warden.setWardenContact(wardenPhone.getText());
-
-        String validationError = wardenFormValidator.validateFields(warden);
+        String validationError = WardenController.addWarder(wardenId.getText(), wardenName.getText(), wardenEmail.getText(), wardenAddress.getText(), wardenPhone.getText());
         if (validationError != null) {
             showAlert(validationError);
         } else {
-            WardenController.addWarder(warden);
             successClose();
         }
     }

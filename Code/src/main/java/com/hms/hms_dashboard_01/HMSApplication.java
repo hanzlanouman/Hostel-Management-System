@@ -14,7 +14,6 @@ public class HMSApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
     // set the stage and loads up the login page
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(path.getPath("loginregister", "hms_login")));

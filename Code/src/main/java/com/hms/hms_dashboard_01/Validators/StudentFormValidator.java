@@ -19,7 +19,7 @@ public class StudentFormValidator {
         if (!isValidContactNo(student.getStudentContact())) {
             return "Invalid contact number. Please enter a valid phone number.";
         }
-        if(Session.getRole()!= "admin"){
+        if(Session.getRole()!= "warden"){
             return "You are not authorized to perform this action.";
         }
 

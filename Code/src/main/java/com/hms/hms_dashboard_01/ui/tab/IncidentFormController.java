@@ -39,32 +39,9 @@ public class IncidentFormController {
     }
 
     public void addIncident(ActionEvent e) {
-        IncidentDTO incident = HMSFactory.getInstanceOfIncident();
 
-        if (Objects.equals(IncidentId.getText(), "")) {
-            incident.setIncidentId(0);
-        } else {
-            try {
-                int id = Integer.parseInt(IncidentId.getText());
-                incident.setIncidentId(id);
-            } catch (NumberFormatException ex) {
-                // Display error message for invalid ID
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Invalid Information");
-                alert.setHeaderText("Invalid Incident ID");
-                alert.setContentText("Please enter a valid numeric value for the Incident ID.");
-                alert.showAndWait();
-                return; // Stop further processing
-            }
-        }
+        String validationError = IncidentController.addIncident(IncidentId.getText(), Day.getText(), Date.getText(), Time.getText(), Location.getText(), Description.getText());
 
-        incident.setDay(Day.getText());
-        incident.setDate(Date.getText());
-        incident.setDescription(Description.getText());
-        incident.setLocation(Location.getText());
-        incident.setTime(Time.getText());
-
-        String validationError = IncidentFormValidator.validateIncidentDetails(incident);
         if (validationError != null) {
             // Display specific error message based on the validation error
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -75,7 +52,7 @@ public class IncidentFormController {
         } else {
 
             // Show Confirmation alert and close the stage
-            IncidentController.addIncident(incident);
+//            IncidentController.addIncident(incident);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Success");
             alert.setHeaderText("Incident Registered!");

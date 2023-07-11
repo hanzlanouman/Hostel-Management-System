@@ -43,34 +43,12 @@ public class RoomFormController implements Initializable {
 
     public void addRoom(ActionEvent e){
 
-        RoomDTO room = HMSFactory.getInstanceOfRoom();
-        try {
-            room.setRoomNo(roomNo.getText().isEmpty() ? 0 : Integer.parseInt(roomNo.getText()));
-        } catch (NumberFormatException nfe) {
-            showAlert("Invalid room number");
-            return;
-        }
-        try {
-            room.setRoomFee(roomFee.getText().isEmpty() ? 0 : Integer.parseInt(roomFee.getText()));
-        } catch (NumberFormatException nfe) {
-            showAlert("Invalid room fee");
-            return;
-        }
-        room.setRoomType(roomType.getValue());
-        room.setRoomStatus(roomAvb.getValue());
-        room.setRoomFloor(roomFloor.getValue());
-        room.setRoomAvb(roomAvb.getValue());
-        room.setRoomBuilding(roomBuilding.getValue());
-        String validationError = RoomFormValidator.validateFields(room);
+        String validationError = RoomController.addRoom(roomNo.getText(), roomFee.getText(), roomType.getValue(), roomFloor.getValue(), roomAvb.getValue(), roomBuilding.getValue());
+
         if (validationError != null) {
             showAlert(validationError);
         } else {
-            String response = RoomController.addRoom(room);
-            if (Objects.equals(response, "success")) {
-                successClose();
-            } else {
-                showAlert("Database Error");
-            }
+            successClose();
         }
     }
 

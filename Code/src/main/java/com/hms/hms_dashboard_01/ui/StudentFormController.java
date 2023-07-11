@@ -2,6 +2,7 @@ package com.hms.hms_dashboard_01.ui;
 
 import com.hms.hms_dashboard_01.DTO.StudentDTO;
 import com.hms.hms_dashboard_01.Validators.StudentFormValidator;
+import com.hms.hms_dashboard_01.controllers.RoomController;
 import com.hms.hms_dashboard_01.controllers.StudentController;
 import com.hms.hms_dashboard_01.ui.tab.StudentTabController;
 import com.hms.hms_dashboard_01.model.entities.Student;
@@ -54,23 +55,20 @@ public class StudentFormController {
     }
 
     public void addStudent() {
-        StudentDTO studentDTO = new StudentDTO();
-        studentDTO.setRollNo(id.getText());
-        studentDTO.setStudentName(studentname.getText());
-        studentDTO.setEmail(email.getText());
-        studentDTO.setAddress(adress.getText());
-        studentDTO.setStudentContact(contact.getText());
 
-        String validationError = StudentFormValidator.validateFields(studentDTO);
-        if (validationError != null) {
+        String response = StudentController.addStudent(id.getText(), studentname.getText(), email.getText(), adress.getText(), contact.getText());
+
+
+
+        if (response != null) {
             // Display specific error message based on the validation error
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Invalid Information");
             alert.setHeaderText("Invalid Information");
-            alert.setContentText(validationError);
+            alert.setContentText(response);
             alert.showAndWait();
         } else {
-            StudentController.addStudent(studentDTO);
+//            StudentController.addStudent(studentDTO);
             // Show success alert and close the stage
             Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Success");

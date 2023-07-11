@@ -10,7 +10,7 @@ public class DatabaseConnection {
             // db parameters
             String url = "jdbc:oracle:thin:@//localhost:1521/hmspdb";
             // create a connection to the database
-            conn = DriverManager.getConnection(url, "hms_dba", "hms123");
+            conn = DriverManager.getConnection(url, "hmsdba", "hms123");
 
             System.out.println("Connection to hmspdb has been established.");
 

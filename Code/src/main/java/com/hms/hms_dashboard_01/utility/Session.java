@@ -50,7 +50,7 @@ public class Session {
     }
 
     private static void startSessionTimer() {
-        final long sessionTimeout = 1 * 60 * 1000; // 30 minutes (adjust as needed)
+        final long sessionTimeout = 1 * 60 * 10000; // 30 minutes (adjust as needed)
         sessionTimer.schedule(new TimerTask() {
             @Override
             public void run() {
