@@ -3,12 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.StudentTabController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.StudentTabController">
     <children>
-        <TableView fx:id="studentTable" layoutX="-14.0" layoutY="69.0" prefHeight="463.0" prefWidth="700.0">
+        <TableView fx:id="studentTable" layoutY="-1.0" prefHeight="531.0" prefWidth="700.0">
             <columns>
                 <TableColumn fx:id="studentId" prefWidth="129.99997448921204" text="Student ID" />
                 <TableColumn fx:id="studentName" prefWidth="148.6666717529297" text="Student Name" />
@@ -16,13 +15,9 @@
                 <TableColumn fx:id="studentEmail" minWidth="9.33331298828125" prefWidth="124.66671752929688" text="Student Email" />
             </columns>
         </TableView>
-      <Pane layoutX="120.0" layoutY="530.0">
-         <children>
-              <Button layoutX="440.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="126.0" text="Add Student" />
-              <Button layoutX="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Delete Student" />
-              <Button layoutX="148.0" mnemonicParsing="false" onAction="#modifyStudent" prefHeight="25.0" prefWidth="126.0" text="Modify Student" />
-         </children>
-      </Pane>
-      <TextField fx:id="searchBar" layoutX="92.0" layoutY="30.0" onInputMethodTextChanged="#search" onKeyTyped="#search" prefHeight="25.0" prefWidth="412.0" />
+      <Pane layoutX="120.0" layoutY="530.0" />
+        <Button layoutX="242.0" layoutY="555.0" mnemonicParsing="false" onAction="#modifyStudent" prefHeight="25.0" prefWidth="126.0" text="Modify Student" />
+        <Button layoutX="395.0" layoutY="555.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Delete Student" />
+        <Button layoutX="541.0" layoutY="555.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="126.0" text="Add Student" />
     </children>
 </Pane>
