@@ -85,7 +85,6 @@ Button roomButton;
         }
 
     }
-
     public void homeButton(ActionEvent event) throws IOException {
         activeButton(homeButton);
         changeScene("hms_home_tab");

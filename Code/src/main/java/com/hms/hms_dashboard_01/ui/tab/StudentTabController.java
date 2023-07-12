@@ -77,6 +77,7 @@ public class StudentTabController implements Initializable {
         studentTable.setItems(searchList);
     }
 
+
     public void addStudent(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         Parent root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(path.getPath("tab", "StudentTab_add"))));

@@ -25,10 +25,8 @@ public class WardensTabController implements Initializable {
 
     @FXML
     private TableColumn<WardenDTO, String> wardenContact;
-
     @FXML
     private TableColumn<WardenDTO, String> wardenEmail;
-
     @FXML
     private TableColumn<WardenDTO, Integer> wardenId;
 

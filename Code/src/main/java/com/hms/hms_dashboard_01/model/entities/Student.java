@@ -15,6 +15,14 @@ public class Student {
     private String roomPrice;
     private String roomStatus;
 
+    public Student(String username, String password) {
+
+        this.studentUsername = username;
+        this.studentPassword = password;
+    }
+
+    public Student(){};
+
     public String getStudentName() {
         return studentName;
     }

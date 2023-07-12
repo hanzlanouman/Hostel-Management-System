@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.StudentTabController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.StudentTabController">
     <children>
         <TableView fx:id="studentTable" layoutY="-1.0" prefHeight="511.0" prefWidth="700.0">
             <columns>
@@ -17,7 +17,7 @@
         </TableView>
       <Pane layoutX="120.0" layoutY="530.0" />
         <Button layoutX="248.0" layoutY="537.0" mnemonicParsing="false" onAction="#modifyStudent" prefHeight="39.0" prefWidth="126.0" text="Modify Student" />
-        <Button layoutX="392.0" layoutY="537.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="126.0" text="Delete Student" />
+        <Button layoutX="392.0" layoutY="537.0" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="39.0" prefWidth="126.0" text="Delete Student" />
         <Button layoutX="536.0" layoutY="537.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="39.0" prefWidth="126.0" text="Add Student" />
     </children>
 </Pane>

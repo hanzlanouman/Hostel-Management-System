@@ -46,6 +46,7 @@ public class StudentFormController {
     @FXML
     private TextField studentname;
 
+
     public void setStudentController(StudentTabController studentTabController) {
         this.studentTabController = studentTabController;
     }
