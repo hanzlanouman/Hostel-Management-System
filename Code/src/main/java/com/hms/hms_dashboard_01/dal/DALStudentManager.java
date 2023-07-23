@@ -13,7 +13,7 @@ import java.util.List;
 public class DALStudentManager {
     static Connection conn = DatabaseConnection.getConnection();
 
-    public static void addStudent(StudentDTO student) {
+    public  void addStudent(StudentDTO student) {
         String query = "INSERT INTO Student (studentUsername, studentId, studentEmail, studentContact, studentAddress, studentPassword, studentName, rollNo, year, roomNo, roomType, roomPrice, roomStatus) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -42,7 +42,7 @@ public class DALStudentManager {
 
     }
 
-    public static void deleteStudent(int studentId) {
+    public  void deleteStudent(int studentId) {
 
         try {
             Statement stmt = conn.createStatement();
@@ -58,7 +58,7 @@ public class DALStudentManager {
     }
 
 
-    public static List<Student> getAllStudents() {
+    public  List<Student> getAllStudents() {
         List<Student> students = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();

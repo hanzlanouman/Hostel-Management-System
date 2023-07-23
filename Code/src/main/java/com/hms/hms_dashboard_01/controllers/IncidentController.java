@@ -16,7 +16,8 @@ public class IncidentController {
 
         String validationError = IncidentFormValidator.validateIncidentDetails(incident);
         if(validationError == null){
-           return DALIncidentManager.addIncident(incident);
+            DALIncidentManager dalIncidentManager = HMSFactory.getInstanceOfIncidentManager();
+           return dalIncidentManager.addIncident(incident);
         }else {
             return validationError;
         }
@@ -26,10 +27,13 @@ public class IncidentController {
 
     }
     public  void deleteIncident(int incidentId) {
-        DALIncidentManager.deleteIncident(incidentId);
+
+        DALIncidentManager dalIncidentManager = HMSFactory.getInstanceOfIncidentManager();
+        dalIncidentManager.deleteIncident(incidentId);
     }
 
     public  List<Incident> getAllIncidents(){
-        return DALIncidentManager.getAllIncidents();
+        DALIncidentManager dalIncidentManager = HMSFactory.getInstanceOfIncidentManager();
+         return dalIncidentManager.getAllIncidents();
     }
 }

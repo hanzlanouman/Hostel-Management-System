@@ -14,16 +14,20 @@ public class RoomController {
 
         String validationError = RoomFormValidator.validateFields(room);
         if(validationError == null){
-            return DALRoomManager.addRoom(room);
+            DALRoomManager dalRoomManager = HMSFactory.getInstanceOfRoomManager();
+            return dalRoomManager.addRoom(room);
         }else{
             return validationError;
         }
     }
     public  void deleteRoom(int roomNo){
-        DALRoomManager.deleteRoom(roomNo);
+        DALRoomManager dalRoomManager = HMSFactory.getInstanceOfRoomManager();
+        dalRoomManager.deleteRoom(roomNo);
     }
 
     public  List<Room> getAllRooms(){
-        return DALRoomManager.getAllRooms();
+
+        DALRoomManager dalRoomManager = HMSFactory.getInstanceOfRoomManager();
+        return dalRoomManager.getAllRooms();
     }
 }

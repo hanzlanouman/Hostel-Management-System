@@ -3,6 +3,7 @@ package com.hms.hms_dashboard_01.controllers;
 import com.hms.hms_dashboard_01.DTO.StudentDTO;
 import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.StudentFormValidator;
+import com.hms.hms_dashboard_01.dal.DALIncidentManager;
 import com.hms.hms_dashboard_01.dal.DALStudentManager;
 import com.hms.hms_dashboard_01.model.entities.Student;
 import javafx.scene.control.Alert;
@@ -16,17 +17,22 @@ public class StudentController {
 
         String validationError = StudentFormValidator.validateFields(studentDTO);
         if(validationError == null){
-            DALStudentManager.addStudent(studentDTO);
+            DALStudentManager dalStudentManager = HMSFactory.getInstanceOfStudentManager();
+            dalStudentManager.addStudent(studentDTO);
             return null;
         }
 //        DALStudentManager.addStudent(student);
         return validationError;
     }
     public  void deleteStudent(int studentId){
-        DALStudentManager.deleteStudent(studentId);
+
+        DALStudentManager dalStudentManager = HMSFactory.getInstanceOfStudentManager();
+        dalStudentManager.deleteStudent(studentId);
     }
 
     public  List<Student> getAllStudents(){
-        return DALStudentManager.getAllStudents();
+
+        DALStudentManager dalStudentManager = HMSFactory.getInstanceOfStudentManager();
+        return dalStudentManager.getAllStudents();
     }
 }

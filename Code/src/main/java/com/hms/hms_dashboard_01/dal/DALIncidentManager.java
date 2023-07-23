@@ -8,8 +8,9 @@ import java.util.List;
 
 public class DALIncidentManager {
 
-    static Connection conn = DatabaseConnection.getConnection();
-    public static String addIncident(IncidentDTO incident) {
+    public Connection conn;
+    public  String addIncident(IncidentDTO incident) {
+    conn = DatabaseConnection.getConnection();
       boolean alreadyExists = false;
 
         try {
@@ -50,7 +51,8 @@ public class DALIncidentManager {
 
     // ...
 
-    public static void deleteIncident(int incidentId) {
+    public  void deleteIncident(int incidentId) {
+        conn = DatabaseConnection.getConnection();
         try {
             String query = "DELETE FROM Incidents WHERE incidentid = ?";
 
@@ -64,7 +66,8 @@ public class DALIncidentManager {
             System.out.println(e.getMessage());
         }
     }
-    public static List<Incident> getAllIncidents(){
+    public  List<Incident> getAllIncidents(){
+        conn = DatabaseConnection.getConnection();
         List<Incident> incidents = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();

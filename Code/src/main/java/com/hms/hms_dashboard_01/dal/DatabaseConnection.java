@@ -3,9 +3,9 @@ import java.sql.*;
 public class DatabaseConnection {
 // Connect to database using JDBC
 
+        static Connection conn;
     public static Connection getConnection() {
-        Connection conn = null;
-
+    if(conn == null) {
         try {
             // db parameters
             String url = "jdbc:oracle:thin:@//localhost:1521/hmspdb";
@@ -17,7 +17,8 @@ public class DatabaseConnection {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
+    }
+        System.out.println(conn);
         return conn;
     }
 

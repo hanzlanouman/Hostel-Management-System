@@ -6,9 +6,9 @@ import java.util.List;
 
 public class DALWardenManager {
 
-    private static Connection conn = DatabaseConnection.getConnection();
+    private  Connection conn = DatabaseConnection.getConnection();
 
-    public static String addWarden(WardenDTO warden) {
+    public  String addWarden(WardenDTO warden) {
         boolean alreadyExists = false;
 
         try {
@@ -48,7 +48,7 @@ public class DALWardenManager {
     }
 
 
-    public static List<WardenDTO> getAllWardens() {
+    public  List<WardenDTO> getAllWardens() {
         List<WardenDTO> wardens = new ArrayList<>();
 
         try {
@@ -74,7 +74,7 @@ public class DALWardenManager {
         return wardens;
     }
 
-    public static void deleteWarden(int id){
+    public void deleteWarden(int id){
 
         try {
             Statement stmt = conn.createStatement();

@@ -14,7 +14,7 @@ public class DALRoomManager {
 
     static Connection conn = DatabaseConnection.getConnection();
 
-    public static String addRoom(RoomDTO room) {
+    public  String addRoom(RoomDTO room) {
         boolean alreadyExists = false;
         try {
             Statement stmt = conn.createStatement();
@@ -56,7 +56,7 @@ public class DALRoomManager {
 
 
 
-    public static void deleteRoom(int roomNo) {
+    public  void deleteRoom(int roomNo) {
         try {
             Statement stmt = conn.createStatement();
             String query = "DELETE FROM ROOMS WHERE roomNo = " + roomNo;
@@ -71,7 +71,7 @@ public class DALRoomManager {
     }
 
 //    Get a List of Room DTO That gets all Entries in room table
-    public static List<Room> getAllRooms() {
+    public  List<Room> getAllRooms() {
         List<Room> rooms = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();

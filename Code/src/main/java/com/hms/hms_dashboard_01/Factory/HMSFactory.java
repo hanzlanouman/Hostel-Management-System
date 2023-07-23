@@ -5,6 +5,10 @@ import com.hms.hms_dashboard_01.controllers.IncidentController;
 import com.hms.hms_dashboard_01.controllers.RoomController;
 import com.hms.hms_dashboard_01.controllers.StudentController;
 import com.hms.hms_dashboard_01.controllers.WardenController;
+import com.hms.hms_dashboard_01.dal.DALIncidentManager;
+import com.hms.hms_dashboard_01.dal.DALRoomManager;
+import com.hms.hms_dashboard_01.dal.DALStudentManager;
+import com.hms.hms_dashboard_01.dal.DALWardenManager;
 import com.hms.hms_dashboard_01.model.entities.Student;
 import com.hms.hms_dashboard_01.utility.Session;
 
@@ -48,4 +52,23 @@ public class HMSFactory
     {
         return new WardenController();
     }
+
+//    Write all methods to get DAL objects
+    public static DALRoomManager getInstanceOfRoomManager()
+    {
+        return new DALRoomManager();
+    }
+    public static DALIncidentManager getInstanceOfIncidentManager()
+    {
+        return new DALIncidentManager();
+    }
+    public static DALStudentManager getInstanceOfStudentManager()
+    {
+        return new DALStudentManager();
+    }
+    public static DALWardenManager getInstanceOfWardenManager()
+    {
+        return new DALWardenManager();
+    }
+
 }
