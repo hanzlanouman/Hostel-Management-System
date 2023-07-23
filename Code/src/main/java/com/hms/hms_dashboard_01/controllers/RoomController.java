@@ -10,39 +10,20 @@ import java.util.List;
 
 public class RoomController {
 
-    public static String addRoom(String roomNo, String roomFee, String roomType, String roomFloor, String roomAvb, String roomBuilding){
-        RoomDTO room = HMSFactory.getInstanceOfRoom();
-        try {
-            room.setRoomNo(roomNo.isEmpty() ? 0 : Integer.parseInt(roomNo));
-        } catch (NumberFormatException nfe) {
-
-            return "Invalid room number";
-        }
-        try {
-            room.setRoomFee(roomFee.isEmpty() ? 0 : Integer.parseInt(roomFee));
-        } catch (NumberFormatException nfe) {
-            return "Invalid room fee";
-        }
-        room.setRoomType(roomType);
-        room.setRoomStatus(roomAvb);
-        room.setRoomFloor(roomFloor);
-        room.setRoomAvb(roomAvb);
-        room.setRoomBuilding(roomBuilding);
+    public  String addRoom(RoomDTO room){
 
         String validationError = RoomFormValidator.validateFields(room);
-
         if(validationError == null){
-            DALRoomManager.addRoom(room);
-            return null;
+            return DALRoomManager.addRoom(room);
         }else{
             return validationError;
         }
     }
-    public static void deleteRoom(int roomNo){
+    public  void deleteRoom(int roomNo){
         DALRoomManager.deleteRoom(roomNo);
     }
 
-    public static List<Room> getAllRooms(){
+    public  List<Room> getAllRooms(){
         return DALRoomManager.getAllRooms();
     }
 }

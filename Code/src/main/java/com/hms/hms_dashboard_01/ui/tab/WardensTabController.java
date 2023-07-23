@@ -1,5 +1,6 @@
 package com.hms.hms_dashboard_01.ui.tab;
 
+import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.controllers.WardenController;
 import com.hms.hms_dashboard_01.dal.DALWardenManager;
 import com.hms.hms_dashboard_01.DTO.WardenDTO;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,15 +37,15 @@ public class WardensTabController implements Initializable {
 
     @FXML
     private TableView<WardenDTO> wardenTable;
-
+    ObservableList<WardenDTO> wardenList;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         wardenName.setCellValueFactory(new PropertyValueFactory<>("wardenName"));
         wardenId.setCellValueFactory(new PropertyValueFactory<>("wardenId"));
         wardenContact.setCellValueFactory(new PropertyValueFactory<>("wardenContact"));
         wardenEmail.setCellValueFactory(new PropertyValueFactory<>("wardenEmail"));
-
-        ObservableList<WardenDTO> wardenList = FXCollections.observableArrayList(DALWardenManager.getAllWardens());
+        WardenController wardenController = HMSFactory.getInstanceOfWardenController();
+         wardenList = FXCollections.observableArrayList(wardenController.getAllWardens());
         wardenTable.setItems(wardenList);
     }
 
@@ -57,6 +59,16 @@ public class WardensTabController implements Initializable {
 
     public void deleteWarden(ActionEvent e) {
         WardenDTO warden = wardenTable.getSelectionModel().getSelectedItem();
-        WardenController.deleteWarden(warden.getWardenId());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Warden");
+        alert.setHeaderText("Are you sure you want to delete this warden?");
+        alert.setContentText("Warden Name: " + warden.getWardenName() + "\nWarden ID: " + warden.getWardenId());
+        alert.showAndWait();
+
+        if(alert.getResult().getText().equals("OK")){
+            WardenController wardenController = HMSFactory.getInstanceOfWardenController();
+            wardenController.deleteWarden(warden.getWardenId());
+            wardenTable.getItems().remove(warden);
+        }
     }
 }

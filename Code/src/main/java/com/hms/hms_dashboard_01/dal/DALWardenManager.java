@@ -8,24 +8,45 @@ public class DALWardenManager {
 
     private static Connection conn = DatabaseConnection.getConnection();
 
-    public static void addWarden(WardenDTO warden) {
+    public static String addWarden(WardenDTO warden) {
+        boolean alreadyExists = false;
+
         try {
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO Wardens (WardenId, WardenName, WardenEmail, WardenContact, Gender, Address) " +
-                    "VALUES (?, ?, ?, ?, ?, ?)");
-            stmt.setInt(1, warden.getWardenId());
-            stmt.setString(2, warden.getWardenName());
-            stmt.setString(3, warden.getWardenEmail());
-            stmt.setString(4, warden.getWardenContact());
-            stmt.setString(5, warden.getGender());
-            stmt.setString(6, warden.getAddress());
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Wardens WHERE WardenId = " + warden.getWardenId());
 
-            stmt.executeUpdate();
-
-            System.out.println("Data has been inserted into Wardens table.");
+            while (rs.next()) {
+                alreadyExists = true;
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+        if (alreadyExists) {
+            return "Warden already exists";
+        } else {
+            try {
+                PreparedStatement stmt = conn.prepareStatement("INSERT INTO Wardens (WardenId, WardenName, WardenEmail, WardenContact, Gender, Address) " +
+                        "VALUES (?, ?, ?, ?, ?, ?)");
+                stmt.setInt(1, warden.getWardenId());
+                stmt.setString(2, warden.getWardenName());
+                stmt.setString(3, warden.getWardenEmail());
+                stmt.setString(4, warden.getWardenContact());
+                stmt.setString(5, warden.getGender());
+                stmt.setString(6, warden.getAddress());
+
+                stmt.executeUpdate();
+
+
+                return "success";
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
+        return "success";
     }
+
 
     public static List<WardenDTO> getAllWardens() {
         List<WardenDTO> wardens = new ArrayList<>();

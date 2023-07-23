@@ -1,5 +1,6 @@
 package com.hms.hms_dashboard_01.ui.tab;
 
+import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.controllers.StudentController;
 import com.hms.hms_dashboard_01.ui.StudentFormController;
 import com.hms.hms_dashboard_01.model.entities.Student;
@@ -46,14 +47,15 @@ public class StudentTabController implements Initializable {
     @FXML
     private TableView<Student> studentTable;
 
-    ObservableList<Student> studentList = FXCollections.observableArrayList(Objects.requireNonNull(StudentController.getAllStudents()));
-
+    ObservableList<Student> studentList;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadTable();
+        StudentController studentController = HMSFactory.getInstanceOfStudentController();
+        studentList = FXCollections.observableArrayList(Objects.requireNonNull(studentController.getAllStudents()));
+        loadTable(studentList);
 
     }
-    public void loadTable(){
+    public void loadTable(ObservableList<Student> studentList){
         studentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         studentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
         studentContact.setCellValueFactory(new PropertyValueFactory<>("studentContact"));
@@ -63,7 +65,8 @@ public class StudentTabController implements Initializable {
     }
 
     public void refresh(){
-//        refresh the table view
+        StudentController studentController = HMSFactory.getInstanceOfStudentController();
+        ObservableList<Student> studentList = FXCollections.observableArrayList(Objects.requireNonNull(studentController.getAllStudents()));
         studentTable.setItems(studentList);
     }
 //    Write a search method
@@ -89,7 +92,18 @@ public class StudentTabController implements Initializable {
     public void deleteStudent(ActionEvent actionEvent) {
         Student student = studentTable.getSelectionModel().getSelectedItem();
         if(student != null){
-            StudentController.deleteStudent(student.getStudentId());
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Student");
+            alert.setHeaderText("Are you sure you want to delete this student?");
+            alert.setContentText("This action cannot be undone");
+            alert.showAndWait();
+            if(alert.getResult().getText().equals("OK")){
+                StudentController studentController = HMSFactory.getInstanceOfStudentController();
+                studentController.deleteStudent(student.getStudentId());
+            }else{
+                alert.close();
+            }
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

@@ -8,16 +8,16 @@ public class StudentFormValidator {
     public static String validateFields(StudentDTO student) {
         if (student.getRollNo().isEmpty() || student.getStudentName().isEmpty() || student.getStudentContact().isEmpty()
                 || student.getEmail().isEmpty() || student.getAddress().isEmpty()){
-            return "Please fill in all fields.";
+            return "Please fill in all fields. All fields are mandatory.";
         }
 
         // Additional validation logic
         if (!isNumeric(student.getRollNo())) {
-            return "ID must be a numeric value.";
+            return "ID must be a numeric value. (e.g. 1, 2, 333, ...)";
         }
 
         if (!isValidContactNo(student.getStudentContact())) {
-            return "Invalid contact number. Please enter a valid phone number.";
+            return "Invalid contact number. Please enter a valid phone number. (e.g. 01712345678)";
         }
 //        if(Session.getRole()!= "warden"){
 //            return "You are not authorized to perform this action.";

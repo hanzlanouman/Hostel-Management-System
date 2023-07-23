@@ -1,6 +1,10 @@
 package com.hms.hms_dashboard_01.Factory;
 
 import com.hms.hms_dashboard_01.DTO.*;
+import com.hms.hms_dashboard_01.controllers.IncidentController;
+import com.hms.hms_dashboard_01.controllers.RoomController;
+import com.hms.hms_dashboard_01.controllers.StudentController;
+import com.hms.hms_dashboard_01.controllers.WardenController;
 import com.hms.hms_dashboard_01.model.entities.Student;
 import com.hms.hms_dashboard_01.utility.Session;
 
@@ -26,7 +30,22 @@ public class HMSFactory
         return new Session(role);
     }
 
+    public static RoomController getInstanceOfRoomController()
+    {
+        return new RoomController();
+    }
+    public static IncidentController getInstanceOfIncidentController()
+    {
+        return new IncidentController();
+    }
 
+    public static StudentController getInstanceOfStudentController()
+    {
+        return new StudentController();
+    }
 
-
+    public static WardenController getInstanceOfWardenController()
+    {
+        return new WardenController();
+    }
 }

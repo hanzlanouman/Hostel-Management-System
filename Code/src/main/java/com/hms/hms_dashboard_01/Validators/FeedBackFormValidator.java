@@ -14,17 +14,17 @@ public class FeedBackFormValidator {
 
         // Additional validation logic
         if (!isNumeric(Stu_ID.getText())) {
-            System.out.println("Student ID must be a numeric value.");
+            System.out.println("Student ID must be a numeric value. (e.g. 1, 2, 333, ...)");
             return false;
         }
 
         if (!isNumeric(Room_No.getText())) {
-            System.out.println("Room number must be a numeric value.");
+            System.out.println("Room number must be a numeric value. (e.g. 1, 2, 333, ...)");
             return false;
         }
 
         if (!isValidContactNo(Contact_No.getText())) {
-            System.out.println("Invalid contact number. Please enter a valid phone number.");
+            System.out.println("Invalid contact number. Please enter a valid phone number. (e.g. 01712345678)");
             return false;
         }
         if(Session.getRole()!= "admin"){

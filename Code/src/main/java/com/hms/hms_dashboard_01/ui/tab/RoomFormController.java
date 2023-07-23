@@ -43,7 +43,16 @@ public class RoomFormController implements Initializable {
 
     public void addRoom(ActionEvent e){
 
-        String validationError = RoomController.addRoom(roomNo.getText(), roomFee.getText(), roomType.getValue(), roomFloor.getValue(), roomAvb.getValue(), roomBuilding.getValue());
+        RoomDTO roomDTO = HMSFactory.getInstanceOfRoom();
+        roomDTO.setRoomNo(Integer.parseInt(roomNo.getText()));
+        roomDTO.setRoomFee(Integer.parseInt(roomFee.getText()));
+        roomDTO.setRoomType(Objects.requireNonNull(roomType.getValue()));
+        roomDTO.setRoomFloor(Objects.requireNonNull(roomFloor.getValue()));
+        roomDTO.setRoomStatus(Objects.requireNonNull(roomAvb.getValue()));
+        roomDTO.setRoomBuilding(Objects.requireNonNull(roomBuilding.getValue()));
+
+        RoomController roomController = HMSFactory.getInstanceOfRoomController();
+        String validationError = roomController.addRoom(roomDTO);
 
         if (validationError != null) {
             showAlert(validationError);
@@ -53,11 +62,15 @@ public class RoomFormController implements Initializable {
     }
 
     private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("Error");
-        alert.setContentText(message);
-        alert.showAndWait();
+        if(Objects.equals(message, "Room added successfully")){
+            successClose();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText(message);
+            alert.showAndWait();
+        }
     }
 
     public void successClose(){

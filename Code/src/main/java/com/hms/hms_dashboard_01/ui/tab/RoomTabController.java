@@ -1,5 +1,6 @@
 package com.hms.hms_dashboard_01.ui.tab;
 
+import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.controllers.RoomController;
 import com.hms.hms_dashboard_01.dal.DALRoomManager;
 import com.hms.hms_dashboard_01.model.entities.Room;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class RoomTabController implements Initializable  {
@@ -45,13 +47,15 @@ public class RoomTabController implements Initializable  {
 
 
 //    Holds the data for the table view in the room tab of the admin/warden
-    ObservableList<Room> roomList = FXCollections.observableArrayList(RoomController.getAllRooms());
+ObservableList<Room> roomList = FXCollections.observableArrayList();
 // Assign the values to the columns of the table view in the room tab of the admin/warden
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadTable();
+        RoomController roomController = HMSFactory.getInstanceOfRoomController();
+    roomList = FXCollections.observableArrayList(roomController.getAllRooms());
+        loadTable(roomList);
     }
-    public void loadTable(){
+    public void loadTable(ObservableList<Room> roomList){
         roomNo.setCellValueFactory(new PropertyValueFactory<>("roomNo"));
 //        roomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         roomFee.setCellValueFactory(new PropertyValueFactory<>("roomFee"));
@@ -75,12 +79,14 @@ public class RoomTabController implements Initializable  {
     }
     public void updateRoomTable() {
         roomList.clear();
-        roomList.addAll(DALRoomManager.getAllRooms());
+        RoomController roomController = HMSFactory.getInstanceOfRoomController();
+        roomList.addAll(roomController.getAllRooms());
     }
 
     public void deleteRoom(ActionEvent e) {
 //        Get selected object from the table view
         Room room = roomTable.getSelectionModel().getSelectedItem();
+        RoomController roomController = HMSFactory.getInstanceOfRoomController();
         if(room == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -93,7 +99,7 @@ public class RoomTabController implements Initializable  {
             alert.setHeaderText("Delete room");
             alert.setContentText("Are you sure you want to delete this room?");
             if(alert.showAndWait().get().getText().equals("OK")){
-                RoomController.deleteRoom(room.getRoomNo());
+                roomController.deleteRoom(room.getRoomNo());
                 updateRoomTable();
             }
         }

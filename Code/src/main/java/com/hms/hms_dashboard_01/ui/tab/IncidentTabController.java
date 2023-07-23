@@ -1,5 +1,6 @@
 package com.hms.hms_dashboard_01.ui.tab;
 
+import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.controllers.IncidentController;
 import com.hms.hms_dashboard_01.model.entities.Incident;
 import com.hms.hms_dashboard_01.utility.path;
@@ -44,14 +45,16 @@ public class IncidentTabController implements Initializable {
     @FXML
     private TableView<Incident> IncidentTable;
 
-    ObservableList<Incident> IncidentList = FXCollections.observableArrayList(Objects.requireNonNull(IncidentController.getAllIncidents()));
+    ObservableList<Incident> IncidentList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadTable();
+        IncidentController incidentController = HMSFactory.getInstanceOfIncidentController();
+        IncidentList = FXCollections.observableArrayList(Objects.requireNonNull(incidentController.getAllIncidents()));
+        loadTable(IncidentList);
     }
 
-    public void loadTable(){
+    public void loadTable(ObservableList<Incident> IncidentList){
         IncidentId.setCellValueFactory(new PropertyValueFactory<>("IncidentId"));
         Day.setCellValueFactory(new PropertyValueFactory<>("Day"));
         Date.setCellValueFactory(new PropertyValueFactory<>("Date"));
@@ -75,7 +78,8 @@ public class IncidentTabController implements Initializable {
 
     public void updateIncidentTable(){
         IncidentList.clear();
-        IncidentList.addAll(Objects.requireNonNull(IncidentController.getAllIncidents()));
+        IncidentController incidentController = HMSFactory.getInstanceOfIncidentController();
+        IncidentList.addAll(Objects.requireNonNull(incidentController.getAllIncidents()));
 
     }
 
@@ -98,7 +102,9 @@ public class IncidentTabController implements Initializable {
             alert.setContentText("Are you sure you want to resolve this incident?");
             alert.showAndWait();
             if(alert.getResult().getText().equals("OK")){
-                IncidentController.deleteIncident(incident.getIncidentId());
+                IncidentController incidentController = HMSFactory.getInstanceOfIncidentController();
+                incidentController.deleteIncident(incident.getIncidentId());
+                ObservableList<Incident> IncdentList = FXCollections.observableArrayList();
                 updateIncidentTable();
                 Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                 alert1.setTitle("Success");

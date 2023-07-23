@@ -1,6 +1,7 @@
 package com.hms.hms_dashboard_01.ui;
 
 import com.hms.hms_dashboard_01.DTO.StudentDTO;
+import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.StudentFormValidator;
 import com.hms.hms_dashboard_01.controllers.RoomController;
 import com.hms.hms_dashboard_01.controllers.StudentController;
@@ -57,7 +58,21 @@ public class StudentFormController {
 
     public void addStudent() {
 
-        String response = StudentController.addStudent(id.getText(), studentname.getText(), email.getText(), adress.getText(), contact.getText());
+        StudentDTO studentDTO = HMSFactory.getInstanceOfStudent();
+//        studentDTO.setRollNo((id));
+//        studentDTO.setStudentName(studentName);
+//        studentDTO.setEmail(email);
+//        studentDTO.setAddress(address);
+//        studentDTO.setStudentContact(contact);
+
+        studentDTO.setRollNo(id.getText());
+        studentDTO.setStudentName(studentname.getText());
+        studentDTO.setEmail(email.getText());
+        studentDTO.setAddress(adress.getText());
+        studentDTO.setStudentContact(contact.getText());
+
+        StudentController studentController = HMSFactory.getInstanceOfStudentController();
+        String response = studentController.addStudent(studentDTO);
 
 
 

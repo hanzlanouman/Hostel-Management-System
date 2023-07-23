@@ -13,31 +13,47 @@ import java.util.*;
 public class DALRoomManager {
 
     static Connection conn = DatabaseConnection.getConnection();
+
     public static String addRoom(RoomDTO room) {
-        String query = "INSERT INTO ROOMS (roomNo, roomType, roomCapacity, roomFloor, roomAvb, roomStatus, roomFee, roomAssignedTo, roomBuilding) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        boolean alreadyExists = false;
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Rooms WHERE roomNo = " + room.getRoomNo());
 
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, room.getRoomNo());
-            pstmt.setString(2, room.getRoomType());
-            pstmt.setString(3, room.getRoomCapacity());
-            pstmt.setString(4, room.getRoomFloor());
-            pstmt.setString(5, room.getRoomAvb());
-            pstmt.setString(6, room.getRoomStatus());
-            pstmt.setInt(7, room.getRoomFee());
-            pstmt.setString(8, room.getRoomAssignedTo());
-            pstmt.setString(9, room.getRoomBuilding());
-
-            pstmt.executeUpdate();
-
-            System.out.println("Data has been inserted into ROOMS table.");
-            return "success";
+            while (rs.next()) {
+                alreadyExists = true;
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
-        return "fail";
+        if (alreadyExists) {
+            return "Room already exists";
+        } else {
+            try {
+                String query = "INSERT INTO Rooms (roomNo, roomType, roomCapacity, roomFloor, roomAvb, roomStatus, roomFee, roomAssignedTo, roomBuilding) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                PreparedStatement pstmt = conn.prepareStatement(query);
+                pstmt.setInt(1, room.getRoomNo());
+                pstmt.setString(2, room.getRoomType());
+                pstmt.setString(3, room.getRoomCapacity());
+                pstmt.setString(4, room.getRoomFloor());
+                pstmt.setString(5, room.getRoomAvb());
+                pstmt.setString(6, room.getRoomStatus());
+                pstmt.setInt(7, room.getRoomFee());
+                pstmt.setString(8, room.getRoomAssignedTo());
+                pstmt.setString(9, room.getRoomBuilding());
+
+                pstmt.executeUpdate();
+
+                System.out.println("Data has been inserted into ROOMS table.");
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            return "Room added successfully";
+        }
     }
+
 
 
     public static void deleteRoom(int roomNo) {

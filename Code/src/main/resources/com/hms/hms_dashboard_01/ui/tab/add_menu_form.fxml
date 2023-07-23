@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Add_Incident_label" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="868.0" style="-fx-background-color: 1FC81A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.MenuFormController">
+<AnchorPane fx:id="Add_Incident_label" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="868.0" style="-fx-background-color: 1FC81A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hms.hms_dashboard_01.ui.tab.MenuFormController">
     <children>
-        <Label fx:id="Add_Incident_Label" layoutX="271.0" layoutY="34.0" prefHeight="54.0" prefWidth="410.0" text="     Add/Update Menu">
+        <Label fx:id="Add_Incident_Label" layoutX="316.0" layoutY="38.0" prefHeight="54.0" prefWidth="410.0" text="     Add Menu">
             <font>
                 <Font name="Verdana" size="36.0" />
             </font>
@@ -33,9 +33,11 @@
                 <Font name="Arial" size="15.0" />
             </font>
         </Label>
+        <TextField fx:id="MenuID" layoutX="434.0" layoutY="143.0" prefHeight="26.0" prefWidth="286.0" promptText="1" />
+
         <TextField fx:id="Day1" layoutX="434.0" layoutY="143.0" prefHeight="26.0" prefWidth="286.0" promptText="Monday" />
         <TextField fx:id="Breakfast1" layoutX="434.0" layoutY="209.0" prefHeight="26.0" prefWidth="286.0" promptText="Pratha, Omelette" />
-        <TextField fx:id="Lunch1" layoutX="438.0" layoutY="277.0" prefHeight="26.0" prefWidth="286.0" promptText="Chicken Biryani" />
+        <TextField fx:id="Lunch1" layoutX="434.0" layoutY="268.0" prefHeight="26.0" prefWidth="286.0" promptText="Chicken Biryani" />
 
         <Button fx:id="Submit_Menu_button" layoutX="607.0" layoutY="433.0" mnemonicParsing="false" onAction="#addMenu" prefHeight="54.0" prefWidth="174.0" style="-fx-background-color: #0000FF;" text="Submit" textFill="WHITE">
             <font>

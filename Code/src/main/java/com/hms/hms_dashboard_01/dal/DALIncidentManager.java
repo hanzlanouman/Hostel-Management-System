@@ -9,24 +9,43 @@ import java.util.List;
 public class DALIncidentManager {
 
     static Connection conn = DatabaseConnection.getConnection();
-    public static void addIncident(IncidentDTO incident) {
+    public static String addIncident(IncidentDTO incident) {
+      boolean alreadyExists = false;
+
         try {
-            String query = "INSERT INTO Incidents (incidentid, inc_date, day, location, description, incidenttime) VALUES (?, ?, ?, ?, ?, ?)";
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM Incidents WHERE incidentid = " + incident.getIncidentId());
 
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, incident.getIncidentId());
-            pstmt.setString(2, incident.getDate());
-            pstmt.setString(3, incident.getDay());
-            pstmt.setString(4, incident.getLocation());
-            pstmt.setString(5, incident.getDescription());
-            pstmt.setString(6, incident.getTime());
+                while (rs.next()) {
+                    alreadyExists = true;
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
 
-            pstmt.executeUpdate();
+            if (alreadyExists) {
+                    return "Incident already exists";
+            } else {
+                try {
+                    String query = "INSERT INTO Incidents (incidentid, inc_date, day, location, description, incidenttime) VALUES (?, ?, ?, ?, ?, ?)";
 
-            System.out.println("Data has been inserted into Incidents table.");
-        } catch (SQLException e) {
-                        System.out.println(e.getMessage());
-        }
+                    PreparedStatement pstmt = conn.prepareStatement(query);
+                    pstmt.setInt(1, incident.getIncidentId());
+                    pstmt.setString(2, incident.getDate());
+                    pstmt.setString(3, incident.getDay());
+                    pstmt.setString(4, incident.getLocation());
+                    pstmt.setString(5, incident.getDescription());
+                    pstmt.setString(6, incident.getTime());
+
+                    pstmt.executeUpdate();
+    return "success";
+                    //System.out.println("Data has been inserted into Incidents table.");
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        return "success";
+
     }
 
     // ...

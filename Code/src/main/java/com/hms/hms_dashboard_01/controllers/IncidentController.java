@@ -12,38 +12,11 @@ import java.util.Objects;
 
 public class IncidentController {
 
-    public static String addIncident(String id, String Day, String Date, String Description, String Location, String Time) {
-
-        IncidentDTO incident = HMSFactory.getInstanceOfIncident();
-
-        if (Objects.equals(id, "")) {
-            incident.setIncidentId(0);
-        } else {
-            try {
-                int stId = Integer.parseInt(id);
-                incident.setIncidentId(stId);
-            } catch (NumberFormatException ex) {
-                // Display error message for invalid ID
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Invalid Information");
-                alert.setHeaderText("Invalid Incident ID");
-                alert.setContentText("Please enter a valid numeric value for the Incident ID.");
-                alert.showAndWait();
-                return "Please enter a valid numeric value for the Incident ID. i-e 1,2,3";
-            }
-        }
-
-        incident.setDay(Day);
-        incident.setDate(Date);
-        incident.setDescription(Description);
-        incident.setLocation(Location);
-        incident.setTime(Time);
+    public  String addIncident(IncidentDTO incident) {
 
         String validationError = IncidentFormValidator.validateIncidentDetails(incident);
-
         if(validationError == null){
-            DALIncidentManager.addIncident(incident);
-            return null;
+           return DALIncidentManager.addIncident(incident);
         }else {
             return validationError;
         }
@@ -52,11 +25,11 @@ public class IncidentController {
 //        DALIncidentManager.addIncident(incident);
 
     }
-    public static void deleteIncident(int incidentId) {
+    public  void deleteIncident(int incidentId) {
         DALIncidentManager.deleteIncident(incidentId);
     }
 
-    public static List<Incident> getAllIncidents(){
+    public  List<Incident> getAllIncidents(){
         return DALIncidentManager.getAllIncidents();
     }
 }
