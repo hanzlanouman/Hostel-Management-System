@@ -34,6 +34,7 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <TextField fx:id="MenuID" layoutX="259.0" layoutY="128.0" prefHeight="26.0" prefWidth="162.0" />
 
       <TextField fx:id="Day1" layoutX="259.0" layoutY="128.0" prefHeight="26.0" prefWidth="162.0" />
       <TextField fx:id="Breakfast1" layoutX="259.0" layoutY="128.0" prefHeight="26.0" prefWidth="162.0" />
