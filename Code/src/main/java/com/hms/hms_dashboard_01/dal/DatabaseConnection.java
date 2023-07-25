@@ -1,9 +1,7 @@
 package com.hms.hms_dashboard_01.dal;
 import java.sql.*;
 public class DatabaseConnection {
-// Connect to database using JDBC
-
-        static Connection conn;
+    public static Connection conn;
     public static Connection getConnection() {
     if(conn == null) {
         try {

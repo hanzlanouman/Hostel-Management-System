@@ -45,7 +45,7 @@ public class WardensTabController implements Initializable {
         wardenContact.setCellValueFactory(new PropertyValueFactory<>("wardenContact"));
         wardenEmail.setCellValueFactory(new PropertyValueFactory<>("wardenEmail"));
         WardenController wardenController = HMSFactory.getInstanceOfWardenController();
-         wardenList = FXCollections.observableArrayList(wardenController.getAllWardens());
+        wardenList = FXCollections.observableArrayList(wardenController.getAllWardens());
         wardenTable.setItems(wardenList);
     }
 

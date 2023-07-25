@@ -5,13 +5,14 @@ import com.hms.hms_dashboard_01.Factory.HMSFactory;
 import com.hms.hms_dashboard_01.Validators.wardenFormValidator;
 import com.hms.hms_dashboard_01.controllers.WardenController;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import static java.lang.Integer.parseInt;
 
-public class WardenFormController {
+public class WardenFormController implements Initializable {
     @FXML
     private TextField wardenAddress;
 
@@ -26,6 +27,13 @@ public class WardenFormController {
 
     @FXML
     private TextField wardenPhone;
+
+
+    @Override
+    public void initialize(java.net.URL location, java.util.ResourceBundle resources) {
+
+
+    }
 
     public void addWarden() {
         WardenDTO wardenDTO = HMSFactory.getInstanceOfWarden();
