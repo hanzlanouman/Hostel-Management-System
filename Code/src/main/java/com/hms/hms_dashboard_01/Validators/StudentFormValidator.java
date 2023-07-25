@@ -3,7 +3,7 @@ package com.hms.hms_dashboard_01.Validators;
 import com.hms.hms_dashboard_01.DTO.StudentDTO;
 import com.hms.hms_dashboard_01.utility.Session;
 
-public class StudentFormValidator {
+public class  StudentFormValidator {
 
     public static String validateFields(StudentDTO student) {
         if (student.getRollNo().isEmpty() || student.getStudentName().isEmpty() || student.getStudentContact().isEmpty()

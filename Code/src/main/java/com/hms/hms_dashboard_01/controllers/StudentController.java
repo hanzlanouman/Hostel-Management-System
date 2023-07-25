@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
-public class StudentController {
+public class  StudentController {
 
     public String addStudent(StudentDTO studentDTO){
 
