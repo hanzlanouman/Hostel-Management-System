@@ -6,7 +6,7 @@ import java.util.List;
 
 public class DALWardenManager {
 
-    private  Connection conn = DatabaseConnection.getConnection();
+    private  Connection conn = DatabaseConnection.getConnection("hmspdb");
 
     public  String addWarden(WardenDTO warden) {
         boolean alreadyExists = false;

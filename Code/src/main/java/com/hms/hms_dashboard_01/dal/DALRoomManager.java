@@ -12,7 +12,7 @@ import java.util.*;
 
 public class DALRoomManager {
 
-    static Connection conn = DatabaseConnection.getConnection();
+    static Connection conn = DatabaseConnection.getConnection("db");
 
     public  String addRoom(RoomDTO room) {
         boolean alreadyExists = false;

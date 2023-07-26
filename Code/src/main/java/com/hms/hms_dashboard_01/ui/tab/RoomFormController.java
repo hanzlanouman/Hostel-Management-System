@@ -44,12 +44,13 @@ public class RoomFormController implements Initializable {
     public void addRoom(ActionEvent e){
 
         RoomDTO roomDTO = HMSFactory.getInstanceOfRoom();
-        roomDTO.setRoomNo(Integer.parseInt(roomNo.getText()));
-        roomDTO.setRoomFee(Integer.parseInt(roomFee.getText()));
-        roomDTO.setRoomType(Objects.requireNonNull(roomType.getValue()));
-        roomDTO.setRoomFloor(Objects.requireNonNull(roomFloor.getValue()));
-        roomDTO.setRoomStatus(Objects.requireNonNull(roomAvb.getValue()));
-        roomDTO.setRoomBuilding(Objects.requireNonNull(roomBuilding.getValue()));
+        System.out.println(roomNo.getText());
+        roomDTO.setRoomNo(Objects.equals(roomNo.getText(), "") ? 0:Integer.parseInt(roomNo.getText()));
+        roomDTO.setRoomFee(Objects.equals(roomNo.getText(), "")   ? 0:Integer.parseInt(roomFee.getText()));
+        roomDTO.setRoomType(roomType.getValue());
+        roomDTO.setRoomFloor(roomFloor.getValue());
+        roomDTO.setRoomStatus(roomAvb.getValue());
+        roomDTO.setRoomBuilding(roomBuilding.getValue());
 
         RoomController roomController = HMSFactory.getInstanceOfRoomController();
         String validationError = roomController.addRoom(roomDTO);
