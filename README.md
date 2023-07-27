@@ -60,7 +60,21 @@ The JAR files for connecting either database are included in the Code folder. Th
 
 1. Open the `HMSApplication.java` class in IntelliJ IDEA.
 2. Right-click on the `HMSApplication.java` class and choose "Run Main.main()" from the context menu.
-3. The application will start, and you will be prompted with a menu to perform various operations. 
+3. The application will start, and you will be prompted with a menu to perform various operations.
+
+### Credentials for Login Screens
+```
+Warden:
+username: warden
+pwd: 123
+
+Cook:
+username: cook
+pwd: 123
+
+```
+
+Students have to register first in order to login.
 
 ## Dependencies 
 
