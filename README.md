@@ -22,7 +22,7 @@ Before running the Hotel Management System, ensure you have the following prereq
 Clone the project repository from GitHub using the following command: 
 
 ```bash
-git clone https://github.com/hanzala/hotel-management-system.git
+git clone https://github.com/hanzalanouman/hotel-management-system.git
 ``` 
 
 ## Getting Started 
