@@ -1,37 +1,81 @@
-Hostel Management System
+Hotel Management System 
 
-This repository contains the source code for a simple and user-friendly Hostel Management System. The application is designed to facilitate the efficient management of hostel resources, room allocation, and other essential tasks. The primary goal of this project is to provide a smooth and hassle-free experience for both hostel wardens and students.
-Features
+The Hotel Management System is a Java-based application developed using IntelliJ IDEA. It is designed to streamline hotel operations, enabling staff to manage reservations, room availability, guest details, and other essential hotel tasks efficiently. 
 
-    Easy room allocation and deallocation
-    View and manage available rooms
-    User-friendly interface
-    Efficient handling of student data
-    Room status management
+## Table of Contents 
 
-Getting Started
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+- [Acknowledgments](#acknowledgments) 
 
-To get started with this project, follow these steps:
+## Installation 
 
-    Clone the repository:
+Before running the Hotel Management System, ensure you have the following prerequisites: 
 
-bash
-git clone https://github.com/hanzlanouman/Hostel-Management-System.git
+- Java Development Kit (JDK) 19 or above installed on your system.
+- IntelliJ IDEA IDE (or any Java IDE of your choice) with appropriate plugins. 
+
+Clone the project repository from GitHub using the following command: 
+
+```bash
+git clone https://github.com/hanzala/hotel-management-system.git
+``` 
+
+## Getting Started 
+
+1. Launch IntelliJ IDEA and open the `hotel-management-system` project.
+2. Ensure that the project SDK is set to JDK 19 or above.
+3. Build the project using the IDE's build tools or by pressing `Ctrl + F9` (Windows/Linux) or `Cmd + F9` (macOS). 
+
+## Project Structure 
+
+The project follows a standard Maven project structure: 
+
+```
+hotel-management-system/
+  ├── src/
+  │   ├── main/
+  │   │   ├── java/
+  │   │   │   └── com.example.hotelmanagement/
+  │   │   │       ├── models/            # Contains classes representing hotel entities (e.g., Room, Guest)
+  │   │   │       ├── services/          # Includes business logic and services (e.g., ReservationService)
+  │   │   │       └── Main.java          # Entry point of the application
+  │   │   └── resources/                 # Configuration files, properties, and other resources
+  │   └── test/                          # Contains unit tests
+  └── pom.xml                            # Project configuration and dependencies (if using Maven)
+``` 
+
+## Usage 
+
+To run the Hotel Management System, execute the following steps: 
+
+1. Open the `Main.java` class in IntelliJ IDEA.
+2. Right-click on the `Main` class and choose "Run Main.main()" from the context menu.
+3. The application will start, and you will be prompted with a menu to perform various operations. 
+
+## Dependencies 
+
+The Hotel Management System project relies on the following external libraries: 
+
+- JavaFX (for GUI components)
+- MySQL Connector/J (for connecting to the database) 
+
+All dependencies are managed using Maven. They will be automatically downloaded when building the project.
 
 
-    Navigate to the project directory:
+Contributing 
 
-bash
-cd Hostel-Management-System
+Contributions to the Hotel Management System project are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request. 
 
-
-    Open the project in your favorite IDE or text editor.
-
-    Compile and run the application.
-
-Dependencies
-
-This project is developed using Java programming language. Ensure that you have Java Development Kit (JDK) installed on your machine to run the application.
+Before making significant changes, please discuss them via issues to ensure they align with the project's goals and standards.
 
 
-This project is licensed under the MIT License. Please refer to the LICENSE file for more information.
+## Acknowledgments 
+
+- [JavaFX Documentation](https://openjfx.io/)
+- [MySQL Connector/J Documentation](https://dev.mysql.com/doc/connector-j/en/)
+- [JUnit Documentation](https://junit.org/junit5/docs/current/user-guide/)
