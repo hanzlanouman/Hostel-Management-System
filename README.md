@@ -6,7 +6,6 @@ The Hostel Management System is a Java-based application developed using Intelli
 
 - [Installation](#installation)
 - [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
@@ -22,39 +21,45 @@ Before running the Hostel Management System, ensure you have the following prere
 Clone the project repository from GitHub using the following command: 
 
 ```bash
-git clone https://github.com/hanzalanouman/hotel-management-system.git
+git clone https://github.com/hanzalanouman/hostel-management-system.git
 ``` 
 
 ## Getting Started 
 
-1. Launch IntelliJ IDEA and open the `hotel-management-system` project.
+1. Launch IntelliJ IDEA and open the `hostel-management-system` project.
 2. Ensure that the project SDK is set to JDK 19 or above.
 3. Build the project using the IDE's build tools or by pressing `Ctrl + F9` (Windows/Linux) or `Cmd + F9` (macOS). 
 
-## Project Structure 
-
-The project follows a standard Maven project structure: 
-
-```
-hotel-management-system/
-  ├── src/
-  │   ├── main/
-  │   │   ├── java/
-  │   │   │   └── com.example.hotelmanagement/
-  │   │   │       ├── models/            # Contains classes representing hostel entities (e.g., Room, students)
-  │   │   │       ├── services/          # Includes business logic and services (e.g., ReservationService)
-  │   │   │       └── Main.java          # Entry point of the application
-  │   │   └── resources/                 # Configuration files, properties, and other resources
-  │   └── test/                          # Contains unit tests
-  └── pom.xml                            # Project configuration and dependencies (if using Maven)
-``` 
 
 ## Usage 
 
 To run the Hostel Management System, execute the following steps: 
 
-1. Open the `Main.java` class in IntelliJ IDEA.
-2. Right-click on the `Main` class and choose "Run Main.main()" from the context menu.
+Before running the application, you will need to setup the database.
+### Database Setup
+You have an option to either use Oracle or MySQL as database clients.
+For MySQL, use the overloaded method in DatabaseConnection.java
+For Oracle, use default method.
+
+Default parameters for Database setup:
+```
+dbname: hmspdb
+username: hmsdba
+password: hms123
+```
+
+for MySQL: 
+
+```
+dbname: hmsdb
+username: hmsdba
+password: hms123
+```
+
+The JAR files for connecting either database are included in the Code folder. The DDL is also available there.
+
+1. Open the `HMSApplication.java` class in IntelliJ IDEA.
+2. Right-click on the `HMSApplication.java` class and choose "Run Main.main()" from the context menu.
 3. The application will start, and you will be prompted with a menu to perform various operations. 
 
 ## Dependencies 
@@ -62,16 +67,22 @@ To run the Hostel Management System, execute the following steps:
 The Hostel Management System project relies on the following external libraries: 
 
 - JavaFX (for GUI components)
-- MySQL Connector/J (for connecting to the database) 
+- MySQL Connector/J (for connecting to the database)
+
+or 
+
+- OracleJDBC Driver (for connecting to oracle Database
 
 All dependencies are managed using Maven. They will be automatically downloaded when building the project.
 
 
 Contributing 
 
-Contributions to the Hotel Management System project are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request. 
+Contributions to the Hostel Management System project are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request. 
 
 Before making significant changes, please discuss them via issues to ensure they align with the project's goals and standards.
+
+
 
 
 ## Acknowledgments 
