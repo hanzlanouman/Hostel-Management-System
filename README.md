@@ -1,6 +1,6 @@
 Hostel Management System 
 
-The Hostel Management System is a Java-based application developed using IntelliJ IDEA. It is designed to streamline hotel operations, enabling staff to manage reservations, room availability, guest details, and other essential hotel tasks efficiently. 
+The Hostel Management System is a Java-based application developed using IntelliJ IDEA. It is designed to streamline hostel operations, enabling staff to manage reservations, room availability, students details, and other essential hostel tasks efficiently. 
 
 ## Table of Contents 
 
@@ -51,7 +51,7 @@ hotel-management-system/
 
 ## Usage 
 
-To run the Hotel Management System, execute the following steps: 
+To run the Hostel Management System, execute the following steps: 
 
 1. Open the `Main.java` class in IntelliJ IDEA.
 2. Right-click on the `Main` class and choose "Run Main.main()" from the context menu.
