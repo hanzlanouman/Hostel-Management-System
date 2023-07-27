@@ -1,6 +1,6 @@
-Hotel Management System 
+Hostel Management System 
 
-The Hotel Management System is a Java-based application developed using IntelliJ IDEA. It is designed to streamline hotel operations, enabling staff to manage reservations, room availability, guest details, and other essential hotel tasks efficiently. 
+The Hostel Management System is a Java-based application developed using IntelliJ IDEA. It is designed to streamline hotel operations, enabling staff to manage reservations, room availability, guest details, and other essential hotel tasks efficiently. 
 
 ## Table of Contents 
 
@@ -14,7 +14,7 @@ The Hotel Management System is a Java-based application developed using IntelliJ
 
 ## Installation 
 
-Before running the Hotel Management System, ensure you have the following prerequisites: 
+Before running the Hostel Management System, ensure you have the following prerequisites: 
 
 - Java Development Kit (JDK) 19 or above installed on your system.
 - IntelliJ IDEA IDE (or any Java IDE of your choice) with appropriate plugins. 
@@ -41,7 +41,7 @@ hotel-management-system/
   │   ├── main/
   │   │   ├── java/
   │   │   │   └── com.example.hotelmanagement/
-  │   │   │       ├── models/            # Contains classes representing hotel entities (e.g., Room, Guest)
+  │   │   │       ├── models/            # Contains classes representing hostel entities (e.g., Room, students)
   │   │   │       ├── services/          # Includes business logic and services (e.g., ReservationService)
   │   │   │       └── Main.java          # Entry point of the application
   │   │   └── resources/                 # Configuration files, properties, and other resources
@@ -59,7 +59,7 @@ To run the Hotel Management System, execute the following steps:
 
 ## Dependencies 
 
-The Hotel Management System project relies on the following external libraries: 
+The Hostel Management System project relies on the following external libraries: 
 
 - JavaFX (for GUI components)
 - MySQL Connector/J (for connecting to the database) 
